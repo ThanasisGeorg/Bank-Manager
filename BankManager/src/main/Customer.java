@@ -58,6 +58,9 @@ public class Customer {
     }
     
     public void showAccount(){
+        System.out.println("Name: " + name);
+        System.out.println("Surname: " + surname);
+        System.out.println("Username: " + acc.getUsername());
         System.out.println("Account ID: " + acc.getId());
         System.out.println("Balance: " + acc.getBalance() + '$');  
     }
@@ -85,8 +88,10 @@ public class Customer {
         name = UserInput.getString();
         System.out.print("Surname: ");
         surname = UserInput.getString();
-        System.out.print("Name: ");
-        age = UserInput.getInteger();
+        System.out.print("Username: ");
+        acc.setUsername(UserInput.getString());
+        System.out.print("Password: ");
+        acc.setPassword(UserInput.getString());
     }
     
     @Override
