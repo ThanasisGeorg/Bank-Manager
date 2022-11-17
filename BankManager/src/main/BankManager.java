@@ -7,12 +7,8 @@ public class BankManager {
 
     public static void main(String[] args) {
         Customer c1 = new Customer();
-        System.out.println("""
-                           **********Banking System Application**********
-                           """);
-        System.out.println("""
-                           1. Login  2. Sign in
-                           """);
+        System.out.println("**********Banking System Application**********" + "\n");
+        System.out.println("1. Login  2. Sign in");
         int input;
         do{
             System.out.print("--> ");
