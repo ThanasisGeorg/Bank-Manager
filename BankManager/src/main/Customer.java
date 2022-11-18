@@ -49,50 +49,7 @@ public class Customer {
         this.acc = acc;
     }
     
-    public void openAccount(){
-        System.out.print("Enter username: ");
-        acc.setUsername(UserInput.getString());
-        System.out.print("Enter password: ");
-        acc.setPassword(UserInput.getString());
-        System.out.println("\n");
-    }
     
-    public void showAccount(){
-        System.out.println("Name: " + name);
-        System.out.println("Surname: " + surname);
-        System.out.println("Username: " + acc.getUsername());
-        System.out.println("Account ID: " + acc.getId());
-        System.out.println("Balance: " + acc.getBalance() + '$');  
-    }
-    
-    public void login(){
-        String input;
-        System.out.print("Username: ");
-        input = UserInput.getString();
-        while(input.compareTo(acc.getUsername())!=0){
-            System.out.print("Username: ");
-            input = UserInput.getString();
-        }
-        
-        input = null;
-        System.out.println("Password: ");
-        input = UserInput.getString();
-        while(input.compareTo(acc.getPassword())!=0){
-            System.out.print("Password: ");
-            input = UserInput.getString();
-        }
-    }
-    
-    public void signin(){
-        System.out.print("Name: ");
-        name = UserInput.getString();
-        System.out.print("Surname: ");
-        surname = UserInput.getString();
-        System.out.print("Username: ");
-        acc.setUsername(UserInput.getString());
-        System.out.print("Password: ");
-        acc.setPassword(UserInput.getString());
-    }
     
     @Override
     public String toString() {
