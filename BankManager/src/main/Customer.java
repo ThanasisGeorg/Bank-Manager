@@ -8,6 +8,7 @@ public class Customer {
     private String surname;
     private int age;
     private Account acc = new Account();
+    private String[] info;
 
     public Customer() {}
 
@@ -49,7 +50,16 @@ public class Customer {
         this.acc = acc;
     }
     
-    
+    public String[] getInfo() {
+                
+        info[0] = name;
+        info[1] = surname;
+        info[2] = getAcc().getUsername();
+        info[3] = getAcc().getPassword();
+        info[4] = getAcc().getId().toString();               
+                
+        return info;
+    }
     
     @Override
     public String toString() {

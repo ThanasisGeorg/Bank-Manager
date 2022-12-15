@@ -4,7 +4,7 @@ package main;
 public class Account {
     private String username;
     private String password;
-    private String id;
+    private char[] id;
     private double balance = 0.0;
 
     public Account() {
@@ -40,11 +40,11 @@ public class Account {
         this.balance = balance;
     }
     
-    public String getId() {
+    public char[] getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(char[] id) {
         this.id = id;
     }
 
