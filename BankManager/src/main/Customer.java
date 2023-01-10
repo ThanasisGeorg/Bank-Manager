@@ -1,16 +1,17 @@
-
 package main;
 
 import Utils.UserInput;
 
 public class Customer {
+
     private String name;
     private String surname;
     private int age;
     private Account acc = new Account();
     private String[] info;
 
-    public Customer() {}
+    public Customer() {
+    }
 
     public Customer(String name, String surname, int age) {
         this.name = name;
@@ -49,7 +50,7 @@ public class Customer {
     public void setAcc(Account acc) {
         this.acc = acc;
     }
-    
+
     public String[] getInfo() {
                 
         info[0] = name;
@@ -60,7 +61,6 @@ public class Customer {
                 
         return info;
     }
-    
     @Override
     public String toString() {
         return "Customer{" + "name=" + name + ", surname=" + surname + ", age=" + age + '}';

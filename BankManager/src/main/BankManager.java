@@ -1,15 +1,16 @@
 
 package main;
 
-import Utils.UserInput;
 import Utils.Utils;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class BankManager {
 
     public static void main(String[] args) throws IOException, InterruptedException, SQLException {
-        Customer c = new Customer();
-        Utils.services(c);
+        ArrayList<Customer> customerList = new ArrayList<>();
+        
+        Utils.main(customerList);
     }
 }

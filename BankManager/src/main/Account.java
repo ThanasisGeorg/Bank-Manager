@@ -7,8 +7,7 @@ public class Account {
     private char[] id;
     private double balance = 0.0;
 
-    public Account() {
-    }
+    public Account() {}
     
     public Account(String username, String password, double balance) {
         this.username = username;
