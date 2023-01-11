@@ -124,7 +124,7 @@ public class Utils {
             }
         }
 
-        System.out.println("\n1. Login     2. Logout");
+        System.out.println("\n1. Login     2. Exit");
         System.out.print("-> ");
         input = UserInput.getInteger();
         while (input != 1 && input != 2) {
@@ -138,7 +138,7 @@ public class Utils {
                 login(customerList);
                 break;
             case 2:
-                System.out.println("\nLogging out...\n");
+                System.out.println("\nExiting...\n");
                 TimeUnit.SECONDS.sleep(2);
                 
                 input = menu();
