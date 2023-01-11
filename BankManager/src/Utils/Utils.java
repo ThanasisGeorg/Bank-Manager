@@ -38,7 +38,7 @@ public class Utils {
         tempPassword = UserInput.getString();
 
         for (int i = 0; i < customerList.size(); i++) {
-            while (tempUsername.compareTo(customerList.get(i).getAcc().getUsername()) < 0 || tempPassword.compareTo(customerList.get(i).getAcc().getPassword()) < 0) {
+            while (tempUsername.matches(customerList.get(i).getAcc().getUsername()) == false || tempPassword.matches(customerList.get(i).getAcc().getPassword()) == false) {
                 System.out.println("\nUsername or password are incorrect. Please try again\n");
 
                 System.out.print("Username: ");
@@ -138,7 +138,7 @@ public class Utils {
                 login(customerList);
                 break;
             case 2:
-                System.out.println("\nExiting...\n");
+                System.out.println("\n...\n");
                 TimeUnit.SECONDS.sleep(2);
                 
                 input = menu();
