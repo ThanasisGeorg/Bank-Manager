@@ -104,69 +104,125 @@ public class Utils {
 
         int input = menu();
 
-        switch (input) {
-            case 1 -> {
-                customerList.add(new Customer());
+        while (input != 3) {
+            switch (input) {
+                case 1 -> {
+                    customerList.add(new Customer());
 
-                for (int i = 0; i < customerList.size(); i++) {
-                    if (customerList.get(i).getName() == null) {
-                        openAcc(customerList, i);
-                    }
-                }
-            }
-            case 2 -> {
-                login(customerList);
-            }
-            case 3 -> {
-                return;
-            }
-            default -> {
-            }
-        }
-
-        System.out.println("\n1. Login     2. Exit");
-        System.out.print("-> ");
-        input = UserInput.getInteger();
-        while (input != 1 && input != 2) {
-            System.out.println("Invalid input");
-            System.out.print("-> ");
-            input = UserInput.getInteger();
-        }
-
-        switch (input) {
-            case 1:
-                login(customerList);
-                break;
-            case 2:
-                System.out.println("\n...\n");
-                TimeUnit.SECONDS.sleep(2);
-                
-                input = menu();
-
-                switch (input) {
-                    case 1 -> {
-                        customerList.add(new Customer());
-
-                        for (int i = 0; i < customerList.size(); i++) {
-                            if (customerList.get(i).getName() == null) {
-                                openAcc(customerList, i);
-                            }
+                    for (int i = 0; i < customerList.size(); i++) {
+                        if (customerList.get(i).getName() == null) {
+                            openAcc(customerList, i);
                         }
                     }
-                    case 2 -> {
-                        login(customerList);
+
+                    System.out.println("\n1. Login     2. Exit");
+                    System.out.print("-> ");
+                    input = UserInput.getInteger();
+                    while (input != 1 && input != 2 && input != 3) {
+                        System.out.println("Invalid input");
+                        System.out.print("-> ");
+                        input = UserInput.getInteger();
                     }
-                    case 3 -> {
-                        return;
-                    }
-                    default -> {
+
+                    switch (input) {
+                        case 1 ->
+                            login(customerList);
+
+                        case 2 -> {
+//                            System.out.println("\n...\n");
+//                            TimeUnit.SECONDS.sleep(1);
+//
+//                            input = menu();
+//
+//                            switch (input) {
+//                                case 1 -> {
+//                                    customerList.add(new Customer());
+//
+//                                    for (int i = 0; i < customerList.size(); i++) {
+//                                        if (customerList.get(i).getName() == null) {
+//                                            openAcc(customerList, i);
+//                                        }
+//                                    }
+//                                }
+//                                case 2 -> {
+//                                    login(customerList);
+//                                }
+//                                case 3 -> {
+//                                    return;
+//                                }
+//                                default -> {
+//                                }
+//                            }
+                        }
+
+                        case 3 -> {
+                            System.out.println("\n...\n");
+                            TimeUnit.SECONDS.sleep(1);
+                            return;
+                        }
+                        default -> {
+                        }
                     }
                 }
-                break;
-            case 3:
-            default:
-                break;
+
+                case 2 -> {
+                    System.out.println("\n1. Login     2. Exit");
+                    System.out.print("-> ");
+                    input = UserInput.getInteger();
+                    while (input != 1 && input != 2 && input != 3) {
+                        System.out.println("Invalid input");
+                        System.out.print("-> ");
+                        input = UserInput.getInteger();
+                    }
+
+                    switch (input) {
+                        case 1 ->
+                            login(customerList);
+
+                        case 2 -> {
+//                    System.out.println("\n...\n");
+//                    TimeUnit.SECONDS.sleep(1);
+//
+//                    input = menu();
+//
+//                    switch (input) {
+//                        case 1 -> {
+//                            customerList.add(new Customer());
+//
+//                            for (int i = 0; i < customerList.size(); i++) {
+//                                if (customerList.get(i).getName() == null) {
+//                                    openAcc(customerList, i);
+//                                }
+//                            }
+//                        }
+//                        case 2 -> {
+//                            login(customerList);
+//                        }
+//                        case 3 -> {
+//                            return;
+//                        }
+//                        default -> {
+//                        }
+//                    }
+                        }
+
+                        case 3 -> {
+                            System.out.println("\n...\n");
+                            TimeUnit.SECONDS.sleep(1);
+                            return;
+                        }
+                        default -> {
+                        }
+                    }
+                }
+
+                default -> {
+                }
+            }
+
+            input = menu();
         }
+
     }
 
     public static void generateID(ArrayList<Customer> customerList, int index, int length) {
