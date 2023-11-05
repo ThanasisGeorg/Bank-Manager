@@ -36,6 +36,7 @@ public class SettingsFrame extends javax.swing.JFrame {
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
+    Color sep = new Color(187, 187, 187);
 
     private static final String FILEPATH = System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/");
     private int indexOfCustomerLoggedIn;
@@ -84,6 +85,9 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         // Color, focus and visibility setup of components
         settingsPanel.setBackground(bg);
+        generalSeparator.setBackground(sep);
+        appearanceSeparator.setBackground(sep);
+        securitySeparator.setBackground(sep);
         changePwBtn.setForeground(pc);
 
         languageComboBox.setFocusable(false);
@@ -108,15 +112,15 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         settingsPanel = new javax.swing.JPanel();
         generalLabel = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
+        generalSeparator = new javax.swing.JSeparator();
         languageLabel = new javax.swing.JLabel();
         languageComboBox = new javax.swing.JComboBox<Locale>();
         appearanceLabel = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        appearanceSeparator = new javax.swing.JSeparator();
         themesLabel = new javax.swing.JLabel();
         themesComboBox = new javax.swing.JComboBox<>();
         securityLabel = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
+        securitySeparator = new javax.swing.JSeparator();
         changePwBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -125,7 +129,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         generalLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         generalLabel.setText("<html><p style=\"text-align:center\"><b>General</p> </html>");
 
-        jSeparator3.setBackground(new java.awt.Color(187, 187, 187));
+        generalSeparator.setBackground(new java.awt.Color(187, 187, 187));
 
         languageLabel.setText("<html><p style=\"text-align:center\"><b>Language:</p> </html>");
 
@@ -139,7 +143,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         appearanceLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         appearanceLabel.setText("<html><p style=\"text-align:center\"><b>Appearance</p> </html>");
 
-        jSeparator1.setBackground(new java.awt.Color(187, 187, 187));
+        appearanceSeparator.setBackground(new java.awt.Color(187, 187, 187));
 
         themesLabel.setText("<html><p style=\"text-align:center\"><b>Theme:</p> </html>");
 
@@ -149,7 +153,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         securityLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         securityLabel.setText("<html><p style=\"text-align:center\"><b>Security</p> </html>");
 
-        jSeparator2.setBackground(new java.awt.Color(187, 187, 187));
+        securitySeparator.setBackground(new java.awt.Color(187, 187, 187));
 
         changePwBtn.setBackground(java.awt.Color.darkGray);
         changePwBtn.setText("<html><p style=\"text-align:center\"><b>Change Password</p> </html>");
@@ -175,17 +179,17 @@ public class SettingsFrame extends javax.swing.JFrame {
                         .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(changePwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(appearanceSeparator, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(appearanceLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
                             .addGroup(settingsPanelLayout.createSequentialGroup()
                                 .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(languageComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(generalSeparator, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(generalLabel, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(securitySeparator, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(securityLabel, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -195,7 +199,7 @@ public class SettingsFrame extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(generalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(generalSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,7 +207,7 @@ public class SettingsFrame extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(appearanceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(appearanceSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(themesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,7 +215,7 @@ public class SettingsFrame extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(securityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(securitySeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(changePwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(250, Short.MAX_VALUE))
@@ -295,14 +299,14 @@ public class SettingsFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel appearanceLabel;
+    private javax.swing.JSeparator appearanceSeparator;
     private javax.swing.JButton changePwBtn;
     private javax.swing.JLabel generalLabel;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator generalSeparator;
     private JComboBox<Locale> languageComboBox;
     private javax.swing.JLabel languageLabel;
     private javax.swing.JLabel securityLabel;
+    private javax.swing.JSeparator securitySeparator;
     private javax.swing.JPanel settingsPanel;
     private javax.swing.JComboBox<String> themesComboBox;
     private javax.swing.JLabel themesLabel;

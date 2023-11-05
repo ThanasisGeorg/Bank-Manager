@@ -52,7 +52,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="changePwBtn" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="appearanceSeparator" alignment="0" max="32767" attributes="0"/>
                                   <Component id="appearanceLabel" alignment="0" pref="137" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -61,11 +61,11 @@
                                   <Component id="languageComboBox" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="generalSeparator" alignment="0" max="32767" attributes="0"/>
                                   <Component id="generalLabel" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="securitySeparator" alignment="0" max="32767" attributes="0"/>
                                   <Component id="securityLabel" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -81,7 +81,7 @@
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="generalLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                  <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
+                  <Component id="generalSeparator" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="languageLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -90,7 +90,7 @@
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="appearanceLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                  <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                  <Component id="appearanceSeparator" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="themesLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -99,7 +99,7 @@
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="securityLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                  <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+                  <Component id="securitySeparator" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="changePwBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="250" max="32767" attributes="0"/>
@@ -116,7 +116,7 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;General&lt;/p&gt; &lt;/html&gt;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSeparator" name="jSeparator3">
+        <Component class="javax.swing.JSeparator" name="generalSeparator">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
@@ -153,7 +153,7 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Appearance&lt;/p&gt; &lt;/html&gt;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSeparator" name="jSeparator1">
+        <Component class="javax.swing.JSeparator" name="appearanceSeparator">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
@@ -189,7 +189,7 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Security&lt;/p&gt; &lt;/html&gt;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSeparator" name="jSeparator2">
+        <Component class="javax.swing.JSeparator" name="securitySeparator">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
