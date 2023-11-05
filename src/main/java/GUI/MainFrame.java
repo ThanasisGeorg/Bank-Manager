@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import Database.DBMethods;
 import Database.Database;
 import Utils.Utils;
+import com.formdev.flatlaf.*;
 import java.awt.Component;
 import java.sql.ResultSet;
 import kdesp73.databridge.connections.DatabaseConnection;
@@ -40,6 +41,7 @@ public class MainFrame extends javax.swing.JFrame {
     private boolean signInbtnPressed = false;
 
     public MainFrame() throws SQLException {
+        FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
         // Frame setup
         initComponents();
@@ -53,10 +55,19 @@ public class MainFrame extends javax.swing.JFrame {
         // Color, focus and visibility setup of components
         mainPanel.setBackground(bg);
         appNameLabel.setForeground(pc);
+        
         loginBtn.setForeground(pc);
-        signInBtn.setForeground(pc);
+        usernameField.setBackground(bg);
+        passwordField.setBackground(bg);
         okBtn1.setForeground(pc);
+        
+        signInBtn.setForeground(pc);
+        nameField.setBackground(bg);
+        surnameField.setBackground(bg);
+        usernameField2.setBackground(bg);
+        passwordField2.setBackground(bg);
         okBtn2.setForeground(pc);
+        
         infoLabel.setBackground(pc);
         forgotPwLabel.setForeground(pc);
 
@@ -121,6 +132,7 @@ public class MainFrame extends javax.swing.JFrame {
         infoLabel.setText("<html><p style=\"text-align: center\">An easy and cool app to manage your bank accounts.<br><br>If you don't have already an existing account,<br><br>quickly become a customer and enjoy the services!</p></html>");
         infoLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(187, 187, 187)));
 
+        loginBtn.setBackground(java.awt.Color.darkGray);
         loginBtn.setText("<html><p style=\"text-align:center\"><b>Login</p> </html>");
         loginBtn.setAlignmentX(0.5F);
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +141,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        signInBtn.setBackground(java.awt.Color.darkGray);
         signInBtn.setText("<html><p style=\"text-align:center\"><b>Sign In</p> </html>");
         signInBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +155,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         passwordLabel.setText("Password");
 
+        okBtn1.setBackground(java.awt.Color.darkGray);
         okBtn1.setText("<html><p style=\"text-align:center\"><b>OK</p> </html>");
         okBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         okBtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -232,6 +246,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         passwordLabel2.setText("Password");
 
+        okBtn2.setBackground(java.awt.Color.darkGray);
         okBtn2.setText("<html><p style=\"text-align:center\"><b>OK</p> </html>");
         okBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         okBtn2.addActionListener(new java.awt.event.ActionListener() {
@@ -440,7 +455,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//        UIManager.setLookAndFeel("com.formdev.flatlaf.FlatDarculaLaf");
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

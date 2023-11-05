@@ -19,6 +19,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import kdesp73.databridge.connections.*;
 import kdesp73.databridge.helpers.QueryBuilder;
 
+import com.formdev.flatlaf.*;
+
 import main.Customer;
 
 /**
@@ -39,6 +41,7 @@ public class SettingsFrame extends javax.swing.JFrame {
     private int indexOfCustomerLoggedIn;
 
     public SettingsFrame() {
+        FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
 
         initComponents();
@@ -63,6 +66,7 @@ public class SettingsFrame extends javax.swing.JFrame {
     }
 
     public SettingsFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
+        FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
 
         initComponents();
@@ -121,8 +125,11 @@ public class SettingsFrame extends javax.swing.JFrame {
         generalLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         generalLabel.setText("<html><p style=\"text-align:center\"><b>General</p> </html>");
 
+        jSeparator3.setBackground(new java.awt.Color(187, 187, 187));
+
         languageLabel.setText("<html><p style=\"text-align:center\"><b>Language:</p> </html>");
 
+        languageComboBox.setBackground(java.awt.Color.darkGray);
         languageComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 languageComboBoxActionPerformed(evt);
@@ -132,13 +139,19 @@ public class SettingsFrame extends javax.swing.JFrame {
         appearanceLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         appearanceLabel.setText("<html><p style=\"text-align:center\"><b>Appearance</p> </html>");
 
+        jSeparator1.setBackground(new java.awt.Color(187, 187, 187));
+
         themesLabel.setText("<html><p style=\"text-align:center\"><b>Theme:</p> </html>");
 
+        themesComboBox.setBackground(java.awt.Color.darkGray);
         themesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Light", "Dark" }));
 
         securityLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         securityLabel.setText("<html><p style=\"text-align:center\"><b>Security</p> </html>");
 
+        jSeparator2.setBackground(new java.awt.Color(187, 187, 187));
+
+        changePwBtn.setBackground(java.awt.Color.darkGray);
         changePwBtn.setText("<html><p style=\"text-align:center\"><b>Change Password</p> </html>");
         changePwBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -15,6 +15,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
+import com.formdev.flatlaf.*;
+
 /**
  *
  * @author tgeorg
@@ -31,6 +33,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
     Color def = new Color(187, 187, 187);
 
     public ChangePasswordFrame() {
+        FlatDarculaLaf.setup();
         initComponents();
         this.setTitle("Change Your Password");
 
@@ -56,6 +59,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
     }
 
     public ChangePasswordFrame(SettingsFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
+        FlatDarculaLaf.setup();
         initComponents();
         this.setTitle("Change Your Password");
 
@@ -130,6 +134,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
             }
         });
 
+        cancelBtn.setBackground(java.awt.Color.darkGray);
         cancelBtn.setText("<html><p style=\"text-align:center\"><b>Cancel</p> </html>");
         cancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +143,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
             }
         });
 
+        applyBtn.setBackground(java.awt.Color.darkGray);
         applyBtn.setText("<html><p style=\"text-align:center\"><b>Apply</p> </html>");
         applyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         applyBtn.addActionListener(new java.awt.event.ActionListener() {

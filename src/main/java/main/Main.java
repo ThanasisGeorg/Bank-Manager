@@ -9,7 +9,9 @@ import Database.DBMethods;
 import Database.Database;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.util.Arrays;
 import java.util.Locale;
+import javax.swing.UIManager;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
 
@@ -21,9 +23,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException, SQLException {
         ArrayList<Customer> customerList = new ArrayList<>();
-        DatabaseConnection db = Database.connection();
-        String os = System.getProperty("os.name");
-        System.out.println(os);
+//        DatabaseConnection db = Database.connection();
 //        GraphicsEnvironment ge = GraphicsEnvironment
 //                .getLocalGraphicsEnvironment();
 //
@@ -46,6 +46,9 @@ public class Main {
 
         //DBMethods.formatDatabase();
         //Utils.prompt(customerList);
-        db.close();
+//        db.close();
+
+        System.out.println(UIManager.getSystemLookAndFeelClassName());
+        
     }
 }

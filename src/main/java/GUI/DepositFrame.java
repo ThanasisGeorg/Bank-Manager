@@ -11,6 +11,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
+import com.formdev.flatlaf.*;
+
 /**
  *
  * @author tgeorg
@@ -27,6 +29,7 @@ public class DepositFrame extends javax.swing.JFrame {
     Color sc = new Color(97, 255, 202);
 
     public DepositFrame() {
+        FlatDarculaLaf.setup();
         initComponents();
         this.setTitle("Deposit");
 
@@ -36,6 +39,7 @@ public class DepositFrame extends javax.swing.JFrame {
         this.setVisible(true);
 
         // Color, focus and visibility setup of components
+        depositPanel.setBackground(bg);
         cancelBtn.setForeground(pc);
         applyBtn.setForeground(pc);
 
@@ -44,6 +48,7 @@ public class DepositFrame extends javax.swing.JFrame {
     }
 
     public DepositFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
+        FlatDarculaLaf.setup();
         initComponents();
         this.setTitle("Deposit");
 
@@ -53,6 +58,7 @@ public class DepositFrame extends javax.swing.JFrame {
         this.setVisible(true);
 
         // Color, focus and visibility setup of components
+        depositPanel.setBackground(bg);
         cancelBtn.setForeground(pc);
         applyBtn.setForeground(pc);
 
@@ -88,6 +94,7 @@ public class DepositFrame extends javax.swing.JFrame {
 
         amountField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        cancelBtn.setBackground(java.awt.Color.darkGray);
         cancelBtn.setText("<html><p style=\"text-align:center\"><b>Cancel</p> </html>");
         cancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +103,7 @@ public class DepositFrame extends javax.swing.JFrame {
             }
         });
 
+        applyBtn.setBackground(java.awt.Color.darkGray);
         applyBtn.setText("<html><p style=\"text-align:center\"><b>Apply</p> </html>");
         applyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         applyBtn.addActionListener(new java.awt.event.ActionListener() {

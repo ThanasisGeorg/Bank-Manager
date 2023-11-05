@@ -19,6 +19,7 @@ import javax.swing.JFileChooser;
 import Database.DBMethods;
 import Database.Database;
 import Utils.Utils;
+import com.formdev.flatlaf.*;
 import java.awt.Component;
 import java.sql.ResultSet;
 import kdesp73.databridge.connections.DatabaseConnection;
@@ -48,6 +49,7 @@ public class ServicesFrame extends javax.swing.JFrame {
     private boolean uploadImgBtnPressed = false;
 
     public ServicesFrame() {
+        FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
 
         // Frame setup
@@ -97,6 +99,7 @@ public class ServicesFrame extends javax.swing.JFrame {
     }
 
     public ServicesFrame(MainFrame mf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) throws SQLException {
+        FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
 
         // Frame setup
@@ -199,6 +202,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         menuSeparator.setBackground(new java.awt.Color(187, 187, 187));
         menuSeparator.setForeground(new java.awt.Color(187, 187, 187));
 
+        accInfoBtn.setBackground(java.awt.Color.darkGray);
         accInfoBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         accInfoBtn.setText("<html><p style=\"text-align:center\"><b>Account<br>Information</p> </html>");
         accInfoBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -210,6 +214,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         accInfoSeparator.setBackground(new java.awt.Color(187, 187, 187));
         accInfoSeparator.setForeground(new java.awt.Color(187, 187, 187));
 
+        depBtn.setBackground(java.awt.Color.darkGray);
         depBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         depBtn.setText("<html><p style=\"text-align:center\"><b>Deposit</p> </html>");
         depBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -221,6 +226,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         depSeparator.setBackground(new java.awt.Color(187, 187, 187));
         depSeparator.setForeground(new java.awt.Color(187, 187, 187));
 
+        delBtn.setBackground(java.awt.Color.darkGray);
         delBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         delBtn.setText("<html><p style=\"text-align:center\"><b>Delete<br>Account</p> </html>");
         delBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -232,6 +238,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         delSeparator.setBackground(new java.awt.Color(187, 187, 187));
         delSeparator.setForeground(new java.awt.Color(187, 187, 187));
 
+        logoutBtn.setBackground(java.awt.Color.darkGray);
         logoutBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         logoutBtn.setText("<html><p style=\"text-align:center\"><b>Logout</p> </html>");
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -293,6 +300,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         avatarSeparator2.setBackground(new java.awt.Color(187, 187, 187));
         avatarSeparator2.setForeground(new java.awt.Color(187, 187, 187));
 
+        uploadImgBtn.setBackground(java.awt.Color.darkGray);
         uploadImgBtn.setText("<html><p style=\"text-align:center\"><b>Upload Image</p> </html>");
         uploadImgBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         uploadImgBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -401,6 +409,7 @@ public class ServicesFrame extends javax.swing.JFrame {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
+        refreshBtn.setBackground(java.awt.Color.darkGray);
         refreshBtn.setText("<html><p style=\"text-align:center\"><b>Refresh Information</p> </html>");
         refreshBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         refreshBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -409,6 +418,7 @@ public class ServicesFrame extends javax.swing.JFrame {
             }
         });
 
+        settingsBtn.setBackground(java.awt.Color.darkGray);
         settingsBtn.setText("<html><p style=\"text-align:center\"><b>Settings</p> </html>");
         settingsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
