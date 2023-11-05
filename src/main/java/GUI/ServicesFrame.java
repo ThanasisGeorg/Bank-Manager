@@ -39,6 +39,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
+    Color sep = new Color(187, 187, 187);
     Color sc = new Color(97, 255, 202);
 
     private int indexOfCustomerLoggedIn;
@@ -60,13 +61,21 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         // Color, focus and visibility setup of components
         servicesPanel.setBackground(bg);
+        menuSeparator.setBackground(sep);
         accInfoBtn.setForeground(pc);
+        accInfoSeparator.setBackground(sep);
         depBtn.setForeground(pc);
+        depSeparator.setBackground(sep);
         delBtn.setForeground(pc);
+        delSeparator.setBackground(sep);
         logoutBtn.setForeground(pc);
+        logoutSeparator.setBackground(sep);
         refreshBtn.setForeground(pc);
         uploadImgBtn.setForeground(pc);
         settingsBtn.setForeground(pc);
+        infoSeparator.setBackground(sep);
+        avatarSeparator1.setBackground(sep);
+        avatarSeparator2.setBackground(sep);
 
         accInfoBtn.setFocusable(false);
         depBtn.setFocusable(false);
@@ -101,14 +110,22 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         // Color, focus and visibility setup of components
         servicesPanel.setBackground(bg);
+        menuSeparator.setForeground(sep);
         accInfoBtn.setForeground(pc);
+        accInfoSeparator.setForeground(sep);
         depBtn.setForeground(pc);
+        depSeparator.setForeground(sep);
         delBtn.setForeground(pc);
+        delSeparator.setForeground(sep);
         logoutBtn.setForeground(pc);
+        logoutSeparator.setForeground(sep);
         refreshBtn.setForeground(pc);
         uploadImgBtn.setForeground(pc);
         settingsBtn.setForeground(pc);
-
+        infoSeparator.setForeground(sep);
+        avatarSeparator1.setForeground(sep);
+        avatarSeparator2.setForeground(sep);
+        
         accInfoBtn.setFocusable(false);
         depBtn.setFocusable(false);
         delBtn.setFocusable(false);
@@ -139,16 +156,16 @@ public class ServicesFrame extends javax.swing.JFrame {
         imgChooser = new javax.swing.JFileChooser();
         servicesPanel = new javax.swing.JPanel();
         mainMenuLabel = new javax.swing.JLabel();
-        jSeparator9 = new javax.swing.JSeparator();
+        menuSeparator = new javax.swing.JSeparator();
         accInfoBtn = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        accInfoSeparator = new javax.swing.JSeparator();
         depBtn = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
+        depSeparator = new javax.swing.JSeparator();
         delBtn = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
+        delSeparator = new javax.swing.JSeparator();
         logoutBtn = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
+        logoutSeparator = new javax.swing.JSeparator();
+        mainSeparator = new javax.swing.JSeparator();
         infoPanel = new javax.swing.JPanel();
         avatarPanel = new javax.swing.JPanel();
         avatarLabel = new javax.swing.JLabel();
@@ -162,14 +179,14 @@ public class ServicesFrame extends javax.swing.JFrame {
         accountInfoLabel = new javax.swing.JLabel();
         usernameIndicator = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
-                balanceIndicator = new javax.swing.JLabel();
+        balanceIndicator = new javax.swing.JLabel();
         balance = new javax.swing.JLabel();
         accIdIndicator = new javax.swing.JLabel();
         accountId = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jSeparator7 = new javax.swing.JSeparator();
-        jSeparator8 = new javax.swing.JSeparator();
-                uploadImgBtn = new javax.swing.JButton();
+        infoSeparator = new javax.swing.JSeparator();
+        avatarSeparator1 = new javax.swing.JSeparator();
+        avatarSeparator2 = new javax.swing.JSeparator();
+        uploadImgBtn = new javax.swing.JButton();
         refreshBtn = new javax.swing.JButton();
         settingsBtn = new javax.swing.JButton();
 
@@ -179,6 +196,9 @@ public class ServicesFrame extends javax.swing.JFrame {
         mainMenuLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mainMenuLabel.setText("<html><p style=\"text-align:center\"><b>Main Menu</p> </html>");
 
+        menuSeparator.setBackground(new java.awt.Color(187, 187, 187));
+        menuSeparator.setForeground(new java.awt.Color(187, 187, 187));
+
         accInfoBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         accInfoBtn.setText("<html><p style=\"text-align:center\"><b>Account<br>Information</p> </html>");
         accInfoBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -186,6 +206,9 @@ public class ServicesFrame extends javax.swing.JFrame {
                 accInfoBtnActionPerformed(evt);
             }
         });
+
+        accInfoSeparator.setBackground(new java.awt.Color(187, 187, 187));
+        accInfoSeparator.setForeground(new java.awt.Color(187, 187, 187));
 
         depBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         depBtn.setText("<html><p style=\"text-align:center\"><b>Deposit</p> </html>");
@@ -195,6 +218,9 @@ public class ServicesFrame extends javax.swing.JFrame {
             }
         });
 
+        depSeparator.setBackground(new java.awt.Color(187, 187, 187));
+        depSeparator.setForeground(new java.awt.Color(187, 187, 187));
+
         delBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         delBtn.setText("<html><p style=\"text-align:center\"><b>Delete<br>Account</p> </html>");
         delBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +228,9 @@ public class ServicesFrame extends javax.swing.JFrame {
                 delBtnActionPerformed(evt);
             }
         });
+
+        delSeparator.setBackground(new java.awt.Color(187, 187, 187));
+        delSeparator.setForeground(new java.awt.Color(187, 187, 187));
 
         logoutBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         logoutBtn.setText("<html><p style=\"text-align:center\"><b>Logout</p> </html>");
@@ -211,7 +240,12 @@ public class ServicesFrame extends javax.swing.JFrame {
             }
         });
 
-        jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        logoutSeparator.setBackground(new java.awt.Color(187, 187, 187));
+        logoutSeparator.setForeground(new java.awt.Color(187, 187, 187));
+
+        mainSeparator.setBackground(new java.awt.Color(187, 187, 187));
+        mainSeparator.setForeground(new java.awt.Color(187, 187, 187));
+        mainSeparator.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         avatarPanel.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -229,7 +263,7 @@ public class ServicesFrame extends javax.swing.JFrame {
             .addComponent(avatarLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
         );
 
-        customerInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        customerInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 22)); // NOI18N
         customerInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         customerInfoLabel.setText("<html><p style=\"text-align:center\"><b>Customer Info</p> </html>");
 
@@ -239,7 +273,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         ageIndicator.setText("<html><p style=\"text-align:center\"><b>Age:</p> </html>");
 
-        accountInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        accountInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 22)); // NOI18N
         accountInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accountInfoLabel.setText("<html><p style=\"text-align:center\"><b>Account Info</p> </html>");
 
@@ -249,9 +283,18 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         accIdIndicator.setText("<html><p style=\"text-align:center\"><b>Account ID:</p> </html>");
 
-        jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        infoSeparator.setBackground(new java.awt.Color(187, 187, 187));
+        infoSeparator.setForeground(new java.awt.Color(187, 187, 187));
+
+        avatarSeparator1.setBackground(new java.awt.Color(187, 187, 187));
+        avatarSeparator1.setForeground(new java.awt.Color(187, 187, 187));
+        avatarSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        avatarSeparator2.setBackground(new java.awt.Color(187, 187, 187));
+        avatarSeparator2.setForeground(new java.awt.Color(187, 187, 187));
 
         uploadImgBtn.setText("<html><p style=\"text-align:center\"><b>Upload Image</p> </html>");
+        uploadImgBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         uploadImgBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uploadImgBtnActionPerformed(evt);
@@ -265,49 +308,45 @@ public class ServicesFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addContainerGap(38, Short.MAX_VALUE)
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(surnameIndicator, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ageIndicator, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(36, 36, 36)
-                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(surname, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(infoPanelLayout.createSequentialGroup()
-                                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
-                                    .addGap(4, 4, 4)
-                                    .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(infoPanelLayout.createSequentialGroup()
-                                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(balanceIndicator, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(accIdIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(accountId, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(infoPanelLayout.createSequentialGroup()
-                                            .addComponent(usernameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(22, 22, 22))))
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(avatarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator8)))
-                    .addGroup(infoPanelLayout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addComponent(accountInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(uploadImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                        .addComponent(uploadImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(infoPanelLayout.createSequentialGroup()
+                        .addContainerGap(51, Short.MAX_VALUE)
+                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(infoPanelLayout.createSequentialGroup()
+                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(balanceIndicator, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(accIdIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(accountId, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(infoPanelLayout.createSequentialGroup()
+                                .addComponent(usernameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(infoPanelLayout.createSequentialGroup()
+                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(infoPanelLayout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(surnameIndicator, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(nameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ageIndicator, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(36, 36, 36)
+                                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(surname, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(infoSeparator, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(avatarSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(avatarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(avatarSeparator2))))))
                 .addGap(17, 17, 17))
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
@@ -320,10 +359,10 @@ public class ServicesFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(avatarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(avatarSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(infoPanelLayout.createSequentialGroup()
                         .addComponent(customerInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addGap(28, 28, 28)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -336,32 +375,34 @@ public class ServicesFrame extends javax.swing.JFrame {
                             .addComponent(ageIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(infoSeparator)
+                    .addComponent(avatarSeparator2))
+                .addGap(8, 8, 8)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addGap(5, 5, 5)
                         .addComponent(uploadImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(accountInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(usernameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(balanceIndicator, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(balance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
+                        .addComponent(accountInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 34, 34)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usernameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(balanceIndicator, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(balance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(accountId, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(accIdIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         refreshBtn.setText("<html><p style=\"text-align:center\"><b>Refresh Information</p> </html>");
+        refreshBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         refreshBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshBtnActionPerformed(evt);
@@ -382,23 +423,23 @@ public class ServicesFrame extends javax.swing.JFrame {
             .addGroup(servicesPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(servicesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator4)
+                    .addComponent(logoutSeparator)
                     .addComponent(logoutBtn)
                     .addComponent(accInfoBtn)
                     .addComponent(depBtn)
-                    .addComponent(jSeparator2)
-                    .addComponent(jSeparator3)
+                    .addComponent(depSeparator)
+                    .addComponent(delSeparator)
                     .addComponent(delBtn)
-                    .addComponent(jSeparator1)
+                    .addComponent(accInfoSeparator)
                     .addComponent(mainMenuLabel)
-                    .addComponent(jSeparator9))
+                    .addComponent(menuSeparator))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addComponent(mainSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                 .addGroup(servicesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(refreshBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(infoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(settingsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(refreshBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(settingsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         servicesPanelLayout.setVerticalGroup(
@@ -415,25 +456,25 @@ public class ServicesFrame extends javax.swing.JFrame {
                     .addGroup(servicesPanelLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(servicesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
+                            .addComponent(mainSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
                             .addGroup(servicesPanelLayout.createSequentialGroup()
                                 .addComponent(mainMenuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(menuSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
                                 .addComponent(accInfoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(accInfoSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13)
                                 .addComponent(depBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(depSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13)
                                 .addComponent(delBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
-                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(delSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(logoutSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
@@ -597,33 +638,33 @@ public class ServicesFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accIdIndicator;
     private javax.swing.JButton accInfoBtn;
+    private javax.swing.JSeparator accInfoSeparator;
     private javax.swing.JLabel accountId;
     private javax.swing.JLabel accountInfoLabel;
     private javax.swing.JLabel age;
     private javax.swing.JLabel ageIndicator;
     private javax.swing.JLabel avatarLabel;
     private javax.swing.JPanel avatarPanel;
+    private javax.swing.JSeparator avatarSeparator1;
+    private javax.swing.JSeparator avatarSeparator2;
     private javax.swing.JLabel balance;
     private javax.swing.JLabel balanceIndicator;
-        private javax.swing.JLabel customerInfoLabel;
+    private javax.swing.JLabel customerInfoLabel;
     private javax.swing.JButton delBtn;
+    private javax.swing.JSeparator delSeparator;
     private javax.swing.JButton depBtn;
+    private javax.swing.JSeparator depSeparator;
     private javax.swing.JFileChooser imgChooser;
     private javax.swing.JPanel infoPanel;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JSeparator infoSeparator;
     private javax.swing.JButton logoutBtn;
+    private javax.swing.JSeparator logoutSeparator;
     private javax.swing.JLabel mainMenuLabel;
+    private javax.swing.JSeparator mainSeparator;
+    private javax.swing.JSeparator menuSeparator;
     private javax.swing.JLabel name;
     private javax.swing.JLabel nameIndicator;
-        private javax.swing.JButton refreshBtn;
+    private javax.swing.JButton refreshBtn;
     private javax.swing.JPanel servicesPanel;
     private javax.swing.JButton settingsBtn;
     private javax.swing.JLabel surname;

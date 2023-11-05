@@ -26,6 +26,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
     private int indexOfCustomer = 0;
 
     Color pc = new Color(162, 119, 255);
+    Color bg = new Color(21, 20, 27);
     Color def = new Color(187, 187, 187);
 
     /**
@@ -41,6 +42,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         this.setVisible(true);
 
         // Color, focus and visibility setup of components
+        jPanel1.setBackground(bg);
         newPasswordField.setForeground(green);
         confirmNewPasswordField.setForeground(red);
         cancelBtn.setForeground(pc);
@@ -65,6 +67,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         this.setVisible(true);
 
         // Color, focus and visibility setup of components
+        jPanel1.setBackground(bg);
         newPasswordField.setForeground(green);
         confirmNewPasswordField.setForeground(red);
         cancelBtn.setForeground(pc);

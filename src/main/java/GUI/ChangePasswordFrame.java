@@ -27,6 +27,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
     private int indexOfCustomerLoggedIn;
 
     Color pc = new Color(162, 119, 255);
+    Color bg = new Color(21, 20, 27);
     Color def = new Color(187, 187, 187);
 
     public ChangePasswordFrame() {
@@ -39,6 +40,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         this.setVisible(true);
 
         // Color, focus and visibility setup of components
+        jPanel1.setBackground(bg);
         cancelBtn.setForeground(pc);
         applyBtn.setForeground(pc);
         oldPasswordField.setForeground(red);
@@ -63,6 +65,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         this.setVisible(true);
 
         // Color, focus and visibility setup of components
+        jPanel1.setBackground(bg);
         cancelBtn.setForeground(pc);
         applyBtn.setForeground(pc);
         oldPasswordField.setForeground(red);
@@ -149,9 +152,9 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)

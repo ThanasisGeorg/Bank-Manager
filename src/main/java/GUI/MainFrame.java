@@ -424,11 +424,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_forgotPwLabelMouseClicked
 
     private void forgotPwLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPwLabelMouseEntered
-        forgotPwLabel.setForeground(def);
+//        forgotPwLabel.setForeground(def);
     }//GEN-LAST:event_forgotPwLabelMouseEntered
 
     private void forgotPwLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPwLabelMouseExited
-        forgotPwLabel.setForeground(pc);
+//        forgotPwLabel.setForeground(pc);
     }//GEN-LAST:event_forgotPwLabelMouseExited
 
     /**
