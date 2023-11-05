@@ -96,7 +96,7 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         this.setIconImage(new ImageIcon(FILEPATH + "/data/icons/gear-solid.svg").getImage());
         
-        configureFrameLanguage();
+        //configureFrameProperties();
 
         db.close();
     }
@@ -235,16 +235,17 @@ public class SettingsFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void configureFrameLanguage(){
+    private void configureFrameProperties(){
         languageComboBox.addItem(Locale.US);
         languageComboBox.addItem(Locale.GERMANY);
+        setTexts();
         languageComboBox.addItemListener(itemEvent -> setTexts());
     }
     
     private void setTexts(){
         Locale locale = languageComboBox.getItemAt(languageComboBox.getSelectedIndex());
         System.out.println(locale);
-        rb = ResourceBundle.getBundle("Bundle", locale);
+        rb = ResourceBundle.getBundle("resources.Bundle", locale);
         setTitle(rb.getString("application.title"));
         languageLabel.setText(rb.getString("language") + ":");
         languageComboBox.setToolTipText(rb.getString("language.tooltip"));

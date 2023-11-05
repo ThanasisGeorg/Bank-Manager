@@ -177,7 +177,7 @@ public class DepositFrame extends javax.swing.JFrame {
             Logger.getLogger(DepositFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.dispose();
-        JOptionPane.showMessageDialog(sf, "Successfull deposit");
+        JOptionPane.showMessageDialog(sf, "Successfull deposit.\nRefresh the information to see the result");
     }//GEN-LAST:event_applyBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed

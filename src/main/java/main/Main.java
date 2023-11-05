@@ -9,6 +9,7 @@ import Database.DBMethods;
 import Database.Database;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.io.File;
 import java.util.Arrays;
 import java.util.Locale;
 import javax.swing.UIManager;
@@ -48,7 +49,7 @@ public class Main {
         //Utils.prompt(customerList);
 //        db.close();
 
-        System.out.println(UIManager.getSystemLookAndFeelClassName());
-        
+        File file = new File("../../Other Sources/Bundle/Bundle_en_US.properties");
+        System.out.println(file.getName());
     }
 }
