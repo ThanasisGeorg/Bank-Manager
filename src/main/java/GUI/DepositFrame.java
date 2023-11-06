@@ -57,9 +57,9 @@ public class DepositFrame extends javax.swing.JFrame {
         this.theme = GUIFunctions.setupFrame(this, "Deposit");
 
         // Color, focus and visibility setup of components
-        depositPanel.setBackground(bg);
-        cancelBtn.setForeground(pc);
-        applyBtn.setForeground(pc);
+//        depositPanel.setBackground(bg);
+//        cancelBtn.setForeground(pc);
+//        applyBtn.setForeground(pc);
 
         cancelBtn.setFocusable(false);
         applyBtn.setFocusable(false);
@@ -87,6 +87,8 @@ public class DepositFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        depositPanel.setName("bg"); // NOI18N
+
         depositLabel.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         depositLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         depositLabel.setText("<html><p style=\"text-align:center\"><b>Enter the amount you want to deposit</p> </html>");
@@ -96,6 +98,7 @@ public class DepositFrame extends javax.swing.JFrame {
         cancelBtn.setBackground(java.awt.Color.darkGray);
         cancelBtn.setText("<html><p style=\"text-align:center\"><b>Cancel</p> </html>");
         cancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cancelBtn.setName("btn"); // NOI18N
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelBtnActionPerformed(evt);
@@ -105,6 +108,7 @@ public class DepositFrame extends javax.swing.JFrame {
         applyBtn.setBackground(java.awt.Color.darkGray);
         applyBtn.setText("<html><p style=\"text-align:center\"><b>Apply</p> </html>");
         applyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        applyBtn.setName("btn"); // NOI18N
         applyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 applyBtnActionPerformed(evt);

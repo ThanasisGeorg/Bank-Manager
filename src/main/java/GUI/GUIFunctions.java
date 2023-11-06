@@ -147,6 +147,7 @@ public class GUIFunctions {
         frame.setTitle(title);
 
         // Center frame
+        frame.pack();
         frame.setLocationRelativeTo(null);
 
         // Theme setup

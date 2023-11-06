@@ -2,17 +2,17 @@ name: Light
 
 # All values below should be in hex form without the '#'
 
-bg: "FF6700"
-fg: "FFFFFF"
+bg: "BBBBBB"
+fg: "15141B"
 
 bg_2: "EBEBEB"
 fg_2: "000000"
 
-btn: "004E98"
+btn: "404040"
 btn_fg: "FFFFFF"
 
-textbox: "1D7874"
-textbox_fg: "FFFFFF"
+textbox: "15141B"
+textbox_fg: "15141B"
 
 list: "071E22"
 list_fg: "FFFFFF"

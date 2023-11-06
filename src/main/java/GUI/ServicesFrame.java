@@ -35,10 +35,9 @@ import main.Customer;
 public class ServicesFrame extends javax.swing.JFrame {
 
     MainFrame mf;
-    ForgotPasswordFrame fpf = new ForgotPasswordFrame();
     DepositFrame df = new DepositFrame();
     ChangePasswordFrame cpf = new ChangePasswordFrame();
-    SettingsFrame sf = new SettingsFrame();
+    SettingsFrame sf;
     ArrayList<Customer> customerList;
     Theme theme;
 
@@ -111,19 +110,20 @@ public class ServicesFrame extends javax.swing.JFrame {
         this.theme = GUIFunctions.setupFrame(this, customerList.get(indexOfCustomerLoggedIn).getAcc().getUsername() + ":~");
 
         // Color, focus and visibility setup of components
-        servicesPanel.setBackground(bg);
+//        servicesPanel.setBackground(bg);
         menuSeparator.setForeground(sep);
-        accInfoBtn.setForeground(pc);
+//        accInfoBtn.setForeground(pc);
         accInfoSeparator.setForeground(sep);
-        depBtn.setForeground(pc);
+//        depBtn.setForeground(pc);
         depSeparator.setForeground(sep);
-        delBtn.setForeground(pc);
+//        delBtn.setForeground(pc);
         delSeparator.setForeground(sep);
-        logoutBtn.setForeground(pc);
+//        logoutBtn.setForeground(pc);
         logoutSeparator.setForeground(sep);
-        refreshBtn.setForeground(pc);
-        uploadImgBtn.setForeground(pc);
-        settingsBtn.setForeground(pc);
+        
+//        refreshBtn.setForeground(pc);
+//        uploadImgBtn.setForeground(pc);
+//        settingsBtn.setForeground(pc);
         infoSeparator.setForeground(sep);
         avatarSeparator1.setForeground(sep);
         avatarSeparator2.setForeground(sep);
@@ -136,7 +136,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         uploadImgBtn.setFocusable(false);
         settingsBtn.setFocusable(false);
 
-        this.mf = mf;
+        this.mf = mf;     
         this.customerList = customerList;
         this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
 
@@ -194,9 +194,12 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        servicesPanel.setName("bg"); // NOI18N
+
         mainMenuLabel.setFont(new java.awt.Font("Liberation Sans", 0, 26)); // NOI18N
         mainMenuLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mainMenuLabel.setText("<html><p style=\"text-align:center\"><b>Main Menu</p> </html>");
+        mainMenuLabel.setName("textbox"); // NOI18N
 
         menuSeparator.setBackground(new java.awt.Color(187, 187, 187));
         menuSeparator.setForeground(new java.awt.Color(187, 187, 187));
@@ -204,6 +207,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         accInfoBtn.setBackground(java.awt.Color.darkGray);
         accInfoBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         accInfoBtn.setText("<html><p style=\"text-align:center\"><b>Account<br>Information</p> </html>");
+        accInfoBtn.setName("btn"); // NOI18N
         accInfoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accInfoBtnActionPerformed(evt);
@@ -216,6 +220,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         depBtn.setBackground(java.awt.Color.darkGray);
         depBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         depBtn.setText("<html><p style=\"text-align:center\"><b>Deposit</p> </html>");
+        depBtn.setName("btn"); // NOI18N
         depBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 depBtnActionPerformed(evt);
@@ -228,6 +233,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         delBtn.setBackground(java.awt.Color.darkGray);
         delBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         delBtn.setText("<html><p style=\"text-align:center\"><b>Delete<br>Account</p> </html>");
+        delBtn.setName("btn"); // NOI18N
         delBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delBtnActionPerformed(evt);
@@ -240,6 +246,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         logoutBtn.setBackground(java.awt.Color.darkGray);
         logoutBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         logoutBtn.setText("<html><p style=\"text-align:center\"><b>Logout</p> </html>");
+        logoutBtn.setName("btn"); // NOI18N
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBtnActionPerformed(evt);
@@ -272,6 +279,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         customerInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 22)); // NOI18N
         customerInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         customerInfoLabel.setText("<html><p style=\"text-align:center\"><b>Customer Info</p> </html>");
+        customerInfoLabel.setName("textbox"); // NOI18N
 
         nameIndicator.setText("<html><p style=\"text-align:center\"><b>Name:</p> </html>");
 
@@ -282,6 +290,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         accountInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 22)); // NOI18N
         accountInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accountInfoLabel.setText("<html><p style=\"text-align:center\"><b>Account Info</p> </html>");
+        accountInfoLabel.setName("textbox"); // NOI18N
 
         usernameIndicator.setText("<html><p style=\"text-align:center\"><b>Username:</p> </html>");
 
@@ -302,6 +311,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         uploadImgBtn.setBackground(java.awt.Color.darkGray);
         uploadImgBtn.setText("<html><p style=\"text-align:center\"><b>Upload Image</p> </html>");
         uploadImgBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        uploadImgBtn.setName("btn"); // NOI18N
         uploadImgBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uploadImgBtnActionPerformed(evt);
@@ -411,6 +421,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         refreshBtn.setBackground(java.awt.Color.darkGray);
         refreshBtn.setText("<html><p style=\"text-align:center\"><b>Refresh Information</p> </html>");
         refreshBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        refreshBtn.setName("btn"); // NOI18N
         refreshBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshBtnActionPerformed(evt);
@@ -419,6 +430,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         settingsBtn.setBackground(java.awt.Color.darkGray);
         settingsBtn.setText("<html><p style=\"text-align:center\"><b>Settings</p> </html>");
+        settingsBtn.setName("btn"); // NOI18N
         settingsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 settingsBtnActionPerformed(evt);
@@ -622,7 +634,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         }
 
         try {
-            sf = new SettingsFrame(mf, this, df, cpf, fpf, customerList, indexOfCustomerLoggedIn);
+            sf = new SettingsFrame(this, df, cpf, customerList, indexOfCustomerLoggedIn);
         } catch (SQLException ex) {
             Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
         }

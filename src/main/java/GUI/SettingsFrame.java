@@ -21,6 +21,8 @@ import kdesp73.databridge.helpers.QueryBuilder;
 import kdesp73.themeLib.*;
 
 import com.formdev.flatlaf.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import javax.swing.DefaultComboBoxModel;
 
@@ -32,11 +34,9 @@ import main.Customer;
  */
 public class SettingsFrame extends javax.swing.JFrame {
 
-    MainFrame mf;
     ServicesFrame sf;
     DepositFrame df;
     ChangePasswordFrame cpf;
-    ForgotPasswordFrame fpf;
     ArrayList<Customer> customerList;
     ResourceBundle rb;
     Theme theme;
@@ -47,6 +47,7 @@ public class SettingsFrame extends javax.swing.JFrame {
 
     private static final String FILEPATH = System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/");
     private int indexOfCustomerLoggedIn;
+    private int count = 0;
 
     public SettingsFrame() {
         DatabaseConnection db = Database.connection();
@@ -65,42 +66,38 @@ public class SettingsFrame extends javax.swing.JFrame {
         themesComboBox.setFocusable(false);
         changePwBtn.setFocusable(false);
 
-        this.setIconImage(new ImageIcon(FILEPATH + "/data/Icons/gear-solid.svg").getImage());
-
+//        this.setIconImage(new ImageIcon(FILEPATH + "/data/Icons/gear-solid.svg").getImage());
         db.close();
     }
 
-    public SettingsFrame(MainFrame mf, ServicesFrame sf, DepositFrame df, ChangePasswordFrame cpf, ForgotPasswordFrame fpf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) throws SQLException {
+    public SettingsFrame(ServicesFrame sf, DepositFrame df, ChangePasswordFrame cpf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) throws SQLException {
         DatabaseConnection db = Database.connection();
 
+        // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Settings");
-
-        // Setup of components
-        this.mf = mf;
-        this.sf = sf;
-        this.df = df;
-        this.cpf = cpf;
-        this.fpf = fpf;
-        this.customerList = customerList;
-        this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
 
         refreshThemeCombo();
         themesComboBox.setSelectedItem(theme.getName());
 
         // Color, focus and visibility setup of components
-        settingsPanel.setBackground(bg);
+//        settingsPanel.setBackground(bg);
         generalSeparator.setBackground(sep);
         appearanceSeparator.setBackground(sep);
         securitySeparator.setBackground(sep);
-        changePwBtn.setForeground(pc);
+//        changePwBtn.setForeground(pc);
 
         languageComboBox.setFocusable(false);
         themesComboBox.setFocusable(false);
         changePwBtn.setFocusable(false);
 
-        this.setIconImage(new ImageIcon(FILEPATH + "/data/icons/gear-solid.svg").getImage());
+        this.sf = sf;
+        this.df = df;
+        this.cpf = cpf;
+        this.customerList = customerList;
+        this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
 
+//        this.setIconImage(new ImageIcon(FILEPATH + "/data/icons/gear-solid.svg").getImage());
 //        configureFrameProperties();
         db.close();
     }
@@ -118,7 +115,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         generalLabel = new javax.swing.JLabel();
         generalSeparator = new javax.swing.JSeparator();
         languageLabel = new javax.swing.JLabel();
-        languageComboBox = new javax.swing.JComboBox<Locale>();
+        languageComboBox = new javax.swing.JComboBox();
         appearanceLabel = new javax.swing.JLabel();
         appearanceSeparator = new javax.swing.JSeparator();
         themesLabel = new javax.swing.JLabel();
@@ -130,6 +127,8 @@ public class SettingsFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        settingsPanel.setName("bg"); // NOI18N
+
         generalLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         generalLabel.setText("<html><p style=\"text-align:center\"><b>General</p> </html>");
 
@@ -138,9 +137,9 @@ public class SettingsFrame extends javax.swing.JFrame {
         languageLabel.setText("<html><p style=\"text-align:center\"><b>Language:</p> </html>");
 
         languageComboBox.setBackground(java.awt.Color.darkGray);
-        languageComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                languageComboBoxActionPerformed(evt);
+        languageComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                languageComboBoxMouseClicked(evt);
             }
         });
 
@@ -153,6 +152,7 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         themesComboBox.setBackground(java.awt.Color.darkGray);
         themesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Light", "Dark" }));
+        themesComboBox.setFocusable(false);
         themesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 themesComboBoxActionPerformed(evt);
@@ -166,9 +166,11 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         changePwBtn.setBackground(java.awt.Color.darkGray);
         changePwBtn.setText("<html><p style=\"text-align:center\"><b>Change Password</p> </html>");
-        changePwBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                changePwBtnActionPerformed(evt);
+        changePwBtn.setFocusable(false);
+        changePwBtn.setName("btn"); // NOI18N
+        changePwBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changePwBtnMouseClicked(evt);
             }
         });
 
@@ -252,7 +254,7 @@ public class SettingsFrame extends javax.swing.JFrame {
     }
 
     private void setTexts() {
-        Locale locale = languageComboBox.getItemAt(languageComboBox.getSelectedIndex());
+        Locale locale = (Locale) languageComboBox.getItemAt(languageComboBox.getSelectedIndex());
         System.out.println(locale);
         rb = ResourceBundle.getBundle("i18n/Bundle");
     }
@@ -271,16 +273,11 @@ public class SettingsFrame extends javax.swing.JFrame {
         themesComboBox.setModel(new DefaultComboBoxModel(themeNames.toArray()));
     }
 
-    private void changePwBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePwBtnActionPerformed
-        if (cpf != null) {
-            cpf.dispose();
+    private void languageComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_languageComboBoxMouseClicked
+        if (evt.getButton() != MouseEvent.BUTTON1) {
+            return;
         }
 
-        cpf = new ChangePasswordFrame(this, customerList, indexOfCustomerLoggedIn);
-        cpf.setVisible(true);
-    }//GEN-LAST:event_changePwBtnActionPerformed
-
-    private void languageComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_languageComboBoxActionPerformed
         DatabaseConnection db = Database.connection();
 
         String s = languageComboBox.getSelectedItem().toString();
@@ -297,14 +294,31 @@ public class SettingsFrame extends javax.swing.JFrame {
         }
 
         db.close();
-    }//GEN-LAST:event_languageComboBoxActionPerformed
+    }//GEN-LAST:event_languageComboBoxMouseClicked
+
+    private void changePwBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePwBtnMouseClicked
+        if (evt.getButton() != MouseEvent.BUTTON1) {
+            return;
+        }
+
+        if (cpf != null) {
+            cpf.dispose();
+        }
+
+        cpf = new ChangePasswordFrame(this, customerList, indexOfCustomerLoggedIn);
+        cpf.setVisible(true);
+    }//GEN-LAST:event_changePwBtnMouseClicked
 
     private void themesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themesComboBoxActionPerformed
+        if (count == 0) {
+            count++;
+            return;
+        }
+        
         String themeName = themesComboBox.getSelectedItem().toString();
         ThemeCollection themes = new ThemeCollection();
         themes.loadThemes(new File(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/"));
         Theme selectedTheme = themes.matchTheme(themeName);
-        System.out.println(selectedTheme.getName());
 
         try {
             DBMethods.updateTheme(themeName);
@@ -312,18 +326,16 @@ public class SettingsFrame extends javax.swing.JFrame {
             Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        mf.setTheme(selectedTheme);
         sf.setTheme(selectedTheme);
         df.setTheme(selectedTheme);
         cpf.setTheme(selectedTheme);
-        fpf.setTheme(selectedTheme);
         this.theme = selectedTheme;
 
         ThemeCollection.applyTheme(sf, selectedTheme);
         ThemeCollection.applyTheme(df, selectedTheme);
         ThemeCollection.applyTheme(cpf, selectedTheme);
-        ThemeCollection.applyTheme(fpf, selectedTheme);
         ThemeCollection.applyTheme(this, selectedTheme);
+
     }//GEN-LAST:event_themesComboBoxActionPerformed
 
     /**
@@ -336,7 +348,7 @@ public class SettingsFrame extends javax.swing.JFrame {
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
 
-        /* Create and display the form */
+ /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SettingsFrame().setVisible(true);
@@ -359,7 +371,7 @@ public class SettingsFrame extends javax.swing.JFrame {
     private javax.swing.JButton changePwBtn;
     private javax.swing.JLabel generalLabel;
     private javax.swing.JSeparator generalSeparator;
-    private JComboBox<Locale> languageComboBox;
+    private javax.swing.JComboBox languageComboBox;
     private javax.swing.JLabel languageLabel;
     private javax.swing.JLabel securityLabel;
     private javax.swing.JSeparator securitySeparator;

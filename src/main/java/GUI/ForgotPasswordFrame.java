@@ -70,11 +70,11 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         this.theme = GUIFunctions.setupFrame(this, "Change your password");
 
         // Color, focus and visibility setup of components
-        jPanel1.setBackground(bg);
+//        jPanel1.setBackground(bg);
         newPasswordField.setForeground(green);
         confirmNewPasswordField.setForeground(red);
-        cancelBtn.setForeground(pc);
-        applyBtn.setForeground(pc);
+//        cancelBtn.setForeground(pc);
+//        applyBtn.setForeground(pc);
 
         cancelBtn.setFocusable(false);
         applyBtn.setFocusable(false);
@@ -108,6 +108,8 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setName("bg"); // NOI18N
+
         usernameIndicator.setText("<html><p style=\"text-align:center\"><b>Enter your username:</p> </html>");
 
         usernameField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -135,6 +137,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         cancelBtn.setBackground(java.awt.Color.darkGray);
         cancelBtn.setText("<html><p style=\"text-align:center\"><b>Cancel</p> </html>");
         cancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cancelBtn.setName("btn"); // NOI18N
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelBtnActionPerformed(evt);
@@ -144,6 +147,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         applyBtn.setBackground(java.awt.Color.darkGray);
         applyBtn.setText("<html><p style=\"text-align:center\"><b>Apply</p> </html>");
         applyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        applyBtn.setName("btn"); // NOI18N
         applyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 applyBtnActionPerformed(evt);

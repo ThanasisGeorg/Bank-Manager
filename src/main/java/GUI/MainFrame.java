@@ -52,28 +52,28 @@ public class MainFrame extends javax.swing.JFrame {
         this.theme = GUIFunctions.setupFrame(this, "Bank Manager App");
 
         // Color, focus and visibility setup of components
-        mainPanel.setBackground(bg);
-        appNameLabel.setForeground(pc);
+//        mainPanel.setBackground(bg);
+//        appNameLabel.setForeground(pc);
         
-        loginBtn.setForeground(pc);
+//        loginBtn.setForeground(pc);
         usernameField.setBackground(bg);
         passwordField.setBackground(bg);
-        okBtn1.setForeground(pc);
+//        okBtn1.setForeground(pc);
         
-        signInBtn.setForeground(pc);
+//        signInBtn.setForeground(pc);
         nameField.setBackground(bg);
         surnameField.setBackground(bg);
         usernameField2.setBackground(bg);
         passwordField2.setBackground(bg);
-        okBtn2.setForeground(pc);
+//        okBtn2.setForeground(pc);
         
         infoLabel.setBackground(pc);
         forgotPwLabel.setForeground(pc);
 
-        loginBtn.setFocusable(false);
+//        loginBtn.setFocusable(false);
         signInBtn.setFocusable(false);
-        okBtn1.setFocusable(false);
-        okBtn2.setFocusable(false);
+//        okBtn1.setFocusable(false);
+//        okBtn2.setFocusable(false);
 
         loginPanel.setVisible(false);
         signInPanel.setVisible(false);
@@ -120,20 +120,23 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        mainPanel.setName(""); // NOI18N
+        mainPanel.setName("bg"); // NOI18N
 
         appNameLabel.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
         appNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         appNameLabel.setText("Bank Manager Application");
+        appNameLabel.setName("fg"); // NOI18N
 
         infoLabel.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         infoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         infoLabel.setText("<html><p style=\"text-align: center\">An easy and cool app to manage your bank accounts.<br><br>If you don't have already an existing account,<br><br>quickly become a customer and enjoy the services!</p></html>");
         infoLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(187, 187, 187)));
+        infoLabel.setName("textbox"); // NOI18N
 
         loginBtn.setBackground(java.awt.Color.darkGray);
         loginBtn.setText("<html><p style=\"text-align:center\"><b>Login</p> </html>");
         loginBtn.setAlignmentX(0.5F);
+        loginBtn.setName("btn"); // NOI18N
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginBtnActionPerformed(evt);
@@ -142,6 +145,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         signInBtn.setBackground(java.awt.Color.darkGray);
         signInBtn.setText("<html><p style=\"text-align:center\"><b>Sign In</p> </html>");
+        signInBtn.setName("btn"); // NOI18N
         signInBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signInBtnActionPerformed(evt);
@@ -157,6 +161,7 @@ public class MainFrame extends javax.swing.JFrame {
         okBtn1.setBackground(java.awt.Color.darkGray);
         okBtn1.setText("<html><p style=\"text-align:center\"><b>OK</p> </html>");
         okBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        okBtn1.setName("btn"); // NOI18N
         okBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okBtn1ActionPerformed(evt);
@@ -248,6 +253,7 @@ public class MainFrame extends javax.swing.JFrame {
         okBtn2.setBackground(java.awt.Color.darkGray);
         okBtn2.setText("<html><p style=\"text-align:center\"><b>OK</p> </html>");
         okBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        okBtn2.setName("btn"); // NOI18N
         okBtn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okBtn2ActionPerformed(evt);

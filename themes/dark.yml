@@ -2,14 +2,14 @@ name: Dark
 
 # All values below should be in hex form without the '#'
 
-bg: "FF6700"
+bg: "15141B"
 fg: "FFFFFF"
 
 bg_2: "EBEBEB"
 fg_2: "000000"
 
-btn: "004E98"
-btn_fg: "FFFFFF"
+btn: "404040"
+btn_fg: "A277FF"
 
 textbox: "1D7874"
 textbox_fg: "FFFFFF"
