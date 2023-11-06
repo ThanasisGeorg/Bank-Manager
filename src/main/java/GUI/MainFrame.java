@@ -30,10 +30,10 @@ import main.*;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    ChangePasswordFrame cpf = new ChangePasswordFrame();
+    ForgotPasswordFrame fpf = new ForgotPasswordFrame();
     ServicesFrame sf;
     DepositFrame df = new DepositFrame();
-    ForgotPasswordFrame fpf = new ForgotPasswordFrame();
+    ChangePasswordFrame cpf = new ChangePasswordFrame();
     ArrayList<Customer> customerList = new ArrayList<>();
     Theme theme;
 
@@ -48,6 +48,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() throws SQLException {
         FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
+        
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Bank Manager App");
@@ -78,10 +79,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         loginPanel.setVisible(false);
         signInPanel.setVisible(false);
-        
-        fpf.dispose();
-        df.dispose();
-        cpf.dispose();
 
         // Load data from database
         Utils.load(customerList);

@@ -56,9 +56,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         this.setTitle("Settings");
 
         // Center frame
-        this.pack();
         this.setLocationRelativeTo(null);
-        this.setVisible(true);
 
         // Color, focus and visibility setup of components
         settingsPanel.setBackground(bg);

@@ -40,12 +40,10 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
     public ForgotPasswordFrame() {
         FlatDarculaLaf.setup();
         initComponents();
-        this.theme = GUIFunctions.setupFrame(this, "Change your password");
 
         // Center frame
         this.pack();
         this.setLocationRelativeTo(null);
-        this.setVisible(true);
 
         // Color, focus and visibility setup of components
         jPanel1.setBackground(bg);
@@ -66,12 +64,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
     public ForgotPasswordFrame(MainFrame mf, ArrayList<Customer> customerList) {
         FlatDarculaLaf.setup();
         initComponents();
-        this.setTitle("Change Your Password");
-
-        // Center frame
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        this.theme = GUIFunctions.setupFrame(this, "Change your password");
 
         // Color, focus and visibility setup of components
         jPanel1.setBackground(bg);

@@ -41,9 +41,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         this.setTitle("Change Your Password");
 
         // Center frame
-        this.pack();
         this.setLocationRelativeTo(null);
-        this.setVisible(true);
 
         // Color, focus and visibility setup of components
         jPanel1.setBackground(bg);
@@ -65,11 +63,6 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         FlatDarculaLaf.setup();
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Change your password");
-
-        // Center frame
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
 
         // Color, focus and visibility setup of components
         jPanel1.setBackground(bg);

@@ -39,7 +39,6 @@ public class DepositFrame extends javax.swing.JFrame {
         // Center frame
         this.pack();
         this.setLocationRelativeTo(null);
-        this.setVisible(true);
 
         // Color, focus and visibility setup of components
         depositPanel.setBackground(bg);
@@ -54,11 +53,6 @@ public class DepositFrame extends javax.swing.JFrame {
         FlatDarculaLaf.setup();
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Deposit");
-
-        // Center frame
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
 
         // Color, focus and visibility setup of components
         depositPanel.setBackground(bg);
