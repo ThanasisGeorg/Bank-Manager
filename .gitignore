@@ -22,7 +22,7 @@
 *.rar
 
 build.xml
-/nb-configuration.xml
+nb-configuration.xml
 hs_err_pid*
 replay_pid*
 /data/

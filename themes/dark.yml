@@ -3,7 +3,7 @@ name: Dark
 # All values below should be in hex form without the '#'
 
 bg: "15141B"
-fg: "FFFFFF"
+fg: "A277FF"
 
 bg_2: "EBEBEB"
 fg_2: "BBBBBB"
