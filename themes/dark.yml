@@ -6,10 +6,12 @@ bg: "15141B"
 fg: "FFFFFF"
 
 bg_2: "EBEBEB"
-fg_2: "000000"
+fg_2: "BBBBBB"
 
 btn: "404040"
 btn_fg: "A277FF"
+
+label: "1D7874"
 
 textbox: "1D7874"
 textbox_fg: "FFFFFF"

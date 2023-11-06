@@ -108,6 +108,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         jPanel1.setName("bg"); // NOI18N
 
         oldPasswordIndicator.setText("<html><p style=\"text-align:center\"><b>Enter your old password:</p> </html>");
+        oldPasswordIndicator.setName("textbox"); // NOI18N
 
         oldPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -116,6 +117,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         });
 
         newPasswordIndicator.setText("<html><p style=\"text-align:center\"><b>Enter your new password:</p> </html>");
+        newPasswordIndicator.setName("textbox"); // NOI18N
 
         newPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -124,6 +126,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         });
 
         confirmNewPasswordIndicator.setText("<html><p style=\"text-align:center\"><b>Confirm your new password:</p> </html>");
+        confirmNewPasswordIndicator.setName("textbox"); // NOI18N
 
         confirmNewPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {

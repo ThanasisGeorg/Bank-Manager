@@ -82,9 +82,9 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         // Color, focus and visibility setup of components
 //        settingsPanel.setBackground(bg);
-        generalSeparator.setBackground(sep);
-        appearanceSeparator.setBackground(sep);
-        securitySeparator.setBackground(sep);
+//        generalSeparator.setBackground(sep);
+//        appearanceSeparator.setBackground(sep);
+//        securitySeparator.setBackground(sep);
 //        changePwBtn.setForeground(pc);
 
         languageComboBox.setFocusable(false);
@@ -131,10 +131,14 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         generalLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         generalLabel.setText("<html><p style=\"text-align:center\"><b>General</p> </html>");
+        generalLabel.setName("textbox"); // NOI18N
 
         generalSeparator.setBackground(new java.awt.Color(187, 187, 187));
+        generalSeparator.setForeground(new java.awt.Color(187, 187, 187));
+        generalSeparator.setName("fg_2"); // NOI18N
 
         languageLabel.setText("<html><p style=\"text-align:center\"><b>Language:</p> </html>");
+        languageLabel.setName("textbox"); // NOI18N
 
         languageComboBox.setBackground(java.awt.Color.darkGray);
         languageComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -145,10 +149,14 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         appearanceLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         appearanceLabel.setText("<html><p style=\"text-align:center\"><b>Appearance</p> </html>");
+        appearanceLabel.setName("textbox"); // NOI18N
 
         appearanceSeparator.setBackground(new java.awt.Color(187, 187, 187));
+        appearanceSeparator.setForeground(new java.awt.Color(187, 187, 187));
+        appearanceSeparator.setName("fg_2"); // NOI18N
 
         themesLabel.setText("<html><p style=\"text-align:center\"><b>Theme:</p> </html>");
+        themesLabel.setName("textbox"); // NOI18N
 
         themesComboBox.setBackground(java.awt.Color.darkGray);
         themesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Light", "Dark" }));
@@ -161,8 +169,11 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         securityLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         securityLabel.setText("<html><p style=\"text-align:center\"><b>Security</p> </html>");
+        securityLabel.setName("textbox"); // NOI18N
 
         securitySeparator.setBackground(new java.awt.Color(187, 187, 187));
+        securitySeparator.setForeground(new java.awt.Color(187, 187, 187));
+        securitySeparator.setName("fg_2"); // NOI18N
 
         changePwBtn.setBackground(java.awt.Color.darkGray);
         changePwBtn.setText("<html><p style=\"text-align:center\"><b>Change Password</p> </html>");

@@ -66,21 +66,21 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         // Color, focus and visibility setup of components
         servicesPanel.setBackground(bg);
-        menuSeparator.setBackground(sep);
+//        menuSeparator.setBackground(sep);
         accInfoBtn.setForeground(pc);
-        accInfoSeparator.setBackground(sep);
+//        accInfoSeparator.setBackground(sep);
         depBtn.setForeground(pc);
-        depSeparator.setBackground(sep);
+//        depSeparator.setBackground(sep);
         delBtn.setForeground(pc);
-        delSeparator.setBackground(sep);
+//        delSeparator.setBackground(sep);
         logoutBtn.setForeground(pc);
-        logoutSeparator.setBackground(sep);
+//        logoutSeparator.setBackground(sep);
         refreshBtn.setForeground(pc);
         uploadImgBtn.setForeground(pc);
         settingsBtn.setForeground(pc);
-        infoSeparator.setBackground(sep);
-        avatarSeparator1.setBackground(sep);
-        avatarSeparator2.setBackground(sep);
+//        infoSeparator.setBackground(sep);
+//        avatarSeparator1.setBackground(sep);
+//        avatarSeparator2.setBackground(sep);
 
         accInfoBtn.setFocusable(false);
         depBtn.setFocusable(false);
@@ -111,20 +111,20 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         // Color, focus and visibility setup of components
 //        servicesPanel.setBackground(bg);
-        menuSeparator.setForeground(sep);
+//        menuSeparator.setForeground(sep);
 //        accInfoBtn.setForeground(pc);
-        accInfoSeparator.setForeground(sep);
+//        accInfoSeparator.setForeground(sep);
 //        depBtn.setForeground(pc);
-        depSeparator.setForeground(sep);
+//        depSeparator.setForeground(sep);
 //        delBtn.setForeground(pc);
-        delSeparator.setForeground(sep);
+//        delSeparator.setForeground(sep);
 //        logoutBtn.setForeground(pc);
-        logoutSeparator.setForeground(sep);
+//        logoutSeparator.setForeground(sep);
         
 //        refreshBtn.setForeground(pc);
 //        uploadImgBtn.setForeground(pc);
 //        settingsBtn.setForeground(pc);
-        infoSeparator.setForeground(sep);
+//        infoSeparator.setForeground(sep);
         avatarSeparator1.setForeground(sep);
         avatarSeparator2.setForeground(sep);
         
@@ -203,6 +203,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         menuSeparator.setBackground(new java.awt.Color(187, 187, 187));
         menuSeparator.setForeground(new java.awt.Color(187, 187, 187));
+        menuSeparator.setName("fg_2"); // NOI18N
 
         accInfoBtn.setBackground(java.awt.Color.darkGray);
         accInfoBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -216,6 +217,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         accInfoSeparator.setBackground(new java.awt.Color(187, 187, 187));
         accInfoSeparator.setForeground(new java.awt.Color(187, 187, 187));
+        accInfoSeparator.setName("fg_2"); // NOI18N
 
         depBtn.setBackground(java.awt.Color.darkGray);
         depBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -229,6 +231,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         depSeparator.setBackground(new java.awt.Color(187, 187, 187));
         depSeparator.setForeground(new java.awt.Color(187, 187, 187));
+        depSeparator.setName("fg_2"); // NOI18N
 
         delBtn.setBackground(java.awt.Color.darkGray);
         delBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -242,6 +245,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         delSeparator.setBackground(new java.awt.Color(187, 187, 187));
         delSeparator.setForeground(new java.awt.Color(187, 187, 187));
+        delSeparator.setName("fg_2"); // NOI18N
 
         logoutBtn.setBackground(java.awt.Color.darkGray);
         logoutBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -255,10 +259,12 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         logoutSeparator.setBackground(new java.awt.Color(187, 187, 187));
         logoutSeparator.setForeground(new java.awt.Color(187, 187, 187));
+        logoutSeparator.setName("fg_2"); // NOI18N
 
         mainSeparator.setBackground(new java.awt.Color(187, 187, 187));
         mainSeparator.setForeground(new java.awt.Color(187, 187, 187));
         mainSeparator.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        mainSeparator.setName("fg_2"); // NOI18N
 
         avatarPanel.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -276,37 +282,46 @@ public class ServicesFrame extends javax.swing.JFrame {
             .addComponent(avatarLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
         );
 
-        customerInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 22)); // NOI18N
+        customerInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         customerInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         customerInfoLabel.setText("<html><p style=\"text-align:center\"><b>Customer Info</p> </html>");
-        customerInfoLabel.setName("textbox"); // NOI18N
+        customerInfoLabel.setName("label"); // NOI18N
 
         nameIndicator.setText("<html><p style=\"text-align:center\"><b>Name:</p> </html>");
+        nameIndicator.setName("label"); // NOI18N
 
         surnameIndicator.setText("<html><p style=\"text-align:center\"><b>Surname:</p> </html>");
+        surnameIndicator.setName("label"); // NOI18N
 
         ageIndicator.setText("<html><p style=\"text-align:center\"><b>Age:</p> </html>");
+        ageIndicator.setName("label"); // NOI18N
 
-        accountInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 22)); // NOI18N
+        accountInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         accountInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accountInfoLabel.setText("<html><p style=\"text-align:center\"><b>Account Info</p> </html>");
-        accountInfoLabel.setName("textbox"); // NOI18N
+        accountInfoLabel.setName("label"); // NOI18N
 
         usernameIndicator.setText("<html><p style=\"text-align:center\"><b>Username:</p> </html>");
+        usernameIndicator.setName("label"); // NOI18N
 
         balanceIndicator.setText("<html><p style=\"text-align:center\"><b>Balance:</p> </html>");
+        balanceIndicator.setName("label"); // NOI18N
 
         accIdIndicator.setText("<html><p style=\"text-align:center\"><b>Account ID:</p> </html>");
+        accIdIndicator.setName("label"); // NOI18N
 
         infoSeparator.setBackground(new java.awt.Color(187, 187, 187));
         infoSeparator.setForeground(new java.awt.Color(187, 187, 187));
+        infoSeparator.setName(""); // NOI18N
 
         avatarSeparator1.setBackground(new java.awt.Color(187, 187, 187));
         avatarSeparator1.setForeground(new java.awt.Color(187, 187, 187));
         avatarSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        avatarSeparator1.setName(""); // NOI18N
 
         avatarSeparator2.setBackground(new java.awt.Color(187, 187, 187));
         avatarSeparator2.setForeground(new java.awt.Color(187, 187, 187));
+        avatarSeparator2.setName(""); // NOI18N
 
         uploadImgBtn.setBackground(java.awt.Color.darkGray);
         uploadImgBtn.setText("<html><p style=\"text-align:center\"><b>Upload Image</p> </html>");
@@ -330,7 +345,7 @@ public class ServicesFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
                         .addComponent(uploadImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addContainerGap(51, Short.MAX_VALUE)
+                        .addContainerGap(70, Short.MAX_VALUE)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(infoPanelLayout.createSequentialGroup()
                                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -456,7 +471,7 @@ public class ServicesFrame extends javax.swing.JFrame {
                     .addComponent(menuSeparator))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mainSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
                 .addGroup(servicesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(infoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(refreshBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)

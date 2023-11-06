@@ -117,6 +117,7 @@
               <Font name="Liberation Sans" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;General&lt;/p&gt; &lt;/html&gt;"/>
+            <Property name="name" type="java.lang.String" value="textbox" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="generalSeparator">
@@ -124,11 +125,16 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="bb" green="bb" red="bb" type="rgb"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="languageLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Language:&lt;/p&gt; &lt;/html&gt;"/>
+            <Property name="name" type="java.lang.String" value="textbox" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="languageComboBox">
@@ -150,6 +156,7 @@
               <Font name="Liberation Sans" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Appearance&lt;/p&gt; &lt;/html&gt;"/>
+            <Property name="name" type="java.lang.String" value="textbox" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="appearanceSeparator">
@@ -157,11 +164,16 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="bb" green="bb" red="bb" type="rgb"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="themesLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Theme:&lt;/p&gt; &lt;/html&gt;"/>
+            <Property name="name" type="java.lang.String" value="textbox" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="themesComboBox">
@@ -190,6 +202,7 @@
               <Font name="Liberation Sans" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Security&lt;/p&gt; &lt;/html&gt;"/>
+            <Property name="name" type="java.lang.String" value="textbox" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="securitySeparator">
@@ -197,6 +210,10 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="bb" green="bb" red="bb" type="rgb"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="changePwBtn">

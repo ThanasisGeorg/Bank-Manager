@@ -61,7 +61,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="mainSeparator" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="186" max="32767" attributes="0"/>
+                  <EmptySpace pref="167" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="infoPanel" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="refreshBtn" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
@@ -135,6 +135,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="accInfoBtn">
@@ -160,6 +161,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="depBtn">
@@ -185,6 +187,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="delBtn">
@@ -210,6 +213,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="logoutBtn">
@@ -235,6 +239,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="mainSeparator">
@@ -246,6 +251,7 @@
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
             <Property name="orientation" type="int" value="1"/>
+            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="infoPanel">
@@ -262,7 +268,7 @@
                               <Component id="uploadImgBtn" min="-2" pref="138" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="51" max="32767" attributes="0"/>
+                              <EmptySpace pref="70" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -414,16 +420,17 @@
             <Component class="javax.swing.JLabel" name="customerInfoLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Liberation Sans" size="22" style="0"/>
+                  <Font name="Liberation Sans" size="24" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Customer Info&lt;/p&gt; &lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="textbox" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="nameIndicator">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Name:&lt;/p&gt; &lt;/html&gt;"/>
+                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="name">
@@ -431,6 +438,7 @@
             <Component class="javax.swing.JLabel" name="surnameIndicator">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Surname:&lt;/p&gt; &lt;/html&gt;"/>
+                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="surname">
@@ -438,6 +446,7 @@
             <Component class="javax.swing.JLabel" name="ageIndicator">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Age:&lt;/p&gt; &lt;/html&gt;"/>
+                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="age">
@@ -445,16 +454,17 @@
             <Component class="javax.swing.JLabel" name="accountInfoLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Liberation Sans" size="22" style="0"/>
+                  <Font name="Liberation Sans" size="24" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Account Info&lt;/p&gt; &lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="textbox" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="usernameIndicator">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Username:&lt;/p&gt; &lt;/html&gt;"/>
+                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="username">
@@ -462,6 +472,7 @@
             <Component class="javax.swing.JLabel" name="balanceIndicator">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Balance:&lt;/p&gt; &lt;/html&gt;"/>
+                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="balance">
@@ -469,6 +480,7 @@
             <Component class="javax.swing.JLabel" name="accIdIndicator">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Account ID:&lt;/p&gt; &lt;/html&gt;"/>
+                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="accountId">
@@ -481,6 +493,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="bb" green="bb" red="bb" type="rgb"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="avatarSeparator1">
@@ -492,6 +505,7 @@
                   <Color blue="bb" green="bb" red="bb" type="rgb"/>
                 </Property>
                 <Property name="orientation" type="int" value="1"/>
+                <Property name="name" type="java.lang.String" value="" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="avatarSeparator2">
@@ -502,6 +516,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="bb" green="bb" red="bb" type="rgb"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="uploadImgBtn">
