@@ -18,8 +18,11 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import kdesp73.databridge.connections.*;
 import kdesp73.databridge.helpers.QueryBuilder;
+import kdesp73.themeLib.*;
 
 import com.formdev.flatlaf.*;
+import java.io.File;
+import javax.swing.DefaultComboBoxModel;
 
 import main.Customer;
 
@@ -28,11 +31,15 @@ import main.Customer;
  * @author tgeorg
  */
 public class SettingsFrame extends javax.swing.JFrame {
-   
+
+    MainFrame mf;
     ServicesFrame sf;
+    DepositFrame df;
     ChangePasswordFrame cpf;
+    ForgotPasswordFrame fpf;
     ArrayList<Customer> customerList;
     ResourceBundle rb;
+    Theme theme;
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
@@ -66,22 +73,24 @@ public class SettingsFrame extends javax.swing.JFrame {
         db.close();
     }
 
-    public SettingsFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
+    public SettingsFrame(MainFrame mf, ServicesFrame sf, DepositFrame df, ChangePasswordFrame cpf, ForgotPasswordFrame fpf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) throws SQLException {
         FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
 
         initComponents();
-        this.setTitle("Settings");
-
-        // Center frame
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        this.theme = GUIFunctions.setupFrame(this, "Settings");
 
         // Setup of components
+        this.mf = mf;
         this.sf = sf;
+        this.df = df;
+        this.cpf = cpf;
+        mf.fpf = fpf;
         this.customerList = customerList;
         this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
+
+        refreshThemeCombo();
+        themesComboBox.setSelectedItem(theme.getName());
 
         // Color, focus and visibility setup of components
         settingsPanel.setBackground(bg);
@@ -95,9 +104,8 @@ public class SettingsFrame extends javax.swing.JFrame {
         changePwBtn.setFocusable(false);
 
         this.setIconImage(new ImageIcon(FILEPATH + "/data/icons/gear-solid.svg").getImage());
-        
-        //configureFrameProperties();
 
+//        configureFrameProperties();
         db.close();
     }
 
@@ -149,6 +157,11 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         themesComboBox.setBackground(java.awt.Color.darkGray);
         themesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Light", "Dark" }));
+        themesComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                themesComboBoxActionPerformed(evt);
+            }
+        });
 
         securityLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         securityLabel.setText("<html><p style=\"text-align:center\"><b>Security</p> </html>");
@@ -235,22 +248,33 @@ public class SettingsFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void configureFrameProperties(){
+    private void configureFrameProperties() {
         languageComboBox.addItem(Locale.US);
         languageComboBox.addItem(Locale.GERMANY);
         setTexts();
         languageComboBox.addItemListener(itemEvent -> setTexts());
     }
-    
-    private void setTexts(){
+
+    private void setTexts() {
         Locale locale = languageComboBox.getItemAt(languageComboBox.getSelectedIndex());
         System.out.println(locale);
-        rb = ResourceBundle.getBundle("resources.Bundle", locale);
-        setTitle(rb.getString("application.title"));
-        languageLabel.setText(rb.getString("language") + ":");
-        languageComboBox.setToolTipText(rb.getString("language.tooltip"));
+        rb = ResourceBundle.getBundle("i18n/Bundle");
     }
-    
+
+    public void refreshThemeCombo() {
+        ArrayList<String> themeNames = new ArrayList<>();
+
+        ThemeCollection themes = new ThemeCollection();
+        themes.loadThemes(new File(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/"));
+
+        for (Theme theme : themes.getThemes()) {
+            themeNames.add(theme.getName());
+        }
+
+        // themeNames.add(0, "Default");
+        themesComboBox.setModel(new DefaultComboBoxModel(themeNames.toArray()));
+    }
+
     private void changePwBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePwBtnActionPerformed
         if (cpf != null) {
             cpf.dispose();
@@ -271,13 +295,39 @@ public class SettingsFrame extends javax.swing.JFrame {
 //        }
 
         try {
-            DBMethods.updateSettings(s);
+            DBMethods.updateLanguage(s);
         } catch (SQLException ex) {
             Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         db.close();
     }//GEN-LAST:event_languageComboBoxActionPerformed
+
+    private void themesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themesComboBoxActionPerformed
+        String themeName = themesComboBox.getSelectedItem().toString();
+        ThemeCollection themes = new ThemeCollection();
+        themes.loadThemes(new File(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/"));
+        Theme selectedTheme = themes.matchTheme(themeName);
+
+        try {
+            DBMethods.updateTheme(themeName);
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        mf.setTheme(selectedTheme);
+        sf.setTheme(selectedTheme);
+        df.setTheme(selectedTheme);
+        cpf.setTheme(selectedTheme);
+        fpf.setTheme(selectedTheme);
+        this.theme = selectedTheme;
+
+        ThemeCollection.applyTheme(sf, selectedTheme);
+        ThemeCollection.applyTheme(df, selectedTheme);
+        ThemeCollection.applyTheme(cpf, selectedTheme);
+        ThemeCollection.applyTheme(fpf, selectedTheme);
+        ThemeCollection.applyTheme(this, selectedTheme);
+    }//GEN-LAST:event_themesComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,6 +346,15 @@ public class SettingsFrame extends javax.swing.JFrame {
                 new SettingsFrame().setVisible(true);
             }
         });
+    }
+
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+        ThemeCollection.applyTheme(this, theme);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -12,6 +12,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
 import com.formdev.flatlaf.*;
+import kdesp73.themeLib.Theme;
+import kdesp73.themeLib.ThemeCollection;
 
 /**
  *
@@ -21,6 +23,7 @@ public class DepositFrame extends javax.swing.JFrame {
 
     ServicesFrame sf;
     ArrayList<Customer> customerList;
+    Theme theme;
 
     private int indexOfCustomerLoggedIn;
 
@@ -50,7 +53,7 @@ public class DepositFrame extends javax.swing.JFrame {
     public DepositFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
         FlatDarculaLaf.setup();
         initComponents();
-        this.setTitle("Deposit");
+        this.theme = GUIFunctions.setupFrame(this, "Deposit");
 
         // Center frame
         this.pack();
@@ -193,7 +196,7 @@ public class DepositFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -202,6 +205,16 @@ public class DepositFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+        ThemeCollection.applyTheme(this, theme);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField amountField;

@@ -24,6 +24,8 @@ import java.awt.Component;
 import java.sql.ResultSet;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
+import kdesp73.themeLib.Theme;
+import kdesp73.themeLib.ThemeCollection;
 import main.Customer;
 
 /**
@@ -37,6 +39,7 @@ public class ServicesFrame extends javax.swing.JFrame {
     ChangePasswordFrame cpf;
     SettingsFrame sf;
     ArrayList<Customer> customerList;
+    Theme theme;
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
@@ -104,12 +107,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         // Frame setup
         initComponents();
-        this.setTitle(customerList.get(indexOfCustomerLoggedIn).getAcc().getUsername() + ":~");
-
-        // Center frame
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        this.theme = GUIFunctions.setupFrame(this, customerList.get(indexOfCustomerLoggedIn).getAcc().getUsername() + ":~");
 
         // Color, focus and visibility setup of components
         servicesPanel.setBackground(bg);
@@ -622,7 +620,11 @@ public class ServicesFrame extends javax.swing.JFrame {
             sf.dispose();
         }
 
-        sf = new SettingsFrame(this, customerList, indexOfCustomerLoggedIn);
+        try {
+            sf = new SettingsFrame(mf, this, df, cpf, mf.fpf, customerList, indexOfCustomerLoggedIn);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         sf.setVisible(true);
     }//GEN-LAST:event_settingsBtnActionPerformed
 
@@ -635,7 +637,7 @@ public class ServicesFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -643,6 +645,15 @@ public class ServicesFrame extends javax.swing.JFrame {
                 new ServicesFrame().setVisible(true);
             }
         });
+    }
+    
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+        ThemeCollection.applyTheme(this, theme);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

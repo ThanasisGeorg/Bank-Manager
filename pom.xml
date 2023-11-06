@@ -40,6 +40,12 @@
         </dependency>
         
         <dependency>
+            <groupId>kdesp73</groupId>
+            <artifactId>SwingThemesLibrary</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        
+        <dependency>
             <groupId>org.imgscalr</groupId>
             <artifactId>imgscalr-lib</artifactId>
             <version>4.2</version>

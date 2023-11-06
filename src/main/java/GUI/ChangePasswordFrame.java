@@ -16,6 +16,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
 import com.formdev.flatlaf.*;
+import kdesp73.themeLib.Theme;
+import kdesp73.themeLib.ThemeCollection;
 
 /**
  *
@@ -25,7 +27,8 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
 
     SettingsFrame sf;
     ArrayList<Customer> customerList;
-
+    Theme theme = null;
+    
     private int indexOfCustomerLoggedIn;
 
     Color pc = new Color(162, 119, 255);
@@ -61,7 +64,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
     public ChangePasswordFrame(SettingsFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
         FlatDarculaLaf.setup();
         initComponents();
-        this.setTitle("Change Your Password");
+        this.theme = GUIFunctions.setupFrame(this, "Change your password");
 
         // Center frame
         this.pack();
@@ -397,6 +400,15 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                 new ChangePasswordFrame().setVisible(true);
             }
         });
+    }
+    
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+        ThemeCollection.applyTheme(this, theme);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

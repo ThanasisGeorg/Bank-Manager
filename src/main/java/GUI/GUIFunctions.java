@@ -6,8 +6,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-import Database.DBMethods;
+import Database.*;
 import Utils.Utils;
+import java.io.File;
+import java.sql.ResultSet;
+import java.util.regex.Pattern;
+import javax.swing.JFrame;
+import kdesp73.databridge.connections.DatabaseConnection;
+import kdesp73.databridge.helpers.QueryBuilder;
+import kdesp73.themeLib.*;
 import main.Customer;
 
 /**
@@ -15,6 +22,7 @@ import main.Customer;
  * @author tgeorg
  */
 public class GUIFunctions {
+
     // Functions for MainFrame
     public static int checkLoginInfo(MainFrame mf, ArrayList<Customer> customerList) {
         if ((mf.getUsernameField().getText().isEmpty() || mf.getUsernameField().getText().isBlank()) && mf.getPasswordField().getPassword().length == 0) {
@@ -60,7 +68,7 @@ public class GUIFunctions {
             JOptionPane.showMessageDialog(mf, "Your password must be at least 5 at size", "Password Error", JOptionPane.ERROR_MESSAGE);
             return -1;
         }
-        
+
         if (!GUIUtils.checkNums(GUIUtils.charArrayToString(mf.getPasswordField2().getPassword()))) {
             JOptionPane.showMessageDialog(mf, "Your password must contain at least 1 number", "Password Error", JOptionPane.ERROR_MESSAGE);
             return -1;
@@ -116,8 +124,51 @@ public class GUIFunctions {
 
         return -1;
     }
-    
-    public static void setLanguage(String language){
+
+    public static void setLanguage(String language) {
+
+    }
+
+    public static ThemeCollection getThemes() {
+        ThemeCollection themeCollection = new ThemeCollection();
+        themeCollection.loadThemes(new File(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/"));
+//        System.out.println(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/");
+
+        return themeCollection;
+    }
+
+    public static Theme setupFrame(JFrame frame, String title) {
+        DatabaseConnection db = Database.connection();
+        Theme theme = null;
         
+        frame.setTitle(title);
+        
+        // Center frame
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        
+        // Theme setup
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Theme").from("Settings").build());
+            rs.next();
+            String themeName = rs.getString(1);
+            ThemeCollection themes = getThemes();
+            theme = themes.matchTheme(themeName);
+            System.out.println(theme.getName());
+            ThemeCollection.applyTheme(frame, theme);
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (theme == null) {
+            System.out.println("Theme is null");
+            theme = new Theme(new YamlFile(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/"));
+            ThemeCollection.applyTheme(frame, theme);
+        }
+        
+        db.close();
+        
+        return theme;
     }
 }

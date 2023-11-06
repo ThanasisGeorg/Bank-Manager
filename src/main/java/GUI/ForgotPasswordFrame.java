@@ -15,6 +15,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
 import com.formdev.flatlaf.*;
+import kdesp73.themeLib.Theme;
+import kdesp73.themeLib.ThemeCollection;
 
 /**
  *
@@ -24,6 +26,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
 
     MainFrame mf;
     ArrayList<Customer> customerList;
+    Theme theme = null;
 
     private int indexOfCustomer = 0;
 
@@ -37,7 +40,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
     public ForgotPasswordFrame() {
         FlatDarculaLaf.setup();
         initComponents();
-        this.setTitle("Change Your Password");
+        this.theme = GUIFunctions.setupFrame(this, "Change your password");
 
         // Center frame
         this.pack();
@@ -393,7 +396,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -401,6 +404,15 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
                 new ForgotPasswordFrame().setVisible(true);
             }
         });
+    }
+
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+        ThemeCollection.applyTheme(this, theme);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

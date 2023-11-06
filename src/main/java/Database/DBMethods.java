@@ -139,10 +139,18 @@ public class DBMethods {
         db.close();
     }
 
-    public static void updateSettings(String language) throws SQLException {
+    public static void updateLanguage(String language) throws SQLException {
         DatabaseConnection db = Database.connection();
 
         db.executeUpdate(new QueryBuilder().update("Settings").set("Language", language).where("No = \"" + 1 + "\"").build());
+
+        db.close();
+    }
+    
+    public static void updateTheme(String themeName) throws SQLException {
+        DatabaseConnection db = Database.connection();
+
+        db.executeUpdate(new QueryBuilder().update("Settings").set("Theme", themeName).where("No = \"" + 1 + "\"").build());
 
         db.close();
     }

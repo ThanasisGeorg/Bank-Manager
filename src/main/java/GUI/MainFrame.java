@@ -20,6 +20,8 @@ import java.awt.Component;
 import java.sql.ResultSet;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
+import kdesp73.themeLib.Theme;
+import kdesp73.themeLib.ThemeCollection;
 import main.*;
 
 /**
@@ -28,9 +30,12 @@ import main.*;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    ForgotPasswordFrame fpf;
+    ChangePasswordFrame cpf = new ChangePasswordFrame();
     ServicesFrame sf;
+    DepositFrame df = new DepositFrame();
+    ForgotPasswordFrame fpf = new ForgotPasswordFrame();
     ArrayList<Customer> customerList = new ArrayList<>();
+    Theme theme;
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
@@ -45,12 +50,7 @@ public class MainFrame extends javax.swing.JFrame {
         DatabaseConnection db = Database.connection();
         // Frame setup
         initComponents();
-        this.setTitle("Bank Manager App");
-
-        // Center frame
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        this.theme = GUIFunctions.setupFrame(this, "Bank Manager App");
 
         // Color, focus and visibility setup of components
         mainPanel.setBackground(bg);
@@ -78,6 +78,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         loginPanel.setVisible(false);
         signInPanel.setVisible(false);
+        
+        fpf.dispose();
+        df.dispose();
+        cpf.dispose();
 
         // Load data from database
         Utils.load(customerList);
@@ -467,6 +471,15 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
         });
+    }
+    
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+        ThemeCollection.applyTheme(this, theme);
     }
 
     public JSpinner getAgeSpinner() {
