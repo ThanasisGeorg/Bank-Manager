@@ -49,11 +49,10 @@ public class SettingsFrame extends javax.swing.JFrame {
     private int indexOfCustomerLoggedIn;
 
     public SettingsFrame() {
-        FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
 
         initComponents();
-        this.setTitle("Settings");
+        this.theme = GUIFunctions.setupFrame(this, "Settings");
 
         // Center frame
         this.setLocationRelativeTo(null);
@@ -72,7 +71,6 @@ public class SettingsFrame extends javax.swing.JFrame {
     }
 
     public SettingsFrame(MainFrame mf, ServicesFrame sf, DepositFrame df, ChangePasswordFrame cpf, ForgotPasswordFrame fpf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) throws SQLException {
-        FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
 
         initComponents();
@@ -83,7 +81,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         this.sf = sf;
         this.df = df;
         this.cpf = cpf;
-        mf.fpf = fpf;
+        this.fpf = fpf;
         this.customerList = customerList;
         this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
 
@@ -306,6 +304,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         ThemeCollection themes = new ThemeCollection();
         themes.loadThemes(new File(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/"));
         Theme selectedTheme = themes.matchTheme(themeName);
+        System.out.println(selectedTheme.getName());
 
         try {
             DBMethods.updateTheme(themeName);
@@ -336,7 +335,6 @@ public class SettingsFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

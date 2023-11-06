@@ -30,10 +30,8 @@ import main.*;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    ForgotPasswordFrame fpf = new ForgotPasswordFrame();
     ServicesFrame sf;
-    DepositFrame df = new DepositFrame();
-    ChangePasswordFrame cpf = new ChangePasswordFrame();
+    ForgotPasswordFrame fpf;
     ArrayList<Customer> customerList = new ArrayList<>();
     Theme theme;
 
@@ -456,7 +454,6 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-//        UIManager.setLookAndFeel("com.formdev.flatlaf.FlatDarculaLaf");
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

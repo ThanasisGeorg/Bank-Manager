@@ -8,10 +8,13 @@ import javax.swing.JOptionPane;
 
 import Database.*;
 import Utils.Utils;
+import com.formdev.flatlaf.FlatDarculaLaf;
 import java.io.File;
 import java.sql.ResultSet;
 import java.util.regex.Pattern;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
 import kdesp73.themeLib.*;
@@ -140,12 +143,12 @@ public class GUIFunctions {
     public static Theme setupFrame(JFrame frame, String title) {
         DatabaseConnection db = Database.connection();
         Theme theme = null;
-        
+
         frame.setTitle(title);
-        
+
         // Center frame
         frame.setLocationRelativeTo(null);
-        
+
         // Theme setup
         try {
             ResultSet rs = db.executeQuery(new QueryBuilder().select("Theme").from("Settings").build());
@@ -153,20 +156,19 @@ public class GUIFunctions {
             String themeName = rs.getString(1);
             ThemeCollection themes = getThemes();
             theme = themes.matchTheme(themeName);
-            System.out.println(theme.getName());
             ThemeCollection.applyTheme(frame, theme);
         } catch (SQLException ex) {
             Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         if (theme == null) {
             System.out.println("Theme is null");
             theme = new Theme(new YamlFile(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/"));
             ThemeCollection.applyTheme(frame, theme);
         }
-        
+
         db.close();
-        
+
         return theme;
     }
 }

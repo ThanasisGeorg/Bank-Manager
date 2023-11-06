@@ -39,7 +39,9 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
      */
     public ForgotPasswordFrame() {
         FlatDarculaLaf.setup();
+        //Frame setup
         initComponents();
+        this.theme = GUIFunctions.setupFrame(this, "Change your password");
 
         // Center frame
         this.pack();
@@ -63,6 +65,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
 
     public ForgotPasswordFrame(MainFrame mf, ArrayList<Customer> customerList) {
         FlatDarculaLaf.setup();
+        //Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Change your password");
 
@@ -389,7 +392,6 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-//        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

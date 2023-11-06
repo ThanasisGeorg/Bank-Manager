@@ -35,9 +35,10 @@ import main.Customer;
 public class ServicesFrame extends javax.swing.JFrame {
 
     MainFrame mf;
-    DepositFrame df;
-    ChangePasswordFrame cpf;
-    SettingsFrame sf;
+    ForgotPasswordFrame fpf = new ForgotPasswordFrame();
+    DepositFrame df = new DepositFrame();
+    ChangePasswordFrame cpf = new ChangePasswordFrame();
+    SettingsFrame sf = new SettingsFrame();
     ArrayList<Customer> customerList;
     Theme theme;
 
@@ -51,13 +52,13 @@ public class ServicesFrame extends javax.swing.JFrame {
     private boolean depBtnPressed = false;
     private boolean uploadImgBtnPressed = false;
 
-    public ServicesFrame() {
+    public ServicesFrame() {   
         FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
 
         // Frame setup
         initComponents();
-        this.setTitle("~");
+        this.theme = GUIFunctions.setupFrame(this, "~");
 
         // Center frame
         this.pack();
@@ -621,7 +622,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         }
 
         try {
-            sf = new SettingsFrame(mf, this, df, cpf, mf.fpf, customerList, indexOfCustomerLoggedIn);
+            sf = new SettingsFrame(mf, this, df, cpf, fpf, customerList, indexOfCustomerLoggedIn);
         } catch (SQLException ex) {
             Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -637,7 +638,6 @@ public class ServicesFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-//        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

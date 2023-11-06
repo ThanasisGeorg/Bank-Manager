@@ -37,11 +37,9 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
 
     public ChangePasswordFrame() {
         FlatDarculaLaf.setup();
+        // Frame setup
         initComponents();
-        this.setTitle("Change Your Password");
-
-        // Center frame
-        this.setLocationRelativeTo(null);
+        this.theme = GUIFunctions.setupFrame(this, "Change your password");
 
         // Color, focus and visibility setup of components
         jPanel1.setBackground(bg);
@@ -61,6 +59,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
 
     public ChangePasswordFrame(SettingsFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
         FlatDarculaLaf.setup();
+        // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Change your password");
 
@@ -385,7 +384,6 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

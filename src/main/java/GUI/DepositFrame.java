@@ -33,8 +33,9 @@ public class DepositFrame extends javax.swing.JFrame {
 
     public DepositFrame() {
         FlatDarculaLaf.setup();
+        // Frame setup
         initComponents();
-        this.setTitle("Deposit");
+        this.theme = GUIFunctions.setupFrame(this, "Deposit");
 
         // Center frame
         this.pack();
@@ -51,6 +52,7 @@ public class DepositFrame extends javax.swing.JFrame {
 
     public DepositFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
         FlatDarculaLaf.setup();
+        // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Deposit");
 
@@ -190,7 +192,6 @@ public class DepositFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-//        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
