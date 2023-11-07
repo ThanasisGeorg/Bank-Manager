@@ -2,7 +2,7 @@ name: Light
 
 # All values below should be in hex form without the '#'
 
-bg: "BBBBBB"
+bg: "E1E1E1"
 fg: "15141B"
 
 bg_2: "EBEBEB"

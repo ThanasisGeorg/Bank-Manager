@@ -35,8 +35,7 @@ import main.Customer;
 public class ServicesFrame extends javax.swing.JFrame {
 
     MainFrame mf;
-    DepositFrame df = new DepositFrame();
-    ChangePasswordFrame cpf = new ChangePasswordFrame();
+    DepositFrame df;
     SettingsFrame sf;
     ArrayList<Customer> customerList;
     Theme theme;
@@ -110,21 +109,6 @@ public class ServicesFrame extends javax.swing.JFrame {
         this.theme = GUIFunctions.setupFrame(this, customerList.get(indexOfCustomerLoggedIn).getAcc().getUsername() + ":~");
 
         // Color, focus and visibility setup of components
-//        servicesPanel.setBackground(bg);
-//        menuSeparator.setForeground(sep);
-//        accInfoBtn.setForeground(pc);
-//        accInfoSeparator.setForeground(sep);
-//        depBtn.setForeground(pc);
-//        depSeparator.setForeground(sep);
-//        delBtn.setForeground(pc);
-//        delSeparator.setForeground(sep);
-//        logoutBtn.setForeground(pc);
-//        logoutSeparator.setForeground(sep);
-        
-//        refreshBtn.setForeground(pc);
-//        uploadImgBtn.setForeground(pc);
-//        settingsBtn.setForeground(pc);
-//        infoSeparator.setForeground(sep);
         avatarSeparator1.setForeground(sep);
         avatarSeparator2.setForeground(sep);
         
@@ -649,7 +633,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         }
 
         try {
-            sf = new SettingsFrame(this, df, cpf, customerList, indexOfCustomerLoggedIn);
+            sf = new SettingsFrame(this, customerList, indexOfCustomerLoggedIn);
         } catch (SQLException ex) {
             Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
         }

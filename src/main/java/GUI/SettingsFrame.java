@@ -35,8 +35,8 @@ import main.Customer;
 public class SettingsFrame extends javax.swing.JFrame {
 
     ServicesFrame sf;
-    DepositFrame df;
     ChangePasswordFrame cpf;
+    AboutFrame af;
     ArrayList<Customer> customerList;
     ResourceBundle rb;
     Theme theme;
@@ -55,9 +55,6 @@ public class SettingsFrame extends javax.swing.JFrame {
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Settings");
 
-        // Center frame
-        this.setLocationRelativeTo(null);
-
         // Color, focus and visibility setup of components
         settingsPanel.setBackground(bg);
         changePwBtn.setForeground(pc);
@@ -70,7 +67,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         db.close();
     }
 
-    public SettingsFrame(ServicesFrame sf, DepositFrame df, ChangePasswordFrame cpf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) throws SQLException {
+    public SettingsFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) throws SQLException {
         DatabaseConnection db = Database.connection();
 
         // Frame setup
@@ -90,10 +87,10 @@ public class SettingsFrame extends javax.swing.JFrame {
         languageComboBox.setFocusable(false);
         themesComboBox.setFocusable(false);
         changePwBtn.setFocusable(false);
+        aboutBtn.setFocusable(false);
+        helpBtn.setFocusable(false);
 
         this.sf = sf;
-        this.df = df;
-        this.cpf = cpf;
         this.customerList = customerList;
         this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
 
@@ -123,6 +120,8 @@ public class SettingsFrame extends javax.swing.JFrame {
         securityLabel = new javax.swing.JLabel();
         securitySeparator = new javax.swing.JSeparator();
         changePwBtn = new javax.swing.JButton();
+        helpBtn = new javax.swing.JButton();
+        aboutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -185,6 +184,19 @@ public class SettingsFrame extends javax.swing.JFrame {
             }
         });
 
+        helpBtn.setBackground(java.awt.Color.darkGray);
+        helpBtn.setText("<html><p style=\"text-align:center\"><b>Help</p> </html>");
+        helpBtn.setName("btn"); // NOI18N
+
+        aboutBtn.setBackground(java.awt.Color.darkGray);
+        aboutBtn.setText("<html><p style=\"text-align:center\"><b>About</p> </html>");
+        aboutBtn.setName("btn"); // NOI18N
+        aboutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutBtnMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout settingsPanelLayout = new javax.swing.GroupLayout(settingsPanel);
         settingsPanel.setLayout(settingsPanelLayout);
         settingsPanelLayout.setHorizontalGroup(
@@ -214,6 +226,12 @@ public class SettingsFrame extends javax.swing.JFrame {
                                 .addComponent(securitySeparator, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(securityLabel, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, settingsPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(helpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         settingsPanelLayout.setVerticalGroup(
             settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +258,11 @@ public class SettingsFrame extends javax.swing.JFrame {
                 .addComponent(securitySeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(changePwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(helpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -274,7 +296,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         ArrayList<String> themeNames = new ArrayList<>();
 
         ThemeCollection themes = new ThemeCollection();
-        themes.loadThemes(new File(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/"));
+        themes.loadThemes(new File(FILEPATH + "/themes/"));
 
         for (Theme theme : themes.getThemes()) {
             themeNames.add(theme.getName());
@@ -328,7 +350,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         
         String themeName = themesComboBox.getSelectedItem().toString();
         ThemeCollection themes = new ThemeCollection();
-        themes.loadThemes(new File(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/"));
+        themes.loadThemes(new File(FILEPATH + "/themes/"));
         Theme selectedTheme = themes.matchTheme(themeName);
 
         try {
@@ -338,16 +360,24 @@ public class SettingsFrame extends javax.swing.JFrame {
         }
 
         sf.setTheme(selectedTheme);
-        df.setTheme(selectedTheme);
-        cpf.setTheme(selectedTheme);
         this.theme = selectedTheme;
 
         ThemeCollection.applyTheme(sf, selectedTheme);
-        ThemeCollection.applyTheme(df, selectedTheme);
-        ThemeCollection.applyTheme(cpf, selectedTheme);
         ThemeCollection.applyTheme(this, selectedTheme);
-
     }//GEN-LAST:event_themesComboBoxActionPerformed
+
+    private void aboutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBtnMouseClicked
+        if (evt.getButton() != MouseEvent.BUTTON1) {
+            return;
+        }
+        
+        if (af != null) {
+            af.dispose();
+        }
+        
+        af = new AboutFrame(this);
+        af.setVisible(true);
+    }//GEN-LAST:event_aboutBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -377,11 +407,13 @@ public class SettingsFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aboutBtn;
     private javax.swing.JLabel appearanceLabel;
     private javax.swing.JSeparator appearanceSeparator;
     private javax.swing.JButton changePwBtn;
     private javax.swing.JLabel generalLabel;
     private javax.swing.JSeparator generalSeparator;
+    private javax.swing.JButton helpBtn;
     private javax.swing.JComboBox languageComboBox;
     private javax.swing.JLabel languageLabel;
     private javax.swing.JLabel securityLabel;
