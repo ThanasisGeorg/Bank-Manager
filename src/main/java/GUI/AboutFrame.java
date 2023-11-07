@@ -64,21 +64,26 @@ public class AboutFrame extends javax.swing.JFrame {
 
         synopsisLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         synopsisLabel.setText("<html><p style=\"text-align:center\"><b>Synopsis</p> </html>");
+        synopsisLabel.setName("textbox"); // NOI18N
 
         jSeparator1.setBackground(new java.awt.Color(187, 187, 187));
         jSeparator1.setForeground(new java.awt.Color(187, 187, 187));
+        jSeparator1.setName("fg_2"); // NOI18N
 
+        synopsisTextArea.setEditable(false);
         synopsisTextArea.setColumns(20);
         synopsisTextArea.setLineWrap(true);
         synopsisTextArea.setRows(3);
-        synopsisTextArea.setText("A program to manage your bank accountswritten in Java, with the use of SQLite");
+        synopsisTextArea.setText("A program to manage your bank accountswritten in Java, with the use of SQLite.\nIt is available in two versions:\n-terminal version\n-GUI version (with Java Swing)");
         synopsisScrollPane.setViewportView(synopsisTextArea);
 
         licenceLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         licenceLabel.setText("<html><p style=\"text-align:center\"><b>Licence</p> </html>");
+        licenceLabel.setName("textbox"); // NOI18N
 
         jSeparator2.setBackground(new java.awt.Color(187, 187, 187));
         jSeparator2.setForeground(new java.awt.Color(187, 187, 187));
+        jSeparator2.setName("fg_2"); // NOI18N
 
         licenceTextArea.setEditable(false);
         licenceTextArea.setColumns(20);
@@ -113,14 +118,14 @@ public class AboutFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(synopsisScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(synopsisScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(licenceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(licenceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+                .addComponent(licenceScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -133,9 +138,7 @@ public class AboutFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(aboutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(aboutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
