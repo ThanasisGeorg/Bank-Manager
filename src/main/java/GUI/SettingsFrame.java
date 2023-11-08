@@ -25,6 +25,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
 
 import main.Customer;
 
@@ -73,6 +77,10 @@ public class SettingsFrame extends javax.swing.JFrame {
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Settings");
+        
+        languageComboBox.addItem(Locale.of("el", "GR"));
+        languageComboBox.addItem(Locale.US);
+        configureFrameProperties();
 
         refreshThemeCombo();
         themesComboBox.setSelectedItem(theme.getName());
@@ -83,7 +91,6 @@ public class SettingsFrame extends javax.swing.JFrame {
 //        appearanceSeparator.setBackground(sep);
 //        securitySeparator.setBackground(sep);
 //        changePwBtn.setForeground(pc);
-
         languageComboBox.setFocusable(false);
         themesComboBox.setFocusable(false);
         changePwBtn.setFocusable(false);
@@ -95,7 +102,6 @@ public class SettingsFrame extends javax.swing.JFrame {
         this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
 
 //        this.setIconImage(new ImageIcon(FILEPATH + "/data/icons/gear-solid.svg").getImage());
-//        configureFrameProperties();
         db.close();
     }
 
@@ -279,18 +285,11 @@ public class SettingsFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void configureFrameProperties() {
-        languageComboBox.addItem(Locale.US);
-        languageComboBox.addItem(Locale.GERMANY);
-        setTexts();
-        languageComboBox.addItemListener(itemEvent -> setTexts());
+    private void configureFrameProperties() {   
+        GUIFunctions.setTexts(this, this, rb);
+        languageComboBox.addItemListener(itemEvent -> GUIFunctions.setTexts(this, this, rb));
     }
-
-    private void setTexts() {
-        Locale locale = (Locale) languageComboBox.getItemAt(languageComboBox.getSelectedIndex());
-        System.out.println(locale);
-        rb = ResourceBundle.getBundle("i18n/Bundle");
-    }
+    
 
     public void refreshThemeCombo() {
         ArrayList<String> themeNames = new ArrayList<>();
@@ -314,11 +313,6 @@ public class SettingsFrame extends javax.swing.JFrame {
         DatabaseConnection db = Database.connection();
 
         String s = languageComboBox.getSelectedItem().toString();
-//        if (s.equalsIgnoreCase("English")) {
-//            Locale.setDefault(new Locale("en","US"));
-//        } else if (s.equalsIgnoreCase("Greek")) {
-//            Locale.setDefault(new Locale("el","GR"));
-//        }
 
         try {
             DBMethods.updateLanguage(s);
@@ -347,7 +341,7 @@ public class SettingsFrame extends javax.swing.JFrame {
             count++;
             return;
         }
-        
+
         String themeName = themesComboBox.getSelectedItem().toString();
         ThemeCollection themes = new ThemeCollection();
         themes.loadThemes(new File(FILEPATH + "/themes/"));
@@ -370,11 +364,11 @@ public class SettingsFrame extends javax.swing.JFrame {
         if (evt.getButton() != MouseEvent.BUTTON1) {
             return;
         }
-        
+
         if (af != null) {
             af.dispose();
         }
-        
+
         af = new AboutFrame(this);
         af.setVisible(true);
     }//GEN-LAST:event_aboutBtnMouseClicked
@@ -405,6 +399,131 @@ public class SettingsFrame extends javax.swing.JFrame {
         this.theme = theme;
         ThemeCollection.applyTheme(this, theme);
     }
+
+    public ChangePasswordFrame getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(ChangePasswordFrame cpf) {
+        this.cpf = cpf;
+    }
+
+    public AboutFrame getAf() {
+        return af;
+    }
+
+    public void setAf(AboutFrame af) {
+        this.af = af;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public JButton getAboutBtn() {
+        return aboutBtn;
+    }
+
+    public void setAboutBtn(JButton aboutBtn) {
+        this.aboutBtn = aboutBtn;
+    }
+
+    public JLabel getAppearanceLabel() {
+        return appearanceLabel;
+    }
+
+    public void setAppearanceLabel(JLabel appearanceLabel) {
+        this.appearanceLabel = appearanceLabel;
+    }
+
+    public JButton getChangePwBtn() {
+        return changePwBtn;
+    }
+
+    public void setChangePwBtn(JButton changePwBtn) {
+        this.changePwBtn = changePwBtn;
+    }
+
+    public JLabel getGeneralLabel() {
+        return generalLabel;
+    }
+
+    public void setGeneralLabel(JLabel generalLabel) {
+        this.generalLabel = generalLabel;
+    }
+
+    public JSeparator getGeneralSeparator() {
+        return generalSeparator;
+    }
+
+    public void setGeneralSeparator(JSeparator generalSeparator) {
+        this.generalSeparator = generalSeparator;
+    }
+
+    public JButton getHelpBtn() {
+        return helpBtn;
+    }
+
+    public void setHelpBtn(JButton helpBtn) {
+        this.helpBtn = helpBtn;
+    }
+
+    public JLabel getLanguageLabel() {
+        return languageLabel;
+    }
+
+    public void setLanguageLabel(JLabel languageLabel) {
+        this.languageLabel = languageLabel;
+    }
+
+    public JLabel getSecurityLabel() {
+        return securityLabel;
+    }
+
+    public void setSecurityLabel(JLabel securityLabel) {
+        this.securityLabel = securityLabel;
+    }
+
+    public JPanel getSettingsPanel() {
+        return settingsPanel;
+    }
+
+    public void setSettingsPanel(JPanel settingsPanel) {
+        this.settingsPanel = settingsPanel;
+    }
+
+    public JComboBox<String> getThemesComboBox() {
+        return themesComboBox;
+    }
+
+    public void setThemesComboBox(JComboBox<String> themesComboBox) {
+        this.themesComboBox = themesComboBox;
+    }
+
+    public JLabel getThemesLabel() {
+        return themesLabel;
+    }
+
+    public void setThemesLabel(JLabel themesLabel) {
+        this.themesLabel = themesLabel;
+    }
+
+    public JComboBox getLanguageComboBox() {
+        return languageComboBox;
+    }
+
+    public void setLanguageComboBox(JComboBox languageComboBox) {
+        this.languageComboBox = languageComboBox;
+    }
+
+    public ResourceBundle getRb() {
+        return rb;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutBtn;

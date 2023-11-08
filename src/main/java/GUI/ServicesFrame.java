@@ -666,6 +666,8 @@ public class ServicesFrame extends javax.swing.JFrame {
         this.theme = theme;
         ThemeCollection.applyTheme(this, theme);
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accIdIndicator;

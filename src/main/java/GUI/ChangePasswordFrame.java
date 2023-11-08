@@ -16,6 +16,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
 import com.formdev.flatlaf.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import kdesp73.themeLib.Theme;
 import kdesp73.themeLib.ThemeCollection;
 
@@ -81,6 +83,8 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         this.sf = sf;
         this.customerList = customerList;
         this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
+        
+        GUIFunctions.setTexts(this, sf, sf.getRb());
     }
 
     /**
@@ -160,12 +164,12 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,12 +181,12 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                             .addComponent(newPasswordField)
                             .addComponent(oldPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(confirmNewPasswordIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(oldPasswordIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(oldPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -194,7 +198,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmNewPasswordIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(confirmNewPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -205,7 +209,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,6 +412,48 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         this.theme = theme;
         ThemeCollection.applyTheme(this, theme);
     }
+
+    public JButton getApplyBtn() {
+        return applyBtn;
+    }
+
+    public void setApplyBtn(JButton applyBtn) {
+        this.applyBtn = applyBtn;
+    }
+
+    public JButton getCancelBtn() {
+        return cancelBtn;
+    }
+
+    public void setCancelBtn(JButton cancelBtn) {
+        this.cancelBtn = cancelBtn;
+    }
+
+    public JLabel getConfirmNewPasswordIndicator() {
+        return confirmNewPasswordIndicator;
+    }
+
+    public void setConfirmNewPasswordIndicator(JLabel confirmNewPasswordIndicator) {
+        this.confirmNewPasswordIndicator = confirmNewPasswordIndicator;
+    }
+
+    public JLabel getNewPasswordIndicator() {
+        return newPasswordIndicator;
+    }
+
+    public void setNewPasswordIndicator(JLabel newPasswordIndicator) {
+        this.newPasswordIndicator = newPasswordIndicator;
+    }
+
+    public JLabel getOldPasswordIndicator() {
+        return oldPasswordIndicator;
+    }
+
+    public void setOldPasswordIndicator(JLabel oldPasswordIndicator) {
+        this.oldPasswordIndicator = oldPasswordIndicator;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton applyBtn;

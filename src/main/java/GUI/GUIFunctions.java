@@ -11,6 +11,8 @@ import Utils.Utils;
 import com.formdev.flatlaf.FlatDarculaLaf;
 import java.io.File;
 import java.sql.ResultSet;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -172,4 +174,80 @@ public class GUIFunctions {
 
         return theme;
     }
+
+    public static void setTexts(JFrame frame, SettingsFrame sf, ResourceBundle rb) {
+        Locale locale = (Locale) sf.getLanguageComboBox().getItemAt(sf.getLanguageComboBox().getSelectedIndex());
+        rb = ResourceBundle.getBundle("i18n/Bundle", locale);
+        if (frame instanceof SettingsFrame settingsFrame) {
+            setSettingsFrameTexts(settingsFrame, rb);
+        }
+        if (frame instanceof ChangePasswordFrame cpf) {
+            setChangePasswordFrameTexts(cpf, rb);
+        }
+        if (frame instanceof ServicesFrame servicesFrame) {
+//            setServicesFrameTexts(servicesFrame, rb);
+        }
+        if (frame instanceof DepositFrame df) {
+//            setDepositFrameTexts(df, rb);
+        }
+        if (frame instanceof MainFrame mf) {
+//            setMainFrameTexts(mf, rb);
+        }
+        if (frame instanceof ForgotPasswordFrame fpf) {
+//            setForgotPasswordFrameTexts(fpf, rb);
+        }
+    }
+
+    public static void setSettingsFrameTexts(SettingsFrame sf, ResourceBundle rb) {
+        sf.getGeneralLabel().setText(rb.getString("general"));
+        sf.getLanguageLabel().setText(rb.getString("language"));
+        sf.getAppearanceLabel().setText(rb.getString("appearance"));
+        sf.getThemesLabel().setText(rb.getString("themes"));
+        sf.getSecurityLabel().setText(rb.getString("security"));
+        sf.getChangePwBtn().setText(rb.getString("change_password"));
+    }
+
+    public static void setChangePasswordFrameTexts(ChangePasswordFrame cpf, ResourceBundle rb) {
+        cpf.getOldPasswordIndicator().setText(rb.getString("old_password"));
+        cpf.getNewPasswordIndicator().setText(rb.getString("new_password"));
+        cpf.getConfirmNewPasswordIndicator().setText(rb.getString("confirm_password"));
+        cpf.getApplyBtn().setText(rb.getString("apply"));
+        cpf.getCancelBtn().setText(rb.getString("cancel"));
+    }
+
+//    public static void setServicesFrameTexts(ServicesFrame sf, ResourceBundle rb){
+//        sf.getGeneralLabel().setText(rb.getString("general"));
+//        sf.getLanguageLabel().setText(rb.getString("language"));
+//        sf.getAppearanceLabel().setText(rb.getString("appearance"));
+//        sf.getThemesLabel().setText(rb.getString("themes"));
+//        sf.getSecurityLabel().setText(rb.getString("security"));
+//        sf.getChangePwBtn().setText(rb.getString("change_password"));
+//    }
+//    
+//    public static void setDepositFrameTexts(DepositFrame df, ResourceBundle rb){
+//        df.getGeneralLabel().setText(rb.getString("general"));
+//        df.getLanguageLabel().setText(rb.getString("language"));
+//        df.getAppearanceLabel().setText(rb.getString("appearance"));
+//        df.getThemesLabel().setText(rb.getString("themes"));
+//        df.getSecurityLabel().setText(rb.getString("security"));
+//        df.getChangePwBtn().setText(rb.getString("change_password"));
+//    }
+//    
+//    public static void setMainFrameTexts(MainFrame mf, ResourceBundle rb){
+//        mf.getGeneralLabel().setText(rb.getString("general"));
+//        mf.getLanguageLabel().setText(rb.getString("language"));
+//        mf.getAppearanceLabel().setText(rb.getString("appearance"));
+//        mf.getThemesLabel().setText(rb.getString("themes"));
+//        mf.getSecurityLabel().setText(rb.getString("security"));
+//        mf.getChangePwBtn().setText(rb.getString("change_password"));
+//    }
+//    
+//    public static void setForgotPasswordFrameTexts(ForgotPasswordFrame fpf, ResourceBundle rb){
+//        fpf.getGeneralLabel().setText(rb.getString("general"));
+//        fpf.getLanguageLabel().setText(rb.getString("language"));
+//        fpf.getAppearanceLabel().setText(rb.getString("appearance"));
+//        fpf.getThemesLabel().setText(rb.getString("themes"));
+//        fpf.getSecurityLabel().setText(rb.getString("security"));
+//        fpf.getChangePwBtn().setText(rb.getString("change_password"));
+//    }
 }
