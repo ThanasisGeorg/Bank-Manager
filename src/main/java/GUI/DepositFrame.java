@@ -1,6 +1,7 @@
 package GUI;
 
 import Database.DBMethods;
+import Database.Database;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,7 +13,13 @@ import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
 import com.formdev.flatlaf.*;
+import java.sql.ResultSet;
+import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import kdesp73.databridge.connections.DatabaseConnection;
+import kdesp73.databridge.helpers.QueryBuilder;
 import kdesp73.themeLib.Theme;
 import kdesp73.themeLib.ThemeCollection;
 
@@ -57,12 +64,10 @@ public class DepositFrame extends javax.swing.JFrame {
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Deposit");
+        
+        configureFrameProperties();
 
-        // Color, focus and visibility setup of components
-//        depositPanel.setBackground(bg);
-//        cancelBtn.setForeground(pc);
-//        applyBtn.setForeground(pc);
-
+        // Focus and visibility setup of components
         cancelBtn.setFocusable(false);
         applyBtn.setFocusable(false);
 
@@ -124,20 +129,18 @@ public class DepositFrame extends javax.swing.JFrame {
             depositPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(depositPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(depositPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(depositPanelLayout.createSequentialGroup()
-                        .addGap(0, 86, Short.MAX_VALUE)
-                        .addComponent(depositLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))
-                    .addGroup(depositPanelLayout.createSequentialGroup()
-                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addGroup(depositPanelLayout.createSequentialGroup()
-                .addGap(197, 197, 197)
+                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, depositPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(depositLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, depositPanelLayout.createSequentialGroup()
+                .addContainerGap(249, Short.MAX_VALUE)
                 .addComponent(amountField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(246, 246, 246))
         );
         depositPanelLayout.setVerticalGroup(
             depositPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,6 +170,25 @@ public class DepositFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void configureFrameProperties() {
+        DatabaseConnection db = Database.connection();
+
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                GUIFunctions.setTexts(this, Locale.US);
+            } else if (languageName.equals("Greek")) {
+                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        db.close();
+    }
+    
     private void applyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyBtnActionPerformed
         if (GUIUtils.checkChars(amountField.getText()) || amountField.getText().isBlank() || amountField.getText().isEmpty()
                 || amountField.getText().contains(",") || amountField.getText().contains(".")) {
@@ -216,6 +238,19 @@ public class DepositFrame extends javax.swing.JFrame {
         this.theme = theme;
         ThemeCollection.applyTheme(this, theme);
     }
+
+    public JButton getApplyBtn() {
+        return applyBtn;
+    }
+
+    public JButton getCancelBtn() {
+        return cancelBtn;
+    }
+
+    public JLabel getDepositLabel() {
+        return depositLabel;
+    }
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

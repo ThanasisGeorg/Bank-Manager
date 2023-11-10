@@ -202,7 +202,7 @@ public class GUIFunctions {
             setServicesFrameTexts(servicesFrame, rb);
         }
         if (frame instanceof DepositFrame df) {
-//            setDepositFrameTexts(df, rb);
+            setDepositFrameTexts(df, rb);
         }
         if (frame instanceof MainFrame mf) {
 //            setMainFrameTexts(mf, rb);
@@ -247,14 +247,11 @@ public class GUIFunctions {
         sf.getSettingsBtn().setText(rb.getString("settings"));
     }
 //    
-//    public static void setDepositFrameTexts(DepositFrame df, ResourceBundle rb){
-//        df.getGeneralLabel().setText(rb.getString("general"));
-//        df.getLanguageLabel().setText(rb.getString("language"));
-//        df.getAppearanceLabel().setText(rb.getString("appearance"));
-//        df.getThemesLabel().setText(rb.getString("themes"));
-//        df.getSecurityLabel().setText(rb.getString("security"));
-//        df.getChangePwBtn().setText(rb.getString("change_password"));
-//    }
+    public static void setDepositFrameTexts(DepositFrame df, ResourceBundle rb){
+        df.getDepositLabel().setText(rb.getString("deposit_indicator"));
+        df.getApplyBtn().setText(rb.getString("apply"));
+        df.getCancelBtn().setText(rb.getString("cancel"));
+    }
 //    
 //    public static void setMainFrameTexts(MainFrame mf, ResourceBundle rb){
 //        mf.getGeneralLabel().setText(rb.getString("general"));
