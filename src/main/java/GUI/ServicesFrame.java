@@ -42,6 +42,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
     MainFrame mf;
     DepositFrame df;
+    OpenAccountFrame oaf;
     SettingsFrame sf;
     ArrayList<Customer> customerList;
     ResourceBundle rb;
@@ -184,6 +185,8 @@ public class ServicesFrame extends javax.swing.JFrame {
         uploadImgBtn = new javax.swing.JButton();
         refreshBtn = new javax.swing.JButton();
         settingsBtn = new javax.swing.JButton();
+        openAccBtn = new javax.swing.JButton();
+        openAccSeparator = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -445,6 +448,20 @@ public class ServicesFrame extends javax.swing.JFrame {
             }
         });
 
+        openAccBtn.setBackground(java.awt.Color.darkGray);
+        openAccBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        openAccBtn.setText("<html><p style=\"text-align:center\"><b>Open new<br>Account</p> </html>");
+        openAccBtn.setName("btn"); // NOI18N
+        openAccBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openAccBtnActionPerformed(evt);
+            }
+        });
+
+        openAccSeparator.setBackground(new java.awt.Color(187, 187, 187));
+        openAccSeparator.setForeground(new java.awt.Color(187, 187, 187));
+        openAccSeparator.setName("fg_2"); // NOI18N
+
         javax.swing.GroupLayout servicesPanelLayout = new javax.swing.GroupLayout(servicesPanel);
         servicesPanel.setLayout(servicesPanelLayout);
         servicesPanelLayout.setHorizontalGroup(
@@ -461,7 +478,9 @@ public class ServicesFrame extends javax.swing.JFrame {
                     .addComponent(delBtn)
                     .addComponent(accInfoSeparator)
                     .addComponent(mainMenuLabel)
-                    .addComponent(menuSeparator))
+                    .addComponent(menuSeparator)
+                    .addComponent(openAccBtn)
+                    .addComponent(openAccSeparator))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mainSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
@@ -498,6 +517,10 @@ public class ServicesFrame extends javax.swing.JFrame {
                                 .addComponent(depBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(depSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13)
+                                .addComponent(openAccBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(openAccSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(13, 13, 13)
                                 .addComponent(delBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -668,6 +691,15 @@ public class ServicesFrame extends javax.swing.JFrame {
         sf.setVisible(true);
     }//GEN-LAST:event_settingsBtnActionPerformed
 
+    private void openAccBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAccBtnActionPerformed
+        if (oaf != null) {
+            oaf.dispose();
+        }
+
+        oaf = new OpenAccountFrame(this, customerList, indexOfCustomerLoggedIn);
+        oaf.setVisible(true);
+    }//GEN-LAST:event_openAccBtnActionPerformed
+
     /**
      * @param args the command line arguments
      * @throws java.lang.ClassNotFoundException
@@ -810,6 +842,8 @@ public class ServicesFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator menuSeparator;
     private javax.swing.JLabel name;
     private javax.swing.JLabel nameIndicator;
+    private javax.swing.JButton openAccBtn;
+    private javax.swing.JSeparator openAccSeparator;
     private javax.swing.JButton refreshBtn;
     private javax.swing.JPanel servicesPanel;
     private javax.swing.JButton settingsBtn;

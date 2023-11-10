@@ -80,8 +80,6 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="aboutBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="helpBtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -113,10 +111,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="changePwBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="216" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="helpBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="aboutBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="aboutBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -240,15 +235,6 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="changePwBtnMouseClicked"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="helpBtn">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Help&lt;/p&gt; &lt;/html&gt;"/>
-            <Property name="name" type="java.lang.String" value="btn" noResource="true"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="aboutBtn">
           <Properties>

@@ -94,7 +94,6 @@ public class SettingsFrame extends javax.swing.JFrame {
         themesComboBox.setFocusable(false);
         changePwBtn.setFocusable(false);
         aboutBtn.setFocusable(false);
-        helpBtn.setFocusable(false);
 
         this.sf = sf;
         this.customerList = customerList;
@@ -125,7 +124,6 @@ public class SettingsFrame extends javax.swing.JFrame {
         securityLabel = new javax.swing.JLabel();
         securitySeparator = new javax.swing.JSeparator();
         changePwBtn = new javax.swing.JButton();
-        helpBtn = new javax.swing.JButton();
         aboutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -189,10 +187,6 @@ public class SettingsFrame extends javax.swing.JFrame {
             }
         });
 
-        helpBtn.setBackground(java.awt.Color.darkGray);
-        helpBtn.setText("<html><p style=\"text-align:center\"><b>Help</p> </html>");
-        helpBtn.setName("btn"); // NOI18N
-
         aboutBtn.setBackground(java.awt.Color.darkGray);
         aboutBtn.setText("<html><p style=\"text-align:center\"><b>About</p> </html>");
         aboutBtn.setName("btn"); // NOI18N
@@ -234,8 +228,6 @@ public class SettingsFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, settingsPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(helpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         settingsPanelLayout.setVerticalGroup(
@@ -264,9 +256,7 @@ public class SettingsFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(changePwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
-                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(helpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -490,14 +480,6 @@ public class SettingsFrame extends javax.swing.JFrame {
         this.generalSeparator = generalSeparator;
     }
 
-    public JButton getHelpBtn() {
-        return helpBtn;
-    }
-
-    public void setHelpBtn(JButton helpBtn) {
-        this.helpBtn = helpBtn;
-    }
-
     public JLabel getLanguageLabel() {
         return languageLabel;
     }
@@ -558,7 +540,6 @@ public class SettingsFrame extends javax.swing.JFrame {
     private javax.swing.JButton changePwBtn;
     private javax.swing.JLabel generalLabel;
     private javax.swing.JSeparator generalSeparator;
-    private javax.swing.JButton helpBtn;
     private javax.swing.JComboBox languageComboBox;
     private javax.swing.JLabel languageLabel;
     private javax.swing.JLabel securityLabel;

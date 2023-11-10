@@ -11,7 +11,6 @@ public class DBMethods {
 
     public static Statement s;
     private static final String[] CustomersFields = {
-        "Account_ID",
         "Name_",
         "Surname_",
         "Age_"

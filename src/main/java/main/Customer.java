@@ -69,10 +69,9 @@ public class Customer {
     public void addInfo(String[] info) {
         setInfo(info);
 
-        getAcc().setId(info[0]);
-        setName(info[1]);
-        setSurname(info[2]);
-        setAge(info[3]);
+        setName(info[0]);
+        setSurname(info[1]);
+        setAge(info[2]);
     }
 
     @Override
