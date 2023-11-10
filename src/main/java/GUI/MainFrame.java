@@ -18,6 +18,7 @@ import Utils.Utils;
 import com.formdev.flatlaf.*;
 import java.awt.Component;
 import java.sql.ResultSet;
+import java.util.ResourceBundle;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
 import kdesp73.themeLib.Theme;
@@ -33,6 +34,7 @@ public class MainFrame extends javax.swing.JFrame {
     ServicesFrame sf;
     ForgotPasswordFrame fpf;
     ArrayList<Customer> customerList = new ArrayList<>();
+    ResourceBundle rb;
     Theme theme;
 
     Color pc = new Color(162, 119, 255);

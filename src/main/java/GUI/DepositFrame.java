@@ -12,6 +12,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
 import com.formdev.flatlaf.*;
+import java.util.ResourceBundle;
 import kdesp73.themeLib.Theme;
 import kdesp73.themeLib.ThemeCollection;
 
@@ -23,6 +24,7 @@ public class DepositFrame extends javax.swing.JFrame {
 
     ServicesFrame sf;
     ArrayList<Customer> customerList;
+    ResourceBundle rb;
     Theme theme;
 
     private int indexOfCustomerLoggedIn;

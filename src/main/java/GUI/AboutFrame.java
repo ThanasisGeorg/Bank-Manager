@@ -2,6 +2,7 @@ package GUI;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
 import java.awt.Color;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import javax.swing.text.DefaultCaret;
 import kdesp73.themeLib.Theme;
@@ -13,6 +14,7 @@ import kdesp73.themeLib.Theme;
 public class AboutFrame extends javax.swing.JFrame {
 
     SettingsFrame sf;
+    ResourceBundle rb;
     Theme theme;
 
     Color pc = new Color(162, 119, 255);

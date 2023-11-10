@@ -170,14 +170,28 @@ public class GUIFunctions {
             ThemeCollection.applyTheme(frame, theme);
         }
 
+        // Language Setup
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                GUIFunctions.setTexts(frame, Locale.US);
+            } else if (languageName.equals("Greek")) {
+                GUIFunctions.setTexts(frame, Locale.of("el", "GR"));
+            }
+            ThemeCollection.applyTheme(frame, theme);
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         db.close();
 
         return theme;
     }
 
-    public static void setTexts(JFrame frame, SettingsFrame sf, ResourceBundle rb) {
-        Locale locale = (Locale) sf.getLanguageComboBox().getItemAt(sf.getLanguageComboBox().getSelectedIndex());
-        rb = ResourceBundle.getBundle("i18n/Bundle", locale);
+    public static void setTexts(JFrame frame, Locale locale) {
+        ResourceBundle rb = ResourceBundle.getBundle("i18n/Bundle", locale);
         if (frame instanceof SettingsFrame settingsFrame) {
             setSettingsFrameTexts(settingsFrame, rb);
         }
@@ -185,7 +199,7 @@ public class GUIFunctions {
             setChangePasswordFrameTexts(cpf, rb);
         }
         if (frame instanceof ServicesFrame servicesFrame) {
-//            setServicesFrameTexts(servicesFrame, rb);
+            setServicesFrameTexts(servicesFrame, rb);
         }
         if (frame instanceof DepositFrame df) {
 //            setDepositFrameTexts(df, rb);
@@ -215,14 +229,23 @@ public class GUIFunctions {
         cpf.getCancelBtn().setText(rb.getString("cancel"));
     }
 
-//    public static void setServicesFrameTexts(ServicesFrame sf, ResourceBundle rb){
-//        sf.getGeneralLabel().setText(rb.getString("general"));
-//        sf.getLanguageLabel().setText(rb.getString("language"));
-//        sf.getAppearanceLabel().setText(rb.getString("appearance"));
-//        sf.getThemesLabel().setText(rb.getString("themes"));
-//        sf.getSecurityLabel().setText(rb.getString("security"));
-//        sf.getChangePwBtn().setText(rb.getString("change_password"));
-//    }
+    public static void setServicesFrameTexts(ServicesFrame sf, ResourceBundle rb){
+        sf.getMainMenuLabel().setText(rb.getString("main_menu"));
+        sf.getAccInfoBtn().setText(rb.getString("acc_information"));
+        sf.getDepBtn().setText(rb.getString("deposit"));
+        sf.getDelBtn().setText(rb.getString("delete"));
+        sf.getLogoutBtn().setText(rb.getString("logout"));
+        sf.getCustomerInfoLabel().setText(rb.getString("customer_info"));
+        sf.getNameIndicator().setText(rb.getString("name"));
+        sf.getSurnameIndicator().setText(rb.getString("surname"));
+        sf.getAgeIndicator().setText(rb.getString("age"));
+        sf.getAccountInfoLabel().setText(rb.getString("acc_info"));
+        sf.getUsernameIndicator().setText(rb.getString("username"));
+        sf.getBalanceIndicator().setText(rb.getString("balance"));
+        sf.getUploadImgBtn().setText(rb.getString("upload_img"));
+        sf.getRefreshBtn().setText(rb.getString("refresh"));
+        sf.getSettingsBtn().setText(rb.getString("settings"));
+    }
 //    
 //    public static void setDepositFrameTexts(DepositFrame df, ResourceBundle rb){
 //        df.getGeneralLabel().setText(rb.getString("general"));

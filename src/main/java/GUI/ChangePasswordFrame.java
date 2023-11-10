@@ -1,6 +1,6 @@
 package GUI;
 
-import Database.DBMethods;
+import Database.*;
 import java.awt.Color;
 import static java.awt.Color.*;
 import java.sql.SQLException;
@@ -16,8 +16,13 @@ import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
 import com.formdev.flatlaf.*;
+import java.sql.ResultSet;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import kdesp73.databridge.connections.DatabaseConnection;
+import kdesp73.databridge.helpers.QueryBuilder;
 import kdesp73.themeLib.Theme;
 import kdesp73.themeLib.ThemeCollection;
 
@@ -29,8 +34,9 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
 
     SettingsFrame sf;
     ArrayList<Customer> customerList;
+    ResourceBundle rb;
     Theme theme = null;
-    
+
     private int indexOfCustomerLoggedIn;
 
     Color pc = new Color(162, 119, 255);
@@ -65,10 +71,9 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Change your password");
 
+        DatabaseConnection db = Database.connection();
+
         // Color, focus and visibility setup of components
-//        jPanel1.setBackground(bg);
-//        cancelBtn.setForeground(pc);
-//        applyBtn.setForeground(pc);
         oldPasswordField.setForeground(red);
         newPasswordField.setForeground(green);
         confirmNewPasswordField.setForeground(red);
@@ -83,8 +88,8 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         this.sf = sf;
         this.customerList = customerList;
         this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
-        
-        GUIFunctions.setTexts(this, sf, sf.getRb());
+
+        db.close();
     }
 
     /**
@@ -396,14 +401,14 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
 
-        /* Create and display the form */
+ /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ChangePasswordFrame().setVisible(true);
             }
         });
     }
-    
+
     public Theme getTheme() {
         return theme;
     }
@@ -452,8 +457,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
     public void setOldPasswordIndicator(JLabel oldPasswordIndicator) {
         this.oldPasswordIndicator = oldPasswordIndicator;
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton applyBtn;

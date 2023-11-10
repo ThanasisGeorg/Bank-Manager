@@ -51,7 +51,8 @@ public class SettingsFrame extends javax.swing.JFrame {
 
     private static final String FILEPATH = System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/");
     private int indexOfCustomerLoggedIn;
-    private int count = 0;
+    private int count1 = 0;
+    private int count2 = 0;
 
     public SettingsFrame() {
         DatabaseConnection db = Database.connection();
@@ -77,9 +78,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Settings");
-        
-        languageComboBox.addItem(Locale.of("el", "GR"));
-        languageComboBox.addItem(Locale.US);
+
         configureFrameProperties();
 
         refreshThemeCombo();
@@ -146,9 +145,9 @@ public class SettingsFrame extends javax.swing.JFrame {
         languageLabel.setName("textbox"); // NOI18N
 
         languageComboBox.setBackground(java.awt.Color.darkGray);
-        languageComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                languageComboBoxMouseClicked(evt);
+        languageComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                languageComboBoxActionPerformed(evt);
             }
         });
 
@@ -285,11 +284,34 @@ public class SettingsFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void configureFrameProperties() {   
-        GUIFunctions.setTexts(this, this, rb);
-        languageComboBox.addItemListener(itemEvent -> GUIFunctions.setTexts(this, this, rb));
+    private void configureFrameProperties() {
+        DatabaseConnection db = Database.connection();
+
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                languageComboBox.removeAllItems();
+                languageComboBox.addItem("English");
+                languageComboBox.addItem("Greek");
+                GUIFunctions.setTexts(this, Locale.US);
+                GUIFunctions.setTexts(this.sf, Locale.US);
+                languageComboBox.addItemListener(itemEvent -> GUIFunctions.setTexts(this, Locale.US));
+            } else if (languageName.equals("Greek")) {
+                languageComboBox.removeAllItems();
+                languageComboBox.addItem("Ελληνικά");
+                languageComboBox.addItem("Αγγλικά");
+                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+                GUIFunctions.setTexts(this.sf, Locale.of("el", "GR"));
+                languageComboBox.addItemListener(itemEvent -> GUIFunctions.setTexts(this, Locale.of("el", "GR")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        db.close();
     }
-    
 
     public void refreshThemeCombo() {
         ArrayList<String> themeNames = new ArrayList<>();
@@ -305,24 +327,6 @@ public class SettingsFrame extends javax.swing.JFrame {
         themesComboBox.setModel(new DefaultComboBoxModel(themeNames.toArray()));
     }
 
-    private void languageComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_languageComboBoxMouseClicked
-        if (evt.getButton() != MouseEvent.BUTTON1) {
-            return;
-        }
-
-        DatabaseConnection db = Database.connection();
-
-        String s = languageComboBox.getSelectedItem().toString();
-
-        try {
-            DBMethods.updateLanguage(s);
-        } catch (SQLException ex) {
-            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        db.close();
-    }//GEN-LAST:event_languageComboBoxMouseClicked
-
     private void changePwBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePwBtnMouseClicked
         if (evt.getButton() != MouseEvent.BUTTON1) {
             return;
@@ -337,8 +341,8 @@ public class SettingsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_changePwBtnMouseClicked
 
     private void themesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themesComboBoxActionPerformed
-        if (count == 0) {
-            count++;
+        if (count2 == 0) {
+            count2 = 1;
             return;
         }
 
@@ -372,6 +376,36 @@ public class SettingsFrame extends javax.swing.JFrame {
         af = new AboutFrame(this);
         af.setVisible(true);
     }//GEN-LAST:event_aboutBtnMouseClicked
+
+    private void languageComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_languageComboBoxActionPerformed
+        if (count1 == 0) {
+            count1 = 1;
+            return;
+        }
+
+        DatabaseConnection db = Database.connection();
+        String languageName = languageComboBox.getSelectedItem().toString();
+        try {
+            switch (languageName) {
+                case "Ελληνικά":
+                    DBMethods.updateLanguage("Greek");
+                    configureFrameProperties();
+                    break;
+                case "Αγγλικά":
+                    DBMethods.updateLanguage("English");
+                    configureFrameProperties();
+                    break;
+                default:
+                    DBMethods.updateLanguage(languageName);
+                    configureFrameProperties();
+                    break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        db.close();
+    }//GEN-LAST:event_languageComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,14 +448,6 @@ public class SettingsFrame extends javax.swing.JFrame {
 
     public void setAf(AboutFrame af) {
         this.af = af;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
     }
 
     public JButton getAboutBtn() {

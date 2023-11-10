@@ -15,6 +15,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
 import com.formdev.flatlaf.*;
+import java.util.ResourceBundle;
 import kdesp73.themeLib.Theme;
 import kdesp73.themeLib.ThemeCollection;
 
@@ -26,6 +27,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
 
     MainFrame mf;
     ArrayList<Customer> customerList;
+    ResourceBundle rb;
     Theme theme = null;
 
     private int indexOfCustomer = 0;

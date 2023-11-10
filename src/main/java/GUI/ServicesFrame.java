@@ -22,6 +22,12 @@ import Utils.Utils;
 import com.formdev.flatlaf.*;
 import java.awt.Component;
 import java.sql.ResultSet;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
 import kdesp73.themeLib.Theme;
@@ -38,6 +44,7 @@ public class ServicesFrame extends javax.swing.JFrame {
     DepositFrame df;
     SettingsFrame sf;
     ArrayList<Customer> customerList;
+    ResourceBundle rb;
     Theme theme;
 
     Color pc = new Color(162, 119, 255);
@@ -107,6 +114,8 @@ public class ServicesFrame extends javax.swing.JFrame {
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, customerList.get(indexOfCustomerLoggedIn).getAcc().getUsername() + ":~");
+        
+        configureFrameProperties();
 
         // Color, focus and visibility setup of components
         avatarSeparator1.setForeground(sep);
@@ -514,6 +523,25 @@ public class ServicesFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void configureFrameProperties() {
+        DatabaseConnection db = Database.connection();
+
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                GUIFunctions.setTexts(this, Locale.US);
+            } else if (languageName.equals("Greek")) {
+                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        db.close();
+    }
+    
     private void setInfoPanel() {
         name.setText(customerList.get(indexOfCustomerLoggedIn).getName());
         surname.setText(customerList.get(indexOfCustomerLoggedIn).getSurname());
@@ -665,6 +693,90 @@ public class ServicesFrame extends javax.swing.JFrame {
     public void setTheme(Theme theme) {
         this.theme = theme;
         ThemeCollection.applyTheme(this, theme);
+    }
+
+    public DepositFrame getDf() {
+        return df;
+    }
+
+    public JLabel getAccIdIndicator() {
+        return accIdIndicator;
+    }
+
+    public JButton getAccInfoBtn() {
+        return accInfoBtn;
+    }
+
+    public JLabel getAccountInfoLabel() {
+        return accountInfoLabel;
+    }
+
+    public JLabel getAgeIndicator() {
+        return ageIndicator;
+    }
+
+    public JLabel getAvatarLabel() {
+        return avatarLabel;
+    }
+
+    public JLabel getBalanceIndicator() {
+        return balanceIndicator;
+    }
+
+    public JButton getDelBtn() {
+        return delBtn;
+    }
+
+    public JSeparator getDelSeparator() {
+        return delSeparator;
+    }
+
+    public JButton getDepBtn() {
+        return depBtn;
+    }
+
+    public JPanel getInfoPanel() {
+        return infoPanel;
+    }
+
+    public JButton getLogoutBtn() {
+        return logoutBtn;
+    }
+
+    public JLabel getMainMenuLabel() {
+        return mainMenuLabel;
+    }
+
+    public JLabel getNameIndicator() {
+        return nameIndicator;
+    }
+
+    public JButton getRefreshBtn() {
+        return refreshBtn;
+    }
+
+    public JPanel getServicesPanel() {
+        return servicesPanel;
+    }
+
+    public JButton getSettingsBtn() {
+        return settingsBtn;
+    }
+
+    public JLabel getSurnameIndicator() {
+        return surnameIndicator;
+    }
+
+    public JButton getUploadImgBtn() {
+        return uploadImgBtn;
+    }
+
+    public JLabel getUsernameIndicator() {
+        return usernameIndicator;
+    }
+
+    public JLabel getCustomerInfoLabel() {
+        return customerInfoLabel;
     }
     
     
