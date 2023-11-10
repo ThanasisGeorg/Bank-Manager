@@ -1,6 +1,7 @@
 package GUI;
 
 import Database.DBMethods;
+import Database.Database;
 import java.awt.Color;
 import static java.awt.Color.*;
 import java.sql.SQLException;
@@ -15,7 +16,13 @@ import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
 import com.formdev.flatlaf.*;
+import java.sql.ResultSet;
+import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import kdesp73.databridge.connections.DatabaseConnection;
+import kdesp73.databridge.helpers.QueryBuilder;
 import kdesp73.themeLib.Theme;
 import kdesp73.themeLib.ThemeCollection;
 
@@ -70,13 +77,12 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         //Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Change your password");
+        
+        configureFrameProperties();
 
         // Color, focus and visibility setup of components
-//        jPanel1.setBackground(bg);
         newPasswordField.setForeground(green);
         confirmNewPasswordField.setForeground(red);
-//        cancelBtn.setForeground(pc);
-//        applyBtn.setForeground(pc);
 
         cancelBtn.setFocusable(false);
         applyBtn.setFocusable(false);
@@ -164,25 +170,25 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(confirmNewPasswordIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(newPasswordIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(confirmNewPasswordIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(usernameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(confirmNewPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(newPasswordField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usernameField, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addGap(53, 53, 53))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(usernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(confirmNewPasswordField)
+                            .addComponent(newPasswordField))
+                        .addGap(0, 109, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +216,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,6 +226,25 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void configureFrameProperties() {
+        DatabaseConnection db = Database.connection();
+
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                GUIFunctions.setTexts(this, Locale.US);
+            } else if (languageName.equals("Greek")) {
+                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        db.close();
+    }
+    
     private void usernameFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameFieldKeyReleased
         JPopupMenu errorMessage = new JPopupMenu();
         JMenuItem notExistUn = new JMenuItem("This username does not exist");
@@ -419,6 +444,26 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         ThemeCollection.applyTheme(this, theme);
     }
 
+    public JButton getApplyBtn() {
+        return applyBtn;
+    }
+
+    public JButton getCancelBtn() {
+        return cancelBtn;
+    }
+
+    public JLabel getConfirmNewPasswordIndicator() {
+        return confirmNewPasswordIndicator;
+    }
+
+    public JLabel getNewPasswordIndicator() {
+        return newPasswordIndicator;
+    }
+
+    public JLabel getUsernameIndicator() {
+        return usernameIndicator;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton applyBtn;
     private javax.swing.JButton cancelBtn;

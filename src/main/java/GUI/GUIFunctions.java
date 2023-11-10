@@ -208,7 +208,7 @@ public class GUIFunctions {
 //            setMainFrameTexts(mf, rb);
         }
         if (frame instanceof ForgotPasswordFrame fpf) {
-//            setForgotPasswordFrameTexts(fpf, rb);
+            setForgotPasswordFrameTexts(fpf, rb);
         }
     }
 
@@ -262,12 +262,11 @@ public class GUIFunctions {
 //        mf.getChangePwBtn().setText(rb.getString("change_password"));
 //    }
 //    
-//    public static void setForgotPasswordFrameTexts(ForgotPasswordFrame fpf, ResourceBundle rb){
-//        fpf.getGeneralLabel().setText(rb.getString("general"));
-//        fpf.getLanguageLabel().setText(rb.getString("language"));
-//        fpf.getAppearanceLabel().setText(rb.getString("appearance"));
-//        fpf.getThemesLabel().setText(rb.getString("themes"));
-//        fpf.getSecurityLabel().setText(rb.getString("security"));
-//        fpf.getChangePwBtn().setText(rb.getString("change_password"));
-//    }
+    public static void setForgotPasswordFrameTexts(ForgotPasswordFrame fpf, ResourceBundle rb){
+        fpf.getUsernameIndicator().setText(rb.getString("username_indicator"));
+        fpf.getNewPasswordIndicator().setText(rb.getString("new_password"));
+        fpf.getConfirmNewPasswordIndicator().setText(rb.getString("confirm_password"));
+        fpf.getApplyBtn().setText(rb.getString("apply"));
+        fpf.getCancelBtn().setText(rb.getString("cancel"));
+    }
 }

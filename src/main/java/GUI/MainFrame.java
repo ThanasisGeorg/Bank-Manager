@@ -18,6 +18,7 @@ import Utils.Utils;
 import com.formdev.flatlaf.*;
 import java.awt.Component;
 import java.sql.ResultSet;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
@@ -52,30 +53,22 @@ public class MainFrame extends javax.swing.JFrame {
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Bank Manager App");
+        
+        configureFrameProperties();
 
         // Color, focus and visibility setup of components
-//        mainPanel.setBackground(bg);
-//        appNameLabel.setForeground(pc);
-        
-//        loginBtn.setForeground(pc);
         usernameField.setBackground(bg);
         passwordField.setBackground(bg);
-//        okBtn1.setForeground(pc);
-        
-//        signInBtn.setForeground(pc);
+
         nameField.setBackground(bg);
         surnameField.setBackground(bg);
         usernameField2.setBackground(bg);
         passwordField2.setBackground(bg);
-//        okBtn2.setForeground(pc);
-        
+
         infoLabel.setBackground(pc);
         forgotPwLabel.setForeground(pc);
 
-//        loginBtn.setFocusable(false);
         signInBtn.setFocusable(false);
-//        okBtn1.setFocusable(false);
-//        okBtn2.setFocusable(false);
 
         loginPanel.setVisible(false);
         signInPanel.setVisible(false);
@@ -86,6 +79,25 @@ public class MainFrame extends javax.swing.JFrame {
         db.close();
     }
 
+    private void configureFrameProperties() {
+        DatabaseConnection db = Database.connection();
+
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                GUIFunctions.setTexts(this, Locale.US);
+            } else if (languageName.equals("Greek")) {
+                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        db.close();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      */
