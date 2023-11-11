@@ -1,10 +1,25 @@
 package GUI;
 
+import Database.Database;
 import com.formdev.flatlaf.FlatDarculaLaf;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import javax.swing.JLabel;
 import javax.swing.text.DefaultCaret;
+import kdesp73.databridge.connections.DatabaseConnection;
+import kdesp73.databridge.helpers.QueryBuilder;
 import kdesp73.themeLib.Theme;
 
 /**
@@ -38,6 +53,8 @@ public class AboutFrame extends javax.swing.JFrame {
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "About");        
         
+        configureFrameProperties();
+        
         this.sf = sf;
     }
 
@@ -59,8 +76,16 @@ public class AboutFrame extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         licenceScrollPane = new javax.swing.JScrollPane();
         licenceTextArea = new javax.swing.JTextArea();
+        madeByLabel = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        ownerLabel = new javax.swing.JLabel();
+        contactInfo1Label = new javax.swing.JLabel();
+        githubLabel = new javax.swing.JLabel();
+        contactInfo2Label = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         aboutPanel.setName("bg"); // NOI18N
 
@@ -76,7 +101,8 @@ public class AboutFrame extends javax.swing.JFrame {
         synopsisTextArea.setColumns(20);
         synopsisTextArea.setLineWrap(true);
         synopsisTextArea.setRows(3);
-        synopsisTextArea.setText("A program to manage your bank accountswritten in Java, with the use of SQLite.\nIt is available in two versions:\n-terminal version\n-GUI version (with Java Swing)");
+        synopsisTextArea.setText("A program to manage your bank accounts using functionalities sush as \n  -login/sign in\n  -deposit\n  -delete\nThere are also functionalities that are gonna be  useful to imporve your experience such as\n  -change language (English/Greek)\n  -change theme (Dark/Light)\n  -change password\n\nIt is available in two versions:\n  -GUI version (with Java Swing)\n  -terminal version");
+        synopsisTextArea.setCaretPosition(0);
         synopsisScrollPane.setViewportView(synopsisTextArea);
 
         licenceLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
@@ -95,6 +121,39 @@ public class AboutFrame extends javax.swing.JFrame {
         licenceTextArea.setCaretPosition(0);
         licenceScrollPane.setViewportView(licenceTextArea);
 
+        madeByLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        madeByLabel.setText("<html><p style=\"text-align:center\"><b>Made By & Contact Info</p> </html>");
+        madeByLabel.setName("textbox"); // NOI18N
+
+        jSeparator3.setBackground(new java.awt.Color(187, 187, 187));
+        jSeparator3.setForeground(new java.awt.Color(187, 187, 187));
+        jSeparator3.setName("fg_2"); // NOI18N
+
+        ownerLabel.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        ownerLabel.setText("<html><p style=\"text-align:center\"><b>Athanasios Georgalis</p> </html>");
+        ownerLabel.setName("textbox"); // NOI18N
+
+        contactInfo1Label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        contactInfo1Label.setText("<html><p style=\"text-align:center\"><b>GitHub:</p> </html>");
+        contactInfo1Label.setName("textbox"); // NOI18N
+
+        githubLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        githubLabel.setText("ThanasisGeorg");
+        githubLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        githubLabel.setName("textbox"); // NOI18N
+        githubLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                githubLabelMouseClicked(evt);
+            }
+        });
+
+        contactInfo2Label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        contactInfo2Label.setText("<html><p style=\"text-align:center\"><b>Email:</p> </html>");
+        contactInfo2Label.setName("textbox"); // NOI18N
+
+        emailLabel.setText("thanasisgeorg03@gmail.com");
+        emailLabel.setName("textbox"); // NOI18N
+
         javax.swing.GroupLayout aboutPanelLayout = new javax.swing.GroupLayout(aboutPanel);
         aboutPanel.setLayout(aboutPanelLayout);
         aboutPanelLayout.setHorizontalGroup(
@@ -102,15 +161,27 @@ public class AboutFrame extends javax.swing.JFrame {
             .addGroup(aboutPanelLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addComponent(contactInfo2Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(emailLabel))
                     .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(synopsisLabel)
                         .addComponent(jSeparator1))
                     .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(licenceLabel, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(synopsisScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(licenceScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(synopsisScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                    .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(madeByLabel)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addComponent(contactInfo1Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(githubLabel))
+                    .addComponent(ownerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         aboutPanelLayout.setVerticalGroup(
             aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,8 +197,22 @@ public class AboutFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(licenceScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(licenceScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(madeByLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ownerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contactInfo1Label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contactInfo2Label))
+                .addGap(50, 50, 50))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,6 +231,42 @@ public class AboutFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void githubLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_githubLabelMouseClicked
+        if (evt.getButton() != MouseEvent.BUTTON1 && evt.getClickCount() > 1) {
+            return;
+        }
+        
+        githubLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    Desktop.getDesktop().browse(new URI("https://github.com/ThanasisGeorg"));
+                } catch (URISyntaxException | IOException ex) {
+                    //It looks like there's a problem
+                }
+            }
+        });
+    }//GEN-LAST:event_githubLabelMouseClicked
+
+    private void configureFrameProperties() {
+        DatabaseConnection db = Database.connection();
+
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                GUIFunctions.setTexts(this, Locale.US);
+            } else if (languageName.equals("Greek")) {
+                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        db.close();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -160,13 +281,54 @@ public class AboutFrame extends javax.swing.JFrame {
         });
     }
 
+    public JLabel getContactInfo1Label() {
+        return contactInfo1Label;
+    }
+
+    public JLabel getContactInfo2Label() {
+        return contactInfo2Label;
+    }
+
+    public JLabel getEmailLabel() {
+        return emailLabel;
+    }
+
+    public JLabel getGithubLabel() {
+        return githubLabel;
+    }
+
+    public JLabel getLicenceLabel() {
+        return licenceLabel;
+    }
+
+    public JLabel getMadeByLabel() {
+        return madeByLabel;
+    }
+
+    public JLabel getOwnerLabel() {
+        return ownerLabel;
+    }
+
+    public JLabel getSynopsisLabel() {
+        return synopsisLabel;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aboutPanel;
+    private javax.swing.JLabel contactInfo1Label;
+    private javax.swing.JLabel contactInfo2Label;
+    private javax.swing.JLabel emailLabel;
+    private javax.swing.JLabel githubLabel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel licenceLabel;
     private javax.swing.JScrollPane licenceScrollPane;
     private javax.swing.JTextArea licenceTextArea;
+    private javax.swing.JLabel madeByLabel;
+    private javax.swing.JLabel ownerLabel;
     private javax.swing.JLabel synopsisLabel;
     private javax.swing.JScrollPane synopsisScrollPane;
     private javax.swing.JTextArea synopsisTextArea;

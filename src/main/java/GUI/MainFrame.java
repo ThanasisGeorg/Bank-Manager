@@ -2,7 +2,6 @@ package GUI;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -12,14 +11,15 @@ import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
-import Database.DBMethods;
 import Database.Database;
 import Utils.Utils;
 import com.formdev.flatlaf.*;
-import java.awt.Component;
 import java.sql.ResultSet;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
 import kdesp73.themeLib.Theme;
@@ -48,12 +48,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     public MainFrame() throws SQLException {
         FlatDarculaLaf.setup();
-        DatabaseConnection db = Database.connection();
-        
+
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Bank Manager App");
-        
+
         configureFrameProperties();
 
         // Color, focus and visibility setup of components
@@ -75,8 +74,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         // Load data from database
         Utils.load(customerList);
-
-        db.close();
     }
 
     private void configureFrameProperties() {
@@ -97,7 +94,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         db.close();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      */
@@ -444,7 +441,22 @@ public class MainFrame extends javax.swing.JFrame {
             usernameField2.setText("");
             passwordField2.setText("");
 
-            JOptionPane.showMessageDialog(this, "Successfull sign in");
+            DatabaseConnection db = Database.connection();
+
+            try {
+                ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+                rs.next();
+                String languageName = rs.getString(1);
+                if (languageName.equals("English")) {
+                    JOptionPane.showMessageDialog(this, "Successfull sign in");
+                } else if (languageName.equals("Greek")) {
+                    JOptionPane.showMessageDialog(this, "Επιτυχής εγγραφή");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            db.close();
         }
     }//GEN-LAST:event_okBtn2ActionPerformed
 
@@ -475,7 +487,7 @@ public class MainFrame extends javax.swing.JFrame {
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
 
-        /* Create and display the form */
+ /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -486,7 +498,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public Theme getTheme() {
         return theme;
     }
@@ -551,6 +563,61 @@ public class MainFrame extends javax.swing.JFrame {
     public void setUsernameField2(JTextField usernameField2) {
         this.usernameField2 = usernameField2;
     }
+
+    public JPanel getForgotPwBtn() {
+        return forgotPwBtn;
+    }
+
+    public JButton getLoginBtn() {
+        return loginBtn;
+    }
+
+    public JButton getOkBtn1() {
+        return okBtn1;
+    }
+
+    public JButton getOkBtn2() {
+        return okBtn2;
+    }
+
+    public JButton getSignInBtn() {
+        return signInBtn;
+    }
+
+    public JLabel getAgeLabel() {
+        return ageLabel;
+    }
+
+    public JLabel getNameLabel() {
+        return nameLabel;
+    }
+
+    public JLabel getPasswordLabel() {
+        return passwordLabel;
+    }
+
+    public JLabel getPasswordLabel2() {
+        return passwordLabel2;
+    }
+
+    public JLabel getSurnameLabel() {
+        return surnameLabel;
+    }
+
+    public JLabel getUsernameLabel() {
+        return usernameLabel;
+    }
+
+    public JLabel getUsernameLabel2() {
+        return usernameLabel2;
+    }
+
+    public JLabel getInfoLabel() {
+        return infoLabel;
+    }
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ageLabel;

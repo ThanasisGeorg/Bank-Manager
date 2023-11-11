@@ -7,6 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -61,11 +62,11 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="mainSeparator" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="167" max="32767" attributes="0"/>
+                  <EmptySpace pref="208" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="infoPanel" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="refreshBtn" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="settingsBtn" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                      <Component id="infoPanel" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -260,67 +261,59 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="accountInfoLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="159" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
                               <Component id="uploadImgBtn" min="-2" pref="138" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="70" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="infoSeparator" alignment="1" min="-2" pref="268" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="balanceIndicator" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="accIdIndicator" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      <Component id="customerInfoLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="surnameIndicator" max="32767" attributes="0"/>
+                                          <Component id="nameIndicator" max="32767" attributes="0"/>
+                                          <Component id="ageIndicator" min="-2" pref="97" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="balance" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
-                                          <Component id="accountId" min="-2" pref="171" max="-2" attributes="0"/>
+                                          <Component id="surname" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
+                                          <Component id="name" min="-2" pref="162" max="-2" attributes="0"/>
+                                          <Component id="age" min="-2" pref="41" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="usernameIndicator" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="username" min="-2" pref="150" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                              <Component id="avatarSeparator1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="avatarPanel" max="32767" attributes="0"/>
+                                  <Component id="avatarSeparator2" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="accIdIndicator" pref="120" max="32767" attributes="0"/>
+                                  <Component id="balanceIndicator" max="32767" attributes="0"/>
+                                  <Component id="usernameIndicator" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                      <Component id="username" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="balance" alignment="1" min="-2" pref="171" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="surnameIndicator" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="nameIndicator" alignment="1" min="-2" pref="67" max="-2" attributes="0"/>
-                                                  <Component id="ageIndicator" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="surname" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
-                                                  <Component id="name" min="-2" pref="162" max="-2" attributes="0"/>
-                                                  <Component id="age" min="-2" pref="41" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="infoSeparator" alignment="1" min="-2" pref="268" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="avatarSeparator1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="avatarPanel" max="32767" attributes="0"/>
-                                          <Component id="avatarSeparator2" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="accountId" alignment="1" min="-2" pref="171" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                      <Component id="customerInfoLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -355,18 +348,17 @@
                           <Component id="infoSeparator" max="32767" attributes="0"/>
                           <Component id="avatarSeparator2" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                               <Component id="uploadImgBtn" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="accountInfoLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="username" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                           <Component id="usernameIndicator" min="-2" max="-2" attributes="0"/>

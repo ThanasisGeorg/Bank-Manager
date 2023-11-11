@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import java.awt.image.BufferedImage;
@@ -18,7 +17,6 @@ import javax.swing.JFileChooser;
 
 import Database.DBMethods;
 import Database.Database;
-import Utils.Utils;
 import com.formdev.flatlaf.*;
 import java.awt.Component;
 import java.sql.ResultSet;
@@ -57,7 +55,7 @@ public class ServicesFrame extends javax.swing.JFrame {
     private boolean depBtnPressed = false;
     private boolean uploadImgBtnPressed = false;
 
-    public ServicesFrame() {   
+    public ServicesFrame() {
         FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
 
@@ -114,13 +112,13 @@ public class ServicesFrame extends javax.swing.JFrame {
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, customerList.get(indexOfCustomerLoggedIn).getAcc().getUsername() + ":~");
-        
+
         configureFrameProperties();
 
         // Color, focus and visibility setup of components
         avatarSeparator1.setForeground(sep);
         avatarSeparator2.setForeground(sep);
-        
+
         accInfoBtn.setFocusable(false);
         depBtn.setFocusable(false);
         delBtn.setFocusable(false);
@@ -129,7 +127,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         uploadImgBtn.setFocusable(false);
         settingsBtn.setFocusable(false);
 
-        this.mf = mf;     
+        this.mf = mf;
         this.customerList = customerList;
         this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
 
@@ -186,6 +184,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         settingsBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         servicesPanel.setName("bg"); // NOI18N
 
@@ -331,52 +330,46 @@ public class ServicesFrame extends javax.swing.JFrame {
         infoPanelLayout.setHorizontalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
-                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
                         .addComponent(accountInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                        .addGap(193, 193, 193)
                         .addComponent(uploadImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addContainerGap(70, Short.MAX_VALUE)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(infoSeparator, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(balanceIndicator, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(accIdIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(3, 3, 3)
+                                .addComponent(customerInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(infoPanelLayout.createSequentialGroup()
+                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(surnameIndicator)
+                                    .addComponent(nameIndicator)
+                                    .addComponent(ageIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(accountId, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addComponent(usernameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(infoPanelLayout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(surnameIndicator, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ageIndicator, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(36, 36, 36)
-                                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(surname, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(infoSeparator, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(avatarSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(avatarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(avatarSeparator2))))))
+                                    .addComponent(surname, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(avatarSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(avatarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(avatarSeparator2)))
+                    .addGroup(infoPanelLayout.createSequentialGroup()
+                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(accIdIndicator, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(balanceIndicator)
+                            .addComponent(usernameIndicator))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(balance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(accountId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(17, 17, 17))
-            .addGroup(infoPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(customerInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -403,15 +396,14 @@ public class ServicesFrame extends javax.swing.JFrame {
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(infoSeparator)
                     .addComponent(avatarSeparator2))
-                .addGap(8, 8, 8)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addGap(13, 13, 13)
                         .addComponent(uploadImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
+                        .addGap(18, 18, 18)
                         .addComponent(accountInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
+                .addGap(41, 41, 41)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -464,11 +456,11 @@ public class ServicesFrame extends javax.swing.JFrame {
                     .addComponent(menuSeparator))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mainSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addGroup(servicesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(infoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(refreshBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(settingsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(settingsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(infoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         servicesPanelLayout.setVerticalGroup(
@@ -541,7 +533,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         db.close();
     }
-    
+
     private void setInfoPanel() {
         name.setText(customerList.get(indexOfCustomerLoggedIn).getName());
         surname.setText(customerList.get(indexOfCustomerLoggedIn).getSurname());
@@ -596,38 +588,84 @@ public class ServicesFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_depBtnActionPerformed
 
     private void delBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delBtnActionPerformed
-        int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this account?", "Delete Account", JOptionPane.WARNING_MESSAGE);
+        DatabaseConnection db = Database.connection();
 
-        switch (choice) {
-            case 0: { // confirm
-                try {
-                    DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
-                    DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
-                    this.dispose();
-                    mf = new MainFrame();
-                    mf.setVisible(true);
-                    JOptionPane.showMessageDialog(mf, "Successfull delete");
-                } catch (SQLException ex) {
-                    Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                break;
-            }
-
-            case 2: { // cancel
-                break;
-            }
-        }
-    }//GEN-LAST:event_delBtnActionPerformed
-
-    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         try {
-            this.dispose();
-            mf = new MainFrame();
-            mf.setVisible(true);
-            JOptionPane.showMessageDialog(mf, "Successfull Logout");
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this account?", "Delete account", JOptionPane.WARNING_MESSAGE);
+
+                switch (choice) {
+                    case 0: { // confirm
+                        try {
+                            DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
+                            DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
+                            this.dispose();
+                            mf = new MainFrame();
+                            mf.setVisible(true);
+                            JOptionPane.showMessageDialog(mf, "Successfull delete");
+                        } catch (SQLException ex) {
+                            Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        break;
+                    }
+
+                    case 2: { // cancel
+                        break;
+                    }
+                }
+            } else if (languageName.equals("Greek")) {
+                int choice = JOptionPane.showConfirmDialog(null, "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το λογαριασμό;", "Διαγραφή λογαριασμού", JOptionPane.WARNING_MESSAGE);
+
+                switch (choice) {
+                    case 0: { // confirm
+                        try {
+                            DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
+                            DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
+                            this.dispose();
+                            mf = new MainFrame();
+                            mf.setVisible(true);
+                            JOptionPane.showMessageDialog(mf, "Επιτυχής διαγραφή");
+                        } catch (SQLException ex) {
+                            Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        break;
+                    }
+
+                    case 2: { // cancel
+                        break;
+                    }
+                }
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        db.close();
+    }//GEN-LAST:event_delBtnActionPerformed
+
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        DatabaseConnection db = Database.connection();
+
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            this.dispose();
+            mf = new MainFrame();
+            mf.setVisible(true);
+            if (languageName.equals("English")) {
+                JOptionPane.showMessageDialog(mf, "Successfull Logout");
+            } else if (languageName.equals("Greek")) {
+                JOptionPane.showMessageDialog(mf, "Επιτυχής αποσύνδεση");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        db.close();
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
@@ -678,14 +716,14 @@ public class ServicesFrame extends javax.swing.JFrame {
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
 
-        /* Create and display the form */
+ /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ServicesFrame().setVisible(true);
             }
         });
     }
-    
+
     public Theme getTheme() {
         return theme;
     }
@@ -778,8 +816,7 @@ public class ServicesFrame extends javax.swing.JFrame {
     public JLabel getCustomerInfoLabel() {
         return customerInfoLabel;
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accIdIndicator;
