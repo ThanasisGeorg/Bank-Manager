@@ -280,10 +280,6 @@ public class GUIFunctions {
         return -1;
     }
 
-    public static void setLanguage(String language) {
-
-    }
-
     public static ThemeCollection getThemes() {
         ThemeCollection themeCollection = new ThemeCollection();
         themeCollection.loadThemes(new File(System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/") + "/themes/"));

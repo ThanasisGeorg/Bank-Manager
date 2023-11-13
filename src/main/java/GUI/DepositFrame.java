@@ -64,7 +64,7 @@ public class DepositFrame extends javax.swing.JFrame {
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Deposit");
-        
+
         configureFrameProperties();
 
         // Focus and visibility setup of components
@@ -188,7 +188,7 @@ public class DepositFrame extends javax.swing.JFrame {
 
         db.close();
     }
-    
+
     private void applyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyBtnActionPerformed
         if (GUIUtils.checkChars(amountField.getText()) || amountField.getText().isBlank() || amountField.getText().isEmpty()
                 || amountField.getText().contains(",") || amountField.getText().contains(".")) {
@@ -205,7 +205,23 @@ public class DepositFrame extends javax.swing.JFrame {
             Logger.getLogger(DepositFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.dispose();
-        JOptionPane.showMessageDialog(sf, "Successfull deposit.\nRefresh the information to see the result");
+
+        DatabaseConnection db = Database.connection();
+
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                JOptionPane.showMessageDialog(sf, "Successfull deposit.\nRefresh the information to see the result");
+            } else if (languageName.equals("Greek")) {
+                JOptionPane.showMessageDialog(sf, "Επιτυχής κατάθεση.\nΑνανεώστε τις πληροφορίες για να δείτε το αποτέλεσμα");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DepositFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        db.close();
     }//GEN-LAST:event_applyBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
@@ -222,14 +238,14 @@ public class DepositFrame extends javax.swing.JFrame {
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
 
-        /* Create and display the form */
+ /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DepositFrame().setVisible(true);
             }
         });
     }
-    
+
     public Theme getTheme() {
         return theme;
     }
@@ -250,8 +266,7 @@ public class DepositFrame extends javax.swing.JFrame {
     public JLabel getDepositLabel() {
         return depositLabel;
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField amountField;
