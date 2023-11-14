@@ -615,10 +615,11 @@ public class MainFrame extends javax.swing.JFrame {
     public JLabel getInfoLabel() {
         return infoLabel;
     }
-    
-    
 
-
+    public JLabel getForgotPwLabel() {
+        return forgotPwLabel;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ageLabel;
     private javax.swing.JSpinner ageSpinner;

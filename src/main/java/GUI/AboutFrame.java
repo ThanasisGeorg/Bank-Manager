@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.text.DefaultCaret;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
@@ -312,8 +313,10 @@ public class AboutFrame extends javax.swing.JFrame {
     public JLabel getSynopsisLabel() {
         return synopsisLabel;
     }
-    
-    
+
+    public JTextArea getSynopsisTextArea() {
+        return synopsisTextArea;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aboutPanel;

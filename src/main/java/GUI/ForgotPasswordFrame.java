@@ -77,7 +77,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         //Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Change your password");
-        
+
         configureFrameProperties();
 
         // Color, focus and visibility setup of components
@@ -244,157 +244,335 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
 
         db.close();
     }
-    
+
     private void usernameFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameFieldKeyReleased
+        DatabaseConnection db = Database.connection();
         JPopupMenu errorMessage = new JPopupMenu();
-        JMenuItem notExistUn = new JMenuItem("This username does not exist");
-        notExistUn.setForeground(red);
-        errorMessage.add(notExistUn);
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                JMenuItem notExistUn = new JMenuItem("This username does not exist");
+                notExistUn.setForeground(red);
+                errorMessage.add(notExistUn);
 
-        for (int i = 0; i < customerList.size(); i++) {
-            if (usernameField.getText().equals(customerList.get(i).getAcc().getUsername())) {
-                indexOfCustomer = i;
-                newPasswordField.setEnabled(true);
-                errorMessage.remove(notExistUn);
-                errorMessage.show(this, 114, 200);
-                return;
+                for (int i = 0; i < customerList.size(); i++) {
+                    if (usernameField.getText().equals(customerList.get(i).getAcc().getUsername())) {
+                        indexOfCustomer = i;
+                        newPasswordField.setEnabled(true);
+                        errorMessage.remove(notExistUn);
+                        errorMessage.show(this, 114, 200);
+                        return;
+                    }
+                }
+
+                if (usernameField.getText().isEmpty() || usernameField.getText().isBlank()) {
+                    newPasswordField.setEnabled(false);
+                    errorMessage.remove(notExistUn);
+                    errorMessage.show(this, 114, 200);
+                    usernameField.requestFocus();
+                } else {
+                    newPasswordField.setEnabled(false);
+                    errorMessage.show(this, 114, 200);
+                    usernameField.requestFocus();
+                }
+            } else if (languageName.equals("Greek")) {
+                JMenuItem notExistUn = new JMenuItem("Αυτό το όνομα χρήστη δεν υπάρχει");
+                notExistUn.setForeground(red);
+                errorMessage.add(notExistUn);
+
+                for (int i = 0; i < customerList.size(); i++) {
+                    if (usernameField.getText().equals(customerList.get(i).getAcc().getUsername())) {
+                        indexOfCustomer = i;
+                        newPasswordField.setEnabled(true);
+                        errorMessage.remove(notExistUn);
+                        errorMessage.show(this, 114, 200);
+                        return;
+                    }
+                }
+
+                if (usernameField.getText().isEmpty() || usernameField.getText().isBlank()) {
+                    newPasswordField.setEnabled(false);
+                    errorMessage.remove(notExistUn);
+                    errorMessage.show(this, 114, 200);
+                    usernameField.requestFocus();
+                } else {
+                    newPasswordField.setEnabled(false);
+                    errorMessage.show(this, 114, 200);
+                    usernameField.requestFocus();
+                }
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(ChangePasswordFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        if (usernameField.getText().isEmpty() || usernameField.getText().isBlank()) {
-            newPasswordField.setEnabled(false);
-            errorMessage.remove(notExistUn);
-            errorMessage.show(this, 114, 200);
-            usernameField.requestFocus();
-        } else {
-            newPasswordField.setEnabled(false);
-            errorMessage.show(this, 114, 200);
-            usernameField.requestFocus();
-        }
+        
+        db.close();
     }//GEN-LAST:event_usernameFieldKeyReleased
 
     private void newPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newPasswordFieldKeyReleased
+        DatabaseConnection db = Database.connection();
         JPopupMenu errorMessage = new JPopupMenu();
         errorMessage.setFocusable(false);
 
-        JMenuItem samePw = new JMenuItem("Your new password must not match with your old one");
-        JMenuItem emptyBlankPw = new JMenuItem("Your new password must not be empty or blank");
-        JMenuItem sizePw = new JMenuItem("Your new password must be at least 5 at size");
-        JMenuItem numPw = new JMenuItem("Your new password must contain at least 1 number");
-        JMenuItem charPw = new JMenuItem("Your new password must contain at least 1 character");
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                JMenuItem samePw = new JMenuItem("Your new password must not match with your old one");
+                JMenuItem emptyBlankPw = new JMenuItem("Your new password must not be empty or blank");
+                JMenuItem sizePw = new JMenuItem("Your new password must be at least 5 at size");
+                JMenuItem numPw = new JMenuItem("Your new password must contain at least one number");
+                JMenuItem charPw = new JMenuItem("Your new password must contain at least one character");
 
-        samePw.setForeground(red);
-        emptyBlankPw.setForeground(red);
-        sizePw.setForeground(red);
-        numPw.setForeground(red);
-        charPw.setForeground(red);
+                samePw.setForeground(red);
+                emptyBlankPw.setForeground(red);
+                sizePw.setForeground(red);
+                numPw.setForeground(red);
+                charPw.setForeground(red);
 
-        errorMessage.add(samePw);
-        errorMessage.add(emptyBlankPw);
-        errorMessage.add(sizePw);
-        errorMessage.add(numPw);
-        errorMessage.add(charPw);
+                errorMessage.add(samePw);
+                errorMessage.add(emptyBlankPw);
+                errorMessage.add(sizePw);
+                errorMessage.add(numPw);
+                errorMessage.add(charPw);
 
-        if (GUIUtils.charArrayToString(newPasswordField.getPassword()).isBlank() || GUIUtils.charArrayToString(newPasswordField.getPassword()).isEmpty()) {
-            errorMessage.remove(samePw);
-            errorMessage.remove(sizePw);
-            errorMessage.remove(numPw);
-            errorMessage.remove(charPw);
-            errorMessage.show(this, 25, 200);
-            newPasswordField.requestFocus();
-            newPasswordField.setForeground(red);
-            return;
-        }
+                if (GUIUtils.charArrayToString(newPasswordField.getPassword()).isBlank() || GUIUtils.charArrayToString(newPasswordField.getPassword()).isEmpty()) {
+                    errorMessage.remove(samePw);
+                    errorMessage.remove(sizePw);
+                    errorMessage.remove(numPw);
+                    errorMessage.remove(charPw);
+                    errorMessage.show(this, 50, 220);
+                    newPasswordField.requestFocus();
+                    newPasswordField.setForeground(red);
+                    return;
+                }
 
-        if (GUIUtils.checkIfAllNums(GUIUtils.charArrayToString(newPasswordField.getPassword()))) {
-            if (newPasswordField.getPassword().length < 5) {
+                if (GUIUtils.checkIfAllNums(GUIUtils.charArrayToString(newPasswordField.getPassword()))) {
+                    if (newPasswordField.getPassword().length < 5) {
+                        errorMessage.remove(samePw);
+                        errorMessage.remove(emptyBlankPw);
+                        errorMessage.remove(numPw);
+                        errorMessage.show(this, 50, 220);
+                        newPasswordField.requestFocus();
+                        newPasswordField.setForeground(red);
+                        return;
+                    }
+                    errorMessage.remove(samePw);
+                    errorMessage.remove(emptyBlankPw);
+                    errorMessage.remove(sizePw);
+                    errorMessage.remove(numPw);
+                    errorMessage.show(this, 50, 220);
+                    newPasswordField.requestFocus();
+                    newPasswordField.setForeground(red);
+                    return;
+                }
+
+                if (!GUIUtils.checkNums(GUIUtils.charArrayToString(newPasswordField.getPassword()))) {
+                    if (newPasswordField.getPassword().length < 5) {
+                        errorMessage.remove(samePw);
+                        errorMessage.remove(emptyBlankPw);
+                        errorMessage.remove(charPw);
+                        errorMessage.show(this, 50, 220);
+                        newPasswordField.requestFocus();
+                        newPasswordField.setForeground(red);
+                        return;
+                    }
+                    errorMessage.remove(samePw);
+                    errorMessage.remove(emptyBlankPw);
+                    errorMessage.remove(sizePw);
+                    errorMessage.remove(charPw);
+                    errorMessage.show(this, 50, 220);
+                    newPasswordField.requestFocus();
+                    newPasswordField.setForeground(red);
+                    return;
+                }
+
+                if (newPasswordField.getPassword().length < 5) {
+                    errorMessage.remove(samePw);
+                    errorMessage.remove(emptyBlankPw);
+                    errorMessage.remove(numPw);
+                    errorMessage.remove(charPw);
+                    errorMessage.show(this, 50, 220);
+                    newPasswordField.requestFocus();
+                    newPasswordField.setForeground(red);
+                    return;
+                }
+
+                if (GUIUtils.charArrayToString(newPasswordField.getPassword()).equals(customerList.get(indexOfCustomer).getAcc().getPassword())) {
+                    errorMessage.remove(emptyBlankPw);
+                    errorMessage.remove(sizePw);
+                    errorMessage.remove(numPw);
+                    errorMessage.remove(charPw);
+                    errorMessage.show(this, 50, 220);
+                    newPasswordField.requestFocus();
+                    newPasswordField.setForeground(red);
+                    return;
+                }
+
+                newPasswordField.setForeground(green);
+                confirmNewPasswordField.setEnabled(true);
+
                 errorMessage.remove(samePw);
                 errorMessage.remove(emptyBlankPw);
+                errorMessage.remove(sizePw);
                 errorMessage.remove(numPw);
-                errorMessage.show(this, 25, 200);
+                errorMessage.remove(charPw);
+                errorMessage.show(this, 50, 220);
                 newPasswordField.requestFocus();
-                newPasswordField.setForeground(red);
-                return;
-            }
-            errorMessage.remove(samePw);
-            errorMessage.remove(emptyBlankPw);
-            errorMessage.remove(sizePw);
-            errorMessage.remove(numPw);
-            errorMessage.show(this, 25, 200);
-            newPasswordField.requestFocus();
-            newPasswordField.setForeground(red);
-            return;
-        }
+            } else if (languageName.equals("Greek")) {
+                JMenuItem samePw = new JMenuItem("Ο κωδικός σας δεν πρέπει να ταιριάζει με τον παλιό σου");
+                JMenuItem emptyBlankPw = new JMenuItem("Ο νέος σας κωδικός δεν πρέπει να είναι άδειος");
+                JMenuItem sizePw = new JMenuItem("Ο νεός σας κωδικός πρέπει να είναι τουλάχιστον μεγέθους 5");
+                JMenuItem numPw = new JMenuItem("Ο νέος σας κωδικός πρέπει να περιέχει τουλαχιστόν έναν αριθμό");
+                JMenuItem charPw = new JMenuItem("Ο νέος σας κωδικός πρέπει να περιέχει τουλάχιστον έναν χαρακτήρα");
 
-        if (!GUIUtils.checkNums(GUIUtils.charArrayToString(newPasswordField.getPassword()))) {
-            if (newPasswordField.getPassword().length < 5) {
+                samePw.setForeground(red);
+                emptyBlankPw.setForeground(red);
+                sizePw.setForeground(red);
+                numPw.setForeground(red);
+                charPw.setForeground(red);
+
+                errorMessage.add(samePw);
+                errorMessage.add(emptyBlankPw);
+                errorMessage.add(sizePw);
+                errorMessage.add(numPw);
+                errorMessage.add(charPw);
+
+                if (GUIUtils.charArrayToString(newPasswordField.getPassword()).isBlank() || GUIUtils.charArrayToString(newPasswordField.getPassword()).isEmpty()) {
+                    errorMessage.remove(samePw);
+                    errorMessage.remove(sizePw);
+                    errorMessage.remove(numPw);
+                    errorMessage.remove(charPw);
+                    errorMessage.show(this, 1, 220);
+                    newPasswordField.requestFocus();
+                    newPasswordField.setForeground(red);
+                    return;
+                }
+
+                if (GUIUtils.checkIfAllNums(GUIUtils.charArrayToString(newPasswordField.getPassword()))) {
+                    if (newPasswordField.getPassword().length < 5) {
+                        errorMessage.remove(samePw);
+                        errorMessage.remove(emptyBlankPw);
+                        errorMessage.remove(numPw);
+                        errorMessage.show(this, 1, 220);
+                        newPasswordField.requestFocus();
+                        newPasswordField.setForeground(red);
+                        return;
+                    }
+                    errorMessage.remove(samePw);
+                    errorMessage.remove(emptyBlankPw);
+                    errorMessage.remove(sizePw);
+                    errorMessage.remove(numPw);
+                    errorMessage.show(this, 1, 220);
+                    newPasswordField.requestFocus();
+                    newPasswordField.setForeground(red);
+                    return;
+                }
+
+                if (!GUIUtils.checkNums(GUIUtils.charArrayToString(newPasswordField.getPassword()))) {
+                    if (newPasswordField.getPassword().length < 5) {
+                        errorMessage.remove(samePw);
+                        errorMessage.remove(emptyBlankPw);
+                        errorMessage.remove(charPw);
+                        errorMessage.show(this, 1, 220);
+                        newPasswordField.requestFocus();
+                        newPasswordField.setForeground(red);
+                        return;
+                    }
+                    errorMessage.remove(samePw);
+                    errorMessage.remove(emptyBlankPw);
+                    errorMessage.remove(sizePw);
+                    errorMessage.remove(charPw);
+                    errorMessage.show(this, 1, 220);
+                    newPasswordField.requestFocus();
+                    newPasswordField.setForeground(red);
+                    return;
+                }
+
+                if (newPasswordField.getPassword().length < 5) {
+                    errorMessage.remove(samePw);
+                    errorMessage.remove(emptyBlankPw);
+                    errorMessage.remove(numPw);
+                    errorMessage.remove(charPw);
+                    errorMessage.show(this, 1, 220);
+                    newPasswordField.requestFocus();
+                    newPasswordField.setForeground(red);
+                    return;
+                }
+
+                if (GUIUtils.charArrayToString(newPasswordField.getPassword()).equals(customerList.get(indexOfCustomer).getAcc().getPassword())) {
+                    errorMessage.remove(emptyBlankPw);
+                    errorMessage.remove(sizePw);
+                    errorMessage.remove(numPw);
+                    errorMessage.remove(charPw);
+                    errorMessage.show(this, 1, 220);
+                    newPasswordField.requestFocus();
+                    newPasswordField.setForeground(red);
+                    return;
+                }
+
+                newPasswordField.setForeground(green);
+                confirmNewPasswordField.setEnabled(true);
+
                 errorMessage.remove(samePw);
                 errorMessage.remove(emptyBlankPw);
+                errorMessage.remove(sizePw);
+                errorMessage.remove(numPw);
                 errorMessage.remove(charPw);
-                errorMessage.show(this, 25, 200);
+                errorMessage.show(this, 1, 220);
                 newPasswordField.requestFocus();
-                newPasswordField.setForeground(red);
-                return;
             }
-            errorMessage.remove(samePw);
-            errorMessage.remove(emptyBlankPw);
-            errorMessage.remove(sizePw);
-            errorMessage.remove(charPw);
-            errorMessage.show(this, 25, 200);
-            newPasswordField.requestFocus();
-            newPasswordField.setForeground(red);
-            return;
+        } catch (SQLException ex) {
+            Logger.getLogger(ChangePasswordFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if (newPasswordField.getPassword().length < 5) {
-            errorMessage.remove(samePw);
-            errorMessage.remove(emptyBlankPw);
-            errorMessage.remove(numPw);
-            errorMessage.remove(charPw);
-            errorMessage.show(this, 25, 200);
-            newPasswordField.requestFocus();
-            newPasswordField.setForeground(red);
-            return;
-        }
-
-        if (GUIUtils.charArrayToString(newPasswordField.getPassword()).equals(customerList.get(indexOfCustomer).getAcc().getPassword())) {
-            errorMessage.remove(emptyBlankPw);
-            errorMessage.remove(sizePw);
-            errorMessage.remove(numPw);
-            errorMessage.remove(charPw);
-            errorMessage.show(this, 25, 200);
-            newPasswordField.requestFocus();
-            newPasswordField.setForeground(red);
-            return;
-        }
-
-        newPasswordField.setForeground(green);
-        confirmNewPasswordField.setEnabled(true);
-
-        errorMessage.remove(samePw);
-        errorMessage.remove(emptyBlankPw);
-        errorMessage.remove(sizePw);
-        errorMessage.remove(numPw);
-        errorMessage.remove(charPw);
-        errorMessage.show(this, 25, 200);
-        newPasswordField.requestFocus();
+        db.close();
     }//GEN-LAST:event_newPasswordFieldKeyReleased
 
     private void confirmNewPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_confirmNewPasswordFieldKeyReleased
+        DatabaseConnection db = Database.connection();
+
         JPopupMenu errorMessage = new JPopupMenu();
-        JMenuItem samePw = new JMenuItem("This password does not match with your new one");
-        errorMessage.add(samePw);
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                JMenuItem samePw = new JMenuItem("This password does not match with your new one");
+                errorMessage.add(samePw);
 
-        samePw.setForeground(red);
+                samePw.setForeground(red);
 
-        if (GUIUtils.charArrayToString(newPasswordField.getPassword()).equals(GUIUtils.charArrayToString(confirmNewPasswordField.getPassword()))) {
-            errorMessage.remove(samePw);
-            confirmNewPasswordField.setForeground(green);
-        } else {
-            confirmNewPasswordField.setForeground(red);
+                if (GUIUtils.charArrayToString(newPasswordField.getPassword()).equals(GUIUtils.charArrayToString(confirmNewPasswordField.getPassword()))) {
+                    errorMessage.remove(samePw);
+                    confirmNewPasswordField.setForeground(green);
+                } else {
+                    confirmNewPasswordField.setForeground(red);
+                }
+
+                errorMessage.show(this, 50, 220);
+            } else if (languageName.equals("Greek")) {
+                JMenuItem samePw = new JMenuItem("Αυτός ο κωδικός δεν ταιριάζει με τον καινούργιο");
+                errorMessage.add(samePw);
+
+                samePw.setForeground(red);
+
+                if (GUIUtils.charArrayToString(newPasswordField.getPassword()).equals(GUIUtils.charArrayToString(confirmNewPasswordField.getPassword()))) {
+                    errorMessage.remove(samePw);
+                    confirmNewPasswordField.setForeground(green);
+                } else {
+                    confirmNewPasswordField.setForeground(red);
+                }
+
+                errorMessage.show(this, 50, 220);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ChangePasswordFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        errorMessage.show(this, 25, 200);
+        db.close();
     }//GEN-LAST:event_confirmNewPasswordFieldKeyReleased
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
@@ -402,19 +580,46 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void applyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyBtnActionPerformed
-        if (newPasswordField.getForeground() == green && confirmNewPasswordField.getForeground() == green) {
-            customerList.get(indexOfCustomer).getAcc().setPassword(GUIUtils.charArrayToString(newPasswordField.getPassword()));
-            try {
-                DBMethods.updateCustomerAcc(customerList, indexOfCustomer);
-            } catch (SQLException ex) {
-                Logger.getLogger(ForgotPasswordFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        DatabaseConnection db = Database.connection();
 
-            this.dispose();
-            JOptionPane.showMessageDialog(mf, "Successfull change of your password");
-        } else {
-            JOptionPane.showMessageDialog(this, "Unsuccessfull change of your password", "Change Failed", JOptionPane.ERROR_MESSAGE);
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                if (newPasswordField.getForeground() == green && newPasswordField.getForeground() == green && confirmNewPasswordField.getForeground() == green) {
+                    customerList.get(indexOfCustomer).getAcc().setPassword(GUIUtils.charArrayToString(newPasswordField.getPassword()));
+
+                    try {
+                        DBMethods.updateCustomerAcc(customerList, indexOfCustomer);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    this.dispose();
+                    JOptionPane.showMessageDialog(mf, "Successfull change of your password");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Unsuccessfull change of your password", "Change Failed", JOptionPane.ERROR_MESSAGE);
+                }
+            } else if (languageName.equals("Greek")) {
+                if (newPasswordField.getForeground() == green && newPasswordField.getForeground() == green && confirmNewPasswordField.getForeground() == green) {
+                    customerList.get(indexOfCustomer).getAcc().setPassword(GUIUtils.charArrayToString(newPasswordField.getPassword()));
+
+                    try {
+                        DBMethods.updateCustomerAcc(customerList, indexOfCustomer);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    this.dispose();
+                    JOptionPane.showMessageDialog(mf, "Επιτυχής αλλαγή κωδικού");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Ανεπιτυχής αλλαγή κωδικού", "Η αλλαγή απέτυχε", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ChangePasswordFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        db.close();
     }//GEN-LAST:event_applyBtnActionPerformed
 
     /**
@@ -427,7 +632,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
 
-        /* Create and display the form */
+ /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ForgotPasswordFrame().setVisible(true);
@@ -463,7 +668,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
     public JLabel getUsernameIndicator() {
         return usernameIndicator;
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton applyBtn;
     private javax.swing.JButton cancelBtn;

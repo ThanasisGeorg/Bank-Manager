@@ -414,10 +414,12 @@ public class GUIFunctions {
     }
 
     public static void setMainFrameTexts(MainFrame mf, ResourceBundle rb) {
+        mf.setTitle(rb.getString("mf_title"));
         mf.getInfoLabel().setText(rb.getString("info"));
         mf.getLoginBtn().setText(rb.getString("login"));
         mf.getUsernameLabel().setText(rb.getString("username"));
         mf.getPasswordLabel().setText(rb.getString("password"));
+        mf.getForgotPwLabel().setText(rb.getString("forgot_pw"));
         mf.getOkBtn1().setText(rb.getString("ok"));
         mf.getSignInBtn().setText(rb.getString("sign_in"));
         mf.getNameLabel().setText(rb.getString("name"));
@@ -440,6 +442,8 @@ public class GUIFunctions {
     public static void setAboutFrameTexts(AboutFrame af, ResourceBundle rb) {
         af.setTitle(rb.getString("af_title"));
         af.getSynopsisLabel().setText(rb.getString("synopsis"));
+        af.getSynopsisTextArea().setText(rb.getString("synopsis_text"));
+        af.getSynopsisTextArea().setCaretPosition(0);
         af.getLicenceLabel().setText(rb.getString("licence"));
         af.getMadeByLabel().setText(rb.getString("made_by"));
         af.getOwnerLabel().setText(rb.getString("owner"));
