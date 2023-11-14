@@ -38,7 +38,7 @@ public class AboutFrame extends javax.swing.JFrame {
     Color sep = new Color(187, 187, 187);
 
     private static final String FILEPATH = System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/");
-    
+
     /**
      * Creates new form AboutFrame
      */
@@ -47,15 +47,33 @@ public class AboutFrame extends javax.swing.JFrame {
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "About");
     }
-    
+
     public AboutFrame(SettingsFrame sf) {
         FlatDarculaLaf.setup();
         // Frame setup 
         initComponents();
-        this.theme = GUIFunctions.setupFrame(this, "About");        
-        
+        this.theme = GUIFunctions.setupFrame(this, "About");
+
         configureFrameProperties();
-        
+
+        githubLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (githubLabel.getMouseListeners().length != 0) {
+                    githubLabel.removeMouseListener(githubLabel.getMouseListeners()[0]);
+                }
+
+                if (e.getButton() != MouseEvent.BUTTON1 && e.getClickCount() > 1) {
+                    return;
+                }
+                try {
+                    Desktop.getDesktop().browse(new URI("https://github.com/ThanasisGeorg"));
+                } catch (URISyntaxException | IOException ex) {
+                    //It looks like there's a problem
+                }
+            }
+        });
+
         this.sf = sf;
     }
 
@@ -142,11 +160,6 @@ public class AboutFrame extends javax.swing.JFrame {
         githubLabel.setText("ThanasisGeorg");
         githubLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         githubLabel.setName("textbox"); // NOI18N
-        githubLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                githubLabelMouseClicked(evt);
-            }
-        });
 
         contactInfo2Label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         contactInfo2Label.setText("<html><p style=\"text-align:center\"><b>Email:</p> </html>");
@@ -232,23 +245,6 @@ public class AboutFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void githubLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_githubLabelMouseClicked
-        if (evt.getButton() != MouseEvent.BUTTON1 && evt.getClickCount() > 1) {
-            return;
-        }
-        
-        githubLabel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URI("https://github.com/ThanasisGeorg"));
-                } catch (URISyntaxException | IOException ex) {
-                    //It looks like there's a problem
-                }
-            }
-        });
-    }//GEN-LAST:event_githubLabelMouseClicked
-
     private void configureFrameProperties() {
         DatabaseConnection db = Database.connection();
 
@@ -267,14 +263,14 @@ public class AboutFrame extends javax.swing.JFrame {
 
         db.close();
     }
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
 
-        /* Create and display the form */
+ /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AboutFrame().setVisible(true);
