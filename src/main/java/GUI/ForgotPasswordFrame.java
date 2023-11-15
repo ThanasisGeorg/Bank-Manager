@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
-import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 

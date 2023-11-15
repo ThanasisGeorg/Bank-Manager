@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 
 import java.util.concurrent.TimeUnit;
 import main.Customer;
-import kdesp73.databridge.connections.DatabaseConnection;
 import java.sql.SQLException;
 import Commands.*;
 
