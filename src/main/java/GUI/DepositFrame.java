@@ -203,7 +203,8 @@ public class DepositFrame extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(DepositFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.dispose();
+        
+        this.setVisible(false);
 
         DatabaseConnection db = Database.connection();
 
@@ -221,6 +222,8 @@ public class DepositFrame extends javax.swing.JFrame {
         }
         
         db.close();
+        
+        this.dispose();
     }//GEN-LAST:event_applyBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
