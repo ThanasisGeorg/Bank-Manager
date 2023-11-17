@@ -95,7 +95,7 @@ public class DepositFrame extends javax.swing.JFrame {
 
         depositPanel.setName("bg"); // NOI18N
 
-        depositLabel.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        depositLabel.setFont(new java.awt.Font("Manjari", 0, 18)); // NOI18N
         depositLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         depositLabel.setText("<html><p style=\"text-align:center\"><b>Enter the amount you want to deposit</p> </html>");
         depositLabel.setName("textbox"); // NOI18N

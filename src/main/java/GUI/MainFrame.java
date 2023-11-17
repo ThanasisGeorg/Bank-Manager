@@ -133,12 +133,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         mainPanel.setName("bg"); // NOI18N
 
-        appNameLabel.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
+        appNameLabel.setFont(new java.awt.Font("Manjari", 1, 36)); // NOI18N
         appNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         appNameLabel.setText("Bank Manager Application");
         appNameLabel.setName("fg"); // NOI18N
 
-        infoLabel.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        infoLabel.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         infoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         infoLabel.setText("<html><p style=\"text-align: center\">An easy and cool app to manage your bank accounts.<br><br>If you don't have already an existing account,<br><br>quickly become a customer and enjoy the services!</p></html>");
         infoLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(187, 187, 187)));
@@ -217,12 +217,12 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(usernameField)
+                            .addComponent(passwordField)
                             .addGroup(loginPanelLayout.createSequentialGroup()
                                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(usernameLabel)
-                                    .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(passwordField)))
+                                    .addComponent(passwordLabel))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(okBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)

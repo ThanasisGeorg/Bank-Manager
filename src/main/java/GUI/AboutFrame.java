@@ -107,7 +107,7 @@ public class AboutFrame extends javax.swing.JFrame {
 
         aboutPanel.setName("bg"); // NOI18N
 
-        synopsisLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        synopsisLabel.setFont(new java.awt.Font("Manjari", 0, 24)); // NOI18N
         synopsisLabel.setText("<html><p style=\"text-align:center\"><b>Synopsis</p> </html>");
         synopsisLabel.setName("textbox"); // NOI18N
 
@@ -123,7 +123,7 @@ public class AboutFrame extends javax.swing.JFrame {
         synopsisTextArea.setCaretPosition(0);
         synopsisScrollPane.setViewportView(synopsisTextArea);
 
-        licenceLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        licenceLabel.setFont(new java.awt.Font("Manjari", 0, 24)); // NOI18N
         licenceLabel.setText("<html><p style=\"text-align:center\"><b>Licence</p> </html>");
         licenceLabel.setName("textbox"); // NOI18N
 
@@ -139,7 +139,7 @@ public class AboutFrame extends javax.swing.JFrame {
         licenceTextArea.setCaretPosition(0);
         licenceScrollPane.setViewportView(licenceTextArea);
 
-        madeByLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        madeByLabel.setFont(new java.awt.Font("Manjari", 0, 24)); // NOI18N
         madeByLabel.setText("<html><p style=\"text-align:center\"><b>Made By & Contact Info</p> </html>");
         madeByLabel.setName("textbox"); // NOI18N
 
@@ -147,7 +147,7 @@ public class AboutFrame extends javax.swing.JFrame {
         jSeparator3.setForeground(new java.awt.Color(187, 187, 187));
         jSeparator3.setName("fg_2"); // NOI18N
 
-        ownerLabel.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        ownerLabel.setFont(new java.awt.Font("Manjari", 0, 20)); // NOI18N
         ownerLabel.setText("<html><p style=\"text-align:center\"><b>Athanasios Georgalis</p> </html>");
         ownerLabel.setName("textbox"); // NOI18N
 
