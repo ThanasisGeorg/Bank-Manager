@@ -118,7 +118,7 @@
         <Component class="javax.swing.JLabel" name="synopsisLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari" size="24" style="0"/>
+              <Font name="Liberation Sans" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Synopsis&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="name" type="java.lang.String" value="textbox" noResource="true"/>
@@ -157,7 +157,7 @@
         <Component class="javax.swing.JLabel" name="licenceLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari" size="24" style="0"/>
+              <Font name="Liberation Sans" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Licence&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="name" type="java.lang.String" value="textbox" noResource="true"/>
@@ -198,7 +198,7 @@
         <Component class="javax.swing.JLabel" name="madeByLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari" size="24" style="0"/>
+              <Font name="Liberation Sans" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Made By &amp; Contact Info&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="name" type="java.lang.String" value="textbox" noResource="true"/>

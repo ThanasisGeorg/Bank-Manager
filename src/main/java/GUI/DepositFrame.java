@@ -103,6 +103,7 @@ public class DepositFrame extends javax.swing.JFrame {
         amountField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         cancelBtn.setBackground(java.awt.Color.darkGray);
+        cancelBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         cancelBtn.setText("<html><p style=\"text-align:center\"><b>Cancel</p> </html>");
         cancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelBtn.setName("btn"); // NOI18N
@@ -113,6 +114,7 @@ public class DepositFrame extends javax.swing.JFrame {
         });
 
         applyBtn.setBackground(java.awt.Color.darkGray);
+        applyBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         applyBtn.setText("<html><p style=\"text-align:center\"><b>Apply</p> </html>");
         applyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         applyBtn.setName("btn"); // NOI18N

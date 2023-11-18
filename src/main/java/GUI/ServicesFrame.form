@@ -62,7 +62,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="mainSeparator" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="216" max="32767" attributes="0"/>
+                  <EmptySpace pref="208" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="refreshBtn" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="settingsBtn" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
@@ -121,7 +121,7 @@
         <Component class="javax.swing.JLabel" name="mainMenuLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari" size="26" style="0"/>
+              <Font name="Liberation Sans" size="26" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Main Menu&lt;/p&gt; &lt;/html&gt;"/>
@@ -145,7 +145,7 @@
               <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari" size="18" style="0"/>
+              <Font name="Liberation Sans" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Account&lt;br&gt;Information&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="name" type="java.lang.String" value="btn" noResource="true"/>
@@ -171,7 +171,7 @@
               <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari" size="18" style="0"/>
+              <Font name="Liberation Sans" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Deposit&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="name" type="java.lang.String" value="btn" noResource="true"/>
@@ -197,7 +197,7 @@
               <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari" size="18" style="0"/>
+              <Font name="Liberation Sans" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Delete&lt;br&gt;Account&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="name" type="java.lang.String" value="btn" noResource="true"/>
@@ -223,7 +223,7 @@
               <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari" size="18" style="0"/>
+              <Font name="Liberation Sans" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Logout&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="name" type="java.lang.String" value="btn" noResource="true"/>
@@ -516,6 +516,9 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
                 </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Sans" size="16" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Upload Image&lt;/p&gt; &lt;/html&gt;"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Default Cursor"/>
@@ -533,6 +536,9 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
             </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Liberation Sans" size="16" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Refresh Information&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
@@ -547,6 +553,9 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Liberation Sans" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Settings&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="name" type="java.lang.String" value="btn" noResource="true"/>

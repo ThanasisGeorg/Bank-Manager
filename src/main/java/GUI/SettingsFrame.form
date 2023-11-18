@@ -228,6 +228,9 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
             </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Liberation Sans" size="16" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Change Password&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="name" type="java.lang.String" value="btn" noResource="true"/>
@@ -240,6 +243,9 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Liberation Sans" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;About&lt;/p&gt; &lt;/html&gt;"/>
             <Property name="name" type="java.lang.String" value="btn" noResource="true"/>

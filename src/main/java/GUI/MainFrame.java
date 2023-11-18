@@ -145,6 +145,7 @@ public class MainFrame extends javax.swing.JFrame {
         infoLabel.setName("textbox"); // NOI18N
 
         loginBtn.setBackground(java.awt.Color.darkGray);
+        loginBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         loginBtn.setText("<html><p style=\"text-align:center\"><b>Login</p> </html>");
         loginBtn.setAlignmentX(0.5F);
         loginBtn.setName("btn"); // NOI18N
@@ -155,6 +156,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         signInBtn.setBackground(java.awt.Color.darkGray);
+        signInBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         signInBtn.setText("<html><p style=\"text-align:center\"><b>Sign In</p> </html>");
         signInBtn.setName("btn"); // NOI18N
         signInBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +172,7 @@ public class MainFrame extends javax.swing.JFrame {
         passwordLabel.setText("Password");
 
         okBtn1.setBackground(java.awt.Color.darkGray);
+        okBtn1.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         okBtn1.setText("<html><p style=\"text-align:center\"><b>OK</p> </html>");
         okBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         okBtn1.setName("btn"); // NOI18N
@@ -262,6 +265,7 @@ public class MainFrame extends javax.swing.JFrame {
         passwordLabel2.setText("Password");
 
         okBtn2.setBackground(java.awt.Color.darkGray);
+        okBtn2.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         okBtn2.setText("<html><p style=\"text-align:center\"><b>OK</p> </html>");
         okBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         okBtn2.setName("btn"); // NOI18N

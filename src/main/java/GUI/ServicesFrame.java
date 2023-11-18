@@ -188,7 +188,7 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         servicesPanel.setName("bg"); // NOI18N
 
-        mainMenuLabel.setFont(new java.awt.Font("Manjari", 0, 26)); // NOI18N
+        mainMenuLabel.setFont(new java.awt.Font("Liberation Sans", 0, 26)); // NOI18N
         mainMenuLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mainMenuLabel.setText("<html><p style=\"text-align:center\"><b>Main Menu</p> </html>");
         mainMenuLabel.setName("textbox"); // NOI18N
@@ -198,7 +198,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         menuSeparator.setName("fg_2"); // NOI18N
 
         accInfoBtn.setBackground(java.awt.Color.darkGray);
-        accInfoBtn.setFont(new java.awt.Font("Manjari", 0, 18)); // NOI18N
+        accInfoBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         accInfoBtn.setText("<html><p style=\"text-align:center\"><b>Account<br>Information</p> </html>");
         accInfoBtn.setName("btn"); // NOI18N
         accInfoBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -212,7 +212,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         accInfoSeparator.setName("fg_2"); // NOI18N
 
         depBtn.setBackground(java.awt.Color.darkGray);
-        depBtn.setFont(new java.awt.Font("Manjari", 0, 18)); // NOI18N
+        depBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         depBtn.setText("<html><p style=\"text-align:center\"><b>Deposit</p> </html>");
         depBtn.setName("btn"); // NOI18N
         depBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +226,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         depSeparator.setName("fg_2"); // NOI18N
 
         delBtn.setBackground(java.awt.Color.darkGray);
-        delBtn.setFont(new java.awt.Font("Manjari", 0, 18)); // NOI18N
+        delBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         delBtn.setText("<html><p style=\"text-align:center\"><b>Delete<br>Account</p> </html>");
         delBtn.setName("btn"); // NOI18N
         delBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +240,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         delSeparator.setName("fg_2"); // NOI18N
 
         logoutBtn.setBackground(java.awt.Color.darkGray);
-        logoutBtn.setFont(new java.awt.Font("Manjari", 0, 18)); // NOI18N
+        logoutBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         logoutBtn.setText("<html><p style=\"text-align:center\"><b>Logout</p> </html>");
         logoutBtn.setName("btn"); // NOI18N
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -316,6 +316,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         avatarSeparator2.setName(""); // NOI18N
 
         uploadImgBtn.setBackground(java.awt.Color.darkGray);
+        uploadImgBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         uploadImgBtn.setText("<html><p style=\"text-align:center\"><b>Upload Image</p> </html>");
         uploadImgBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         uploadImgBtn.setName("btn"); // NOI18N
@@ -419,6 +420,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         );
 
         refreshBtn.setBackground(java.awt.Color.darkGray);
+        refreshBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         refreshBtn.setText("<html><p style=\"text-align:center\"><b>Refresh Information</p> </html>");
         refreshBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         refreshBtn.setName("btn"); // NOI18N
@@ -429,6 +431,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         });
 
         settingsBtn.setBackground(java.awt.Color.darkGray);
+        settingsBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         settingsBtn.setText("<html><p style=\"text-align:center\"><b>Settings</p> </html>");
         settingsBtn.setName("btn"); // NOI18N
         settingsBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -456,7 +459,7 @@ public class ServicesFrame extends javax.swing.JFrame {
                     .addComponent(menuSeparator))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mainSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addGroup(servicesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(refreshBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(settingsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)

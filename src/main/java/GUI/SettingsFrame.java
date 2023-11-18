@@ -168,6 +168,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         securitySeparator.setName("fg_2"); // NOI18N
 
         changePwBtn.setBackground(java.awt.Color.darkGray);
+        changePwBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         changePwBtn.setText("<html><p style=\"text-align:center\"><b>Change Password</p> </html>");
         changePwBtn.setFocusable(false);
         changePwBtn.setName("btn"); // NOI18N
@@ -178,6 +179,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         });
 
         aboutBtn.setBackground(java.awt.Color.darkGray);
+        aboutBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         aboutBtn.setText("<html><p style=\"text-align:center\"><b>About</p> </html>");
         aboutBtn.setName("btn"); // NOI18N
         aboutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
