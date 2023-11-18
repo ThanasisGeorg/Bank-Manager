@@ -2,7 +2,6 @@ package GUI;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -12,13 +11,19 @@ import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
-import Database.DBMethods;
 import Database.Database;
 import Utils.Utils;
-import java.awt.Component;
+import com.formdev.flatlaf.*;
 import java.sql.ResultSet;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
+import kdesp73.themeLib.Theme;
+import kdesp73.themeLib.ThemeCollection;
 import main.*;
 
 /**
@@ -27,9 +32,11 @@ import main.*;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    ForgotPasswordFrame fpf;
     ServicesFrame sf;
+    ForgotPasswordFrame fpf;
     ArrayList<Customer> customerList = new ArrayList<>();
+    ResourceBundle rb;
+    Theme theme;
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
@@ -40,36 +47,50 @@ public class MainFrame extends javax.swing.JFrame {
     private boolean signInbtnPressed = false;
 
     public MainFrame() throws SQLException {
-        DatabaseConnection db = Database.connection();
+        FlatDarculaLaf.setup();
+
         // Frame setup
         initComponents();
-        this.setTitle("Bank Manager App");
+        this.theme = GUIFunctions.setupFrame(this, "Bank Manager App");
 
-        // Center frame
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        configureFrameProperties();
 
         // Color, focus and visibility setup of components
-        mainPanel.setBackground(bg);
-        appNameLabel.setForeground(pc);
-        loginBtn.setForeground(pc);
-        signInBtn.setForeground(pc);
-        okBtn1.setForeground(pc);
-        okBtn2.setForeground(pc);
+        usernameField.setBackground(bg);
+        passwordField.setBackground(bg);
+
+        nameField.setBackground(bg);
+        surnameField.setBackground(bg);
+        usernameField2.setBackground(bg);
+        passwordField2.setBackground(bg);
+
         infoLabel.setBackground(pc);
         forgotPwLabel.setForeground(pc);
 
-        loginBtn.setFocusable(false);
         signInBtn.setFocusable(false);
-        okBtn1.setFocusable(false);
-        okBtn2.setFocusable(false);
 
         loginPanel.setVisible(false);
         signInPanel.setVisible(false);
 
         // Load data from database
         Utils.load(customerList);
+    }
+
+    private void configureFrameProperties() {
+        DatabaseConnection db = Database.connection();
+
+        try {
+            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+            rs.next();
+            String languageName = rs.getString(1);
+            if (languageName.equals("English")) {
+                GUIFunctions.setTexts(this, Locale.US);
+            } else if (languageName.equals("Greek")) {
+                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         db.close();
     }
@@ -110,26 +131,32 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        mainPanel.setName(""); // NOI18N
+        mainPanel.setName("bg"); // NOI18N
 
-        appNameLabel.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
+        appNameLabel.setFont(new java.awt.Font("Manjari", 1, 36)); // NOI18N
         appNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         appNameLabel.setText("Bank Manager Application");
+        appNameLabel.setName("fg"); // NOI18N
 
-        infoLabel.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        infoLabel.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         infoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         infoLabel.setText("<html><p style=\"text-align: center\">An easy and cool app to manage your bank accounts.<br><br>If you don't have already an existing account,<br><br>quickly become a customer and enjoy the services!</p></html>");
         infoLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(187, 187, 187)));
+        infoLabel.setName("textbox"); // NOI18N
 
+        loginBtn.setBackground(java.awt.Color.darkGray);
         loginBtn.setText("<html><p style=\"text-align:center\"><b>Login</p> </html>");
         loginBtn.setAlignmentX(0.5F);
+        loginBtn.setName("btn"); // NOI18N
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginBtnActionPerformed(evt);
             }
         });
 
+        signInBtn.setBackground(java.awt.Color.darkGray);
         signInBtn.setText("<html><p style=\"text-align:center\"><b>Sign In</p> </html>");
+        signInBtn.setName("btn"); // NOI18N
         signInBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signInBtnActionPerformed(evt);
@@ -142,8 +169,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         passwordLabel.setText("Password");
 
+        okBtn1.setBackground(java.awt.Color.darkGray);
         okBtn1.setText("<html><p style=\"text-align:center\"><b>OK</p> </html>");
         okBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        okBtn1.setName("btn"); // NOI18N
         okBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okBtn1ActionPerformed(evt);
@@ -188,12 +217,12 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(usernameField)
+                            .addComponent(passwordField)
                             .addGroup(loginPanelLayout.createSequentialGroup()
                                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(usernameLabel)
-                                    .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(passwordField)))
+                                    .addComponent(passwordLabel))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(okBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,8 +261,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         passwordLabel2.setText("Password");
 
+        okBtn2.setBackground(java.awt.Color.darkGray);
         okBtn2.setText("<html><p style=\"text-align:center\"><b>OK</p> </html>");
         okBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        okBtn2.setName("btn"); // NOI18N
         okBtn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okBtn2ActionPerformed(evt);
@@ -410,7 +441,22 @@ public class MainFrame extends javax.swing.JFrame {
             usernameField2.setText("");
             passwordField2.setText("");
 
-            JOptionPane.showMessageDialog(this, "Successfull sign in");
+            DatabaseConnection db = Database.connection();
+
+            try {
+                ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
+                rs.next();
+                String languageName = rs.getString(1);
+                if (languageName.equals("English")) {
+                    JOptionPane.showMessageDialog(this, "Successfull sign in");
+                } else if (languageName.equals("Greek")) {
+                    JOptionPane.showMessageDialog(this, "Επιτυχής εγγραφή");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            db.close();
         }
     }//GEN-LAST:event_okBtn2ActionPerformed
 
@@ -424,11 +470,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_forgotPwLabelMouseClicked
 
     private void forgotPwLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPwLabelMouseEntered
-        forgotPwLabel.setForeground(def);
+//        forgotPwLabel.setForeground(def);
     }//GEN-LAST:event_forgotPwLabelMouseEntered
 
     private void forgotPwLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPwLabelMouseExited
-        forgotPwLabel.setForeground(pc);
+//        forgotPwLabel.setForeground(pc);
     }//GEN-LAST:event_forgotPwLabelMouseExited
 
     /**
@@ -440,9 +486,8 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
-        /* Create and display the form */
+ /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -452,6 +497,15 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
         });
+    }
+
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+        ThemeCollection.applyTheme(this, theme);
     }
 
     public JSpinner getAgeSpinner() {
@@ -510,6 +564,62 @@ public class MainFrame extends javax.swing.JFrame {
         this.usernameField2 = usernameField2;
     }
 
+    public JPanel getForgotPwBtn() {
+        return forgotPwBtn;
+    }
+
+    public JButton getLoginBtn() {
+        return loginBtn;
+    }
+
+    public JButton getOkBtn1() {
+        return okBtn1;
+    }
+
+    public JButton getOkBtn2() {
+        return okBtn2;
+    }
+
+    public JButton getSignInBtn() {
+        return signInBtn;
+    }
+
+    public JLabel getAgeLabel() {
+        return ageLabel;
+    }
+
+    public JLabel getNameLabel() {
+        return nameLabel;
+    }
+
+    public JLabel getPasswordLabel() {
+        return passwordLabel;
+    }
+
+    public JLabel getPasswordLabel2() {
+        return passwordLabel2;
+    }
+
+    public JLabel getSurnameLabel() {
+        return surnameLabel;
+    }
+
+    public JLabel getUsernameLabel() {
+        return usernameLabel;
+    }
+
+    public JLabel getUsernameLabel2() {
+        return usernameLabel2;
+    }
+
+    public JLabel getInfoLabel() {
+        return infoLabel;
+    }
+
+    public JLabel getForgotPwLabel() {
+        return forgotPwLabel;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ageLabel;
     private javax.swing.JSpinner ageSpinner;

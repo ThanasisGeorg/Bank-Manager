@@ -1,0 +1,36 @@
+name: Light
+
+# All values below should be in hex form without the '#'
+
+bg: "E1E1E1"
+fg: "15141B"
+
+bg_2: "EBEBEB"
+fg_2: "15141B"
+
+btn: "404040"
+btn_fg: "FFFFFF"
+
+label: "FFFFFF"
+
+textbox: "15141B"
+textbox_fg: "15141B"
+
+list: "071E22"
+list_fg: "FFFFFF"
+list_focus: "EE2E31"
+
+scrollbar: "0B3948"
+progress_bar: "44AF69"
+
+# extra slots for additional colors
+extra_0: "000000"
+extra_1: "000001"
+extra_2: "000002"
+extra_3: "000003"
+extra_4: "000004"
+extra_5: "000005"
+extra_6: "000006"
+extra_7: "000007"
+extra_8: "000008"
+extra_9: "000009"
