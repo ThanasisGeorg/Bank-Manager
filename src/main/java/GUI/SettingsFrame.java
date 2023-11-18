@@ -121,7 +121,7 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         settingsPanel.setName("bg"); // NOI18N
 
-        generalLabel.setFont(new java.awt.Font("Manjari", 0, 24)); // NOI18N
+        generalLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         generalLabel.setText("<html><p style=\"text-align:center\"><b>General</p> </html>");
         generalLabel.setName("textbox"); // NOI18N
 
@@ -139,7 +139,7 @@ public class SettingsFrame extends javax.swing.JFrame {
             }
         });
 
-        appearanceLabel.setFont(new java.awt.Font("Manjari", 0, 24)); // NOI18N
+        appearanceLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         appearanceLabel.setText("<html><p style=\"text-align:center\"><b>Appearance</p> </html>");
         appearanceLabel.setName("textbox"); // NOI18N
 
@@ -159,7 +159,7 @@ public class SettingsFrame extends javax.swing.JFrame {
             }
         });
 
-        securityLabel.setFont(new java.awt.Font("Manjari", 0, 24)); // NOI18N
+        securityLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         securityLabel.setText("<html><p style=\"text-align:center\"><b>Security</p> </html>");
         securityLabel.setName("textbox"); // NOI18N
 
@@ -247,7 +247,7 @@ public class SettingsFrame extends javax.swing.JFrame {
                 .addComponent(securitySeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(changePwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                 .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
