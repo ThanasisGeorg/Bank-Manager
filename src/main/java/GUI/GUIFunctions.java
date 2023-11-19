@@ -291,12 +291,17 @@ public class GUIFunctions {
         DatabaseConnection db = Database.connection();
         Theme theme = null;
 
-        if (frame instanceof ServicesFrame) {
-            frame.setTitle(title);
+        if (frame instanceof ServicesFrame sf) {
+            sf.setTitle(title);
+        }
+
+        if (!(frame instanceof ServicesFrame sf)) {
+            frame.pack();
+        } else {
+            sf.setSize(1500, 900);
         }
 
         // Center frame
-        frame.pack();
         frame.setLocationRelativeTo(null);
 
         // Theme setup

@@ -167,8 +167,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         loginPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        usernameLabel.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         usernameLabel.setText("Username");
 
+        passwordLabel.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         passwordLabel.setText("Password");
 
         okBtn1.setBackground(java.awt.Color.darkGray);
@@ -256,12 +258,16 @@ public class MainFrame extends javax.swing.JFrame {
 
         signInPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        nameLabel.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         nameLabel.setText("Name");
 
+        surnameLabel.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         surnameLabel.setText("Surname");
 
+        usernameLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         usernameLabel2.setText("Username");
 
+        passwordLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         passwordLabel2.setText("Password");
 
         okBtn2.setBackground(java.awt.Color.darkGray);
@@ -376,7 +382,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(signInPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(loginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

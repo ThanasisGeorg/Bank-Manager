@@ -117,6 +117,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
 
         jPanel1.setName("bg"); // NOI18N
 
+        usernameIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         usernameIndicator.setText("<html><p style=\"text-align:center\"><b>Enter your username:</p> </html>");
         usernameIndicator.setName("textbox"); // NOI18N
 
@@ -126,6 +127,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
             }
         });
 
+        newPasswordIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         newPasswordIndicator.setText("<html><p style=\"text-align:center\"><b>Enter your new password:</p> </html>");
         newPasswordIndicator.setName("textbox"); // NOI18N
 
@@ -135,6 +137,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
             }
         });
 
+        confirmNewPasswordIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         confirmNewPasswordIndicator.setText("<html><p style=\"text-align:center\"><b>Confirm your new password:</p> </html>");
         confirmNewPasswordIndicator.setName("textbox"); // NOI18N
 
@@ -145,6 +148,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         });
 
         cancelBtn.setBackground(java.awt.Color.darkGray);
+        cancelBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         cancelBtn.setText("<html><p style=\"text-align:center\"><b>Cancel</p> </html>");
         cancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelBtn.setName("btn"); // NOI18N
@@ -155,6 +159,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
         });
 
         applyBtn.setBackground(java.awt.Color.darkGray);
+        applyBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         applyBtn.setText("<html><p style=\"text-align:center\"><b>Apply</p> </html>");
         applyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         applyBtn.setName("btn"); // NOI18N
@@ -181,12 +186,12 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
                             .addComponent(newPasswordIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(confirmNewPasswordIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(usernameIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(55, 55, 55)
+                        .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(usernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                             .addComponent(confirmNewPasswordField)
                             .addComponent(newPasswordField))
-                        .addGap(0, 109, Short.MAX_VALUE)))
+                        .addGap(0, 121, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(

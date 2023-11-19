@@ -113,6 +113,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
 
         jPanel1.setName("bg"); // NOI18N
 
+        oldPasswordIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         oldPasswordIndicator.setText("<html><p style=\"text-align:center\"><b>Enter your old password:</p> </html>");
         oldPasswordIndicator.setName("textbox"); // NOI18N
 
@@ -122,6 +123,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
             }
         });
 
+        newPasswordIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         newPasswordIndicator.setText("<html><p style=\"text-align:center\"><b>Enter your new password:</p> </html>");
         newPasswordIndicator.setName("textbox"); // NOI18N
 
@@ -131,6 +133,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
             }
         });
 
+        confirmNewPasswordIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         confirmNewPasswordIndicator.setText("<html><p style=\"text-align:center\"><b>Confirm your new password:</p> </html>");
         confirmNewPasswordIndicator.setName("textbox"); // NOI18N
 
@@ -185,7 +188,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                             .addComponent(newPasswordField)
                             .addComponent(oldPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(confirmNewPasswordIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +241,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     item = new JMenuItem("This password does not match with the current account");
                     item.setForeground(red);
                     errorMessage.add(item);
-                    errorMessage.show(this, 50, 220);
+                    errorMessage.show(this, 20, 220);
                     oldPasswordField.requestFocus();
                     oldPasswordField.setForeground(red);
                     return;
@@ -301,7 +304,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     errorMessage.remove(sizePw);
                     errorMessage.remove(numPw);
                     errorMessage.remove(charPw);
-                    errorMessage.show(this, 50, 220);
+                    errorMessage.show(this, 30, 220);
                     newPasswordField.requestFocus();
                     newPasswordField.setForeground(red);
                     return;
@@ -312,7 +315,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                         errorMessage.remove(samePw);
                         errorMessage.remove(emptyBlankPw);
                         errorMessage.remove(numPw);
-                        errorMessage.show(this, 50, 220);
+                        errorMessage.show(this, 30, 220);
                         newPasswordField.requestFocus();
                         newPasswordField.setForeground(red);
                         return;
@@ -321,7 +324,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     errorMessage.remove(emptyBlankPw);
                     errorMessage.remove(sizePw);
                     errorMessage.remove(numPw);
-                    errorMessage.show(this, 50, 220);
+                    errorMessage.show(this, 30, 220);
                     newPasswordField.requestFocus();
                     newPasswordField.setForeground(red);
                     return;
@@ -341,7 +344,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     errorMessage.remove(emptyBlankPw);
                     errorMessage.remove(sizePw);
                     errorMessage.remove(charPw);
-                    errorMessage.show(this, 50, 220);
+                    errorMessage.show(this, 30, 220);
                     newPasswordField.requestFocus();
                     newPasswordField.setForeground(red);
                     return;
@@ -352,7 +355,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     errorMessage.remove(emptyBlankPw);
                     errorMessage.remove(numPw);
                     errorMessage.remove(charPw);
-                    errorMessage.show(this, 50, 220);
+                    errorMessage.show(this, 30, 220);
                     newPasswordField.requestFocus();
                     newPasswordField.setForeground(red);
                     return;
@@ -363,7 +366,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     errorMessage.remove(sizePw);
                     errorMessage.remove(numPw);
                     errorMessage.remove(charPw);
-                    errorMessage.show(this, 50, 220);
+                    errorMessage.show(this, 30, 220);
                     newPasswordField.requestFocus();
                     newPasswordField.setForeground(red);
                     return;
@@ -377,7 +380,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                 errorMessage.remove(sizePw);
                 errorMessage.remove(numPw);
                 errorMessage.remove(charPw);
-                errorMessage.show(this, 50, 220);
+                errorMessage.show(this, 30, 220);
                 newPasswordField.requestFocus();
             } else if (languageName.equals("Greek")) {
                 JMenuItem samePw = new JMenuItem("Ο κωδικός σας δεν πρέπει να ταιριάζει με τον παλιό σου");
