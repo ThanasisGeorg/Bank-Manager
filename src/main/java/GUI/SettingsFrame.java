@@ -22,6 +22,7 @@ import java.io.File;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
@@ -367,23 +368,34 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         DatabaseConnection db = Database.connection();
         String languageName = languageComboBox.getSelectedItem().toString();
-        try {
-            switch (languageName) {
-                case "Ελληνικά":
+        switch (languageName) {
+            case "Ελληνικά":
+                try {
                     DBMethods.updateLanguage("Greek");
                     configureFrameProperties();
-                    break;
-                case "Αγγλικά":
+                } catch (SQLException ex) {
+                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(this, "Κάτι πήγε στραβά με την βάση δεδομένων μας. Παρακαλώ προσπαθήστε ξανά!", "", JOptionPane.ERROR_MESSAGE);
+                }
+                break;
+            case "Αγγλικά":
+                try {
                     DBMethods.updateLanguage("English");
                     configureFrameProperties();
-                    break;
-                default:
+                } catch (SQLException ex) {
+                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(this, "Something went wrong with the database. Please try again!", "", JOptionPane.ERROR_MESSAGE);
+                }
+                break;
+            default:
+                try {
                     DBMethods.updateLanguage(languageName);
                     configureFrameProperties();
-                    break;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(this, "Something went wrong with the database. Please try again!", "", JOptionPane.ERROR_MESSAGE);
+                }
+                break;
         }
 
         db.close();
