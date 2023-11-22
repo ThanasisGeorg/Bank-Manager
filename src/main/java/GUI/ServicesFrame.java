@@ -17,6 +17,7 @@ import javax.swing.JFileChooser;
 
 import Database.DBMethods;
 import Database.Database;
+import static GUI.GUIFunctions.getThemes;
 import com.formdev.flatlaf.*;
 import java.awt.Component;
 import java.sql.ResultSet;
@@ -47,7 +48,10 @@ public class ServicesFrame extends javax.swing.JFrame {
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
-    Color sep = new Color(187, 187, 187);
+    Color sepDark1 = new Color(187, 187, 187);
+    Color sepDark2 = new Color(21, 20, 27);
+    Color sepLight1 = new Color(21, 20, 27);
+    Color sepLight2 = new Color(187, 187, 187);
     Color sc = new Color(97, 255, 202);
 
     private int indexOfCustomerLoggedIn;
@@ -70,21 +74,13 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         // Color, focus and visibility setup of components
         servicesPanel.setBackground(bg);
-//        menuSeparator.setBackground(sep);
         accInfoBtn.setForeground(pc);
-//        accInfoSeparator.setBackground(sep);
         depBtn.setForeground(pc);
-//        depSeparator.setBackground(sep);
         delBtn.setForeground(pc);
-//        delSeparator.setBackground(sep);
         logoutBtn.setForeground(pc);
-//        logoutSeparator.setBackground(sep);
         refreshBtn.setForeground(pc);
         uploadImgBtn.setForeground(pc);
         settingsBtn.setForeground(pc);
-//        infoSeparator.setBackground(sep);
-//        avatarSeparator1.setBackground(sep);
-//        avatarSeparator2.setBackground(sep);
 
         accInfoBtn.setFocusable(false);
         depBtn.setFocusable(false);
@@ -116,9 +112,6 @@ public class ServicesFrame extends javax.swing.JFrame {
         configureFrameProperties();
 
         // Color, focus and visibility setup of components
-        avatarSeparator1.setForeground(sep);
-        avatarSeparator2.setForeground(sep);
-
         accInfoBtn.setFocusable(false);
         depBtn.setFocusable(false);
         delBtn.setFocusable(false);
@@ -195,7 +188,8 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         menuSeparator.setBackground(new java.awt.Color(187, 187, 187));
         menuSeparator.setForeground(new java.awt.Color(187, 187, 187));
-        menuSeparator.setName("fg_2"); // NOI18N
+        menuSeparator.setName("extra_2"); // NOI18N
+        menuSeparator.setOpaque(true);
 
         accInfoBtn.setBackground(java.awt.Color.darkGray);
         accInfoBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -209,7 +203,8 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         accInfoSeparator.setBackground(new java.awt.Color(187, 187, 187));
         accInfoSeparator.setForeground(new java.awt.Color(187, 187, 187));
-        accInfoSeparator.setName("fg_2"); // NOI18N
+        accInfoSeparator.setName("extra_2"); // NOI18N
+        accInfoSeparator.setOpaque(true);
 
         depBtn.setBackground(java.awt.Color.darkGray);
         depBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -223,7 +218,8 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         depSeparator.setBackground(new java.awt.Color(187, 187, 187));
         depSeparator.setForeground(new java.awt.Color(187, 187, 187));
-        depSeparator.setName("fg_2"); // NOI18N
+        depSeparator.setName("extra_2"); // NOI18N
+        depSeparator.setOpaque(true);
 
         delBtn.setBackground(java.awt.Color.darkGray);
         delBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -237,7 +233,8 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         delSeparator.setBackground(new java.awt.Color(187, 187, 187));
         delSeparator.setForeground(new java.awt.Color(187, 187, 187));
-        delSeparator.setName("fg_2"); // NOI18N
+        delSeparator.setName("extra_2"); // NOI18N
+        delSeparator.setOpaque(true);
 
         logoutBtn.setBackground(java.awt.Color.darkGray);
         logoutBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -251,18 +248,21 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         logoutSeparator.setBackground(new java.awt.Color(187, 187, 187));
         logoutSeparator.setForeground(new java.awt.Color(187, 187, 187));
-        logoutSeparator.setName("fg_2"); // NOI18N
+        logoutSeparator.setName("extra_2"); // NOI18N
+        logoutSeparator.setOpaque(true);
 
         mainSeparator.setBackground(new java.awt.Color(187, 187, 187));
         mainSeparator.setForeground(new java.awt.Color(187, 187, 187));
         mainSeparator.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        mainSeparator.setName("fg_2"); // NOI18N
+        mainSeparator.setName("extra_2"); // NOI18N
+        mainSeparator.setOpaque(true);
 
+        infoPanel.setName("extra_0"); // NOI18N
         infoPanel.setPreferredSize(new java.awt.Dimension(970, 500));
 
         avatarPanel.setBackground(new java.awt.Color(0, 0, 0));
 
-        avatarLabel.setBackground(new java.awt.Color(0, 0, 0));
+        avatarLabel.setBackground(new java.awt.Color(51, 51, 51));
         avatarLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout avatarPanelLayout = new javax.swing.GroupLayout(avatarPanel);
@@ -279,49 +279,64 @@ public class ServicesFrame extends javax.swing.JFrame {
         customerInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         customerInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         customerInfoLabel.setText("<html><p style=\"text-align:center\"><b>Customer Info</p> </html>");
-        customerInfoLabel.setName("label"); // NOI18N
+        customerInfoLabel.setName("fg_2"); // NOI18N
 
         nameIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         nameIndicator.setText("<html><p style=\"text-align:center\"><b>Name:</p> </html>");
-        nameIndicator.setName("label"); // NOI18N
+        nameIndicator.setName("fg_2"); // NOI18N
+
+        name.setName("fg_2"); // NOI18N
 
         surnameIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         surnameIndicator.setText("<html><p style=\"text-align:center\"><b>Surname:</p> </html>");
-        surnameIndicator.setName("label"); // NOI18N
+        surnameIndicator.setName("fg_2"); // NOI18N
+
+        surname.setName("fg_2"); // NOI18N
 
         ageIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         ageIndicator.setText("<html><p style=\"text-align:center\"><b>Age:</p> </html>");
-        ageIndicator.setName("label"); // NOI18N
+        ageIndicator.setName("fg_2"); // NOI18N
+
+        age.setName("fg_2"); // NOI18N
 
         accountInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         accountInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accountInfoLabel.setText("<html><p style=\"text-align:center\"><b>Account Info</p> </html>");
-        accountInfoLabel.setName("label"); // NOI18N
+        accountInfoLabel.setName("fg_2"); // NOI18N
 
         usernameIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         usernameIndicator.setText("<html><p style=\"text-align:center\"><b>Username:</p> </html>");
-        usernameIndicator.setName("label"); // NOI18N
+        usernameIndicator.setName("fg_2"); // NOI18N
+
+        username.setName("fg_2"); // NOI18N
 
         balanceIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         balanceIndicator.setText("<html><p style=\"text-align:center\"><b>Balance:</p> </html>");
-        balanceIndicator.setName("label"); // NOI18N
+        balanceIndicator.setName("fg_2"); // NOI18N
+
+        balance.setName("fg_2"); // NOI18N
 
         accIdIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         accIdIndicator.setText("<html><p style=\"text-align:center\"><b>Account ID:</p> </html>");
-        accIdIndicator.setName("label"); // NOI18N
+        accIdIndicator.setName("fg_2"); // NOI18N
 
-        infoSeparator.setBackground(new java.awt.Color(187, 187, 187));
-        infoSeparator.setForeground(new java.awt.Color(187, 187, 187));
-        infoSeparator.setName(""); // NOI18N
+        accountId.setName("fg_2"); // NOI18N
 
-        avatarSeparator1.setBackground(new java.awt.Color(187, 187, 187));
-        avatarSeparator1.setForeground(new java.awt.Color(187, 187, 187));
+        infoSeparator.setBackground(new java.awt.Color(21, 20, 27));
+        infoSeparator.setForeground(new java.awt.Color(21, 20, 27));
+        infoSeparator.setName("extra_1"); // NOI18N
+        infoSeparator.setOpaque(true);
+
+        avatarSeparator1.setBackground(new java.awt.Color(21, 20, 27));
+        avatarSeparator1.setForeground(new java.awt.Color(21, 20, 27));
         avatarSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        avatarSeparator1.setName(""); // NOI18N
+        avatarSeparator1.setName("extra_1"); // NOI18N
+        avatarSeparator1.setOpaque(true);
 
-        avatarSeparator2.setBackground(new java.awt.Color(187, 187, 187));
-        avatarSeparator2.setForeground(new java.awt.Color(187, 187, 187));
-        avatarSeparator2.setName(""); // NOI18N
+        avatarSeparator2.setBackground(new java.awt.Color(21, 20, 27));
+        avatarSeparator2.setForeground(new java.awt.Color(21, 20, 27));
+        avatarSeparator2.setName("extra_1"); // NOI18N
+        avatarSeparator2.setOpaque(true);
 
         uploadImgBtn.setBackground(java.awt.Color.darkGray);
         uploadImgBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
@@ -399,7 +414,7 @@ public class ServicesFrame extends javax.swing.JFrame {
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(avatarSeparator2)
                     .addComponent(infoSeparator))
-                .addGap(27, 27, 27)
+                .addGap(16, 16, 16)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(accountInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(uploadImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -415,7 +430,7 @@ public class ServicesFrame extends javax.swing.JFrame {
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(accountId, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(accIdIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         refreshBtn.setBackground(java.awt.Color.darkGray);
@@ -520,8 +535,8 @@ public class ServicesFrame extends javax.swing.JFrame {
     private void configureFrameProperties() {
         DatabaseConnection db = Database.connection();
 
+        ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             rs.next();
             String languageName = rs.getString(1);
             if (languageName.equals("English")) {
@@ -592,8 +607,8 @@ public class ServicesFrame extends javax.swing.JFrame {
     private void delBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delBtnActionPerformed
         DatabaseConnection db = Database.connection();
 
+        ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             rs.next();
             String languageName = rs.getString(1);
             if (languageName.equals("English")) {
@@ -651,8 +666,8 @@ public class ServicesFrame extends javax.swing.JFrame {
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         DatabaseConnection db = Database.connection();
 
+        ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             rs.next();
             String languageName = rs.getString(1);
             this.dispose();

@@ -113,7 +113,8 @@ public class AboutFrame extends javax.swing.JFrame {
 
         jSeparator1.setBackground(new java.awt.Color(187, 187, 187));
         jSeparator1.setForeground(new java.awt.Color(187, 187, 187));
-        jSeparator1.setName("fg_2"); // NOI18N
+        jSeparator1.setName("extra_2"); // NOI18N
+        jSeparator1.setOpaque(true);
 
         synopsisTextArea.setEditable(false);
         synopsisTextArea.setColumns(20);
@@ -129,7 +130,8 @@ public class AboutFrame extends javax.swing.JFrame {
 
         jSeparator2.setBackground(new java.awt.Color(187, 187, 187));
         jSeparator2.setForeground(new java.awt.Color(187, 187, 187));
-        jSeparator2.setName("fg_2"); // NOI18N
+        jSeparator2.setName("extra_2"); // NOI18N
+        jSeparator2.setOpaque(true);
 
         licenceTextArea.setEditable(false);
         licenceTextArea.setColumns(20);
@@ -145,7 +147,8 @@ public class AboutFrame extends javax.swing.JFrame {
 
         jSeparator3.setBackground(new java.awt.Color(187, 187, 187));
         jSeparator3.setForeground(new java.awt.Color(187, 187, 187));
-        jSeparator3.setName("fg_2"); // NOI18N
+        jSeparator3.setName("extra_2"); // NOI18N
+        jSeparator3.setOpaque(true);
 
         ownerLabel.setFont(new java.awt.Font("Manjari", 0, 20)); // NOI18N
         ownerLabel.setText("<html><p style=\"text-align:center\"><b>Athanasios Georgalis</p> </html>");
@@ -202,20 +205,20 @@ public class AboutFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(synopsisLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(synopsisScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(licenceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(licenceScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(madeByLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(ownerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

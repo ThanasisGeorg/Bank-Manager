@@ -6,9 +6,9 @@ bg: "15141B"
 fg: "A277FF"
 
 bg_2: "EBEBEB"
-fg_2: "BBBBBB"
+fg_2: "15141B"
 
-btn: "404040"
+btn: "333333"
 btn_fg: "A277FF"
 
 label: "1D7874"
@@ -24,9 +24,9 @@ scrollbar: "0B3948"
 progress_bar: "44AF69"
 
 # extra slots for additional colors
-extra_0: "000000"
-extra_1: "000001"
-extra_2: "000002"
+extra_0: "A25AFF"
+extra_1: "15141B"
+extra_2: "BBBBBB"
 extra_3: "000003"
 extra_4: "000004"
 extra_5: "000005"
