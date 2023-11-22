@@ -170,13 +170,9 @@ public class GUIFunctions {
                             customerList.get(customerList.size() - 1).getAcc().setBalance(0.0);
 
                             customerList.get(customerList.size() - 1).addInfo(customerInfo);
-                            try {
-                                db.close();
-                                DBMethods.insertCustomer(customerList, customerList.size() - 1);
-                                DBMethods.insertCustomerAcc(customerList, customerList.size() - 1);
-                            } catch (SQLException ex) {
-                                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                            db.close();
+                            DBMethods.insertCustomer(customerList, customerList.size() - 1);
+                            DBMethods.insertCustomerAcc(customerList, customerList.size() - 1);
                             db.close();
                             return 1;
                         } else {
@@ -251,13 +247,9 @@ public class GUIFunctions {
                             customerList.get(customerList.size() - 1).getAcc().setBalance(0.0);
 
                             customerList.get(customerList.size() - 1).addInfo(customerInfo);
-                            try {
-                                db.close();
-                                DBMethods.insertCustomer(customerList, customerList.size() - 1);
-                                DBMethods.insertCustomerAcc(customerList, customerList.size() - 1);
-                            } catch (SQLException ex) {
-                                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                            db.close();
+                            DBMethods.insertCustomer(customerList, customerList.size() - 1);
+                            DBMethods.insertCustomerAcc(customerList, customerList.size() - 1);
                             db.close();
                             return 1;
                         } else {

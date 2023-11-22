@@ -2,6 +2,8 @@ package Database;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
@@ -41,7 +43,7 @@ public class DBMethods {
         return AccountsFields;
     }
 
-    public static void insertCustomer(ArrayList<Customer> customerList, int index) throws SQLException {
+    public static void insertCustomer(ArrayList<Customer> customerList, int index) {
         DatabaseConnection db = Database.connection();
         String query = "INSERT INTO Customers(" + DBUtils.columnsToList(CustomersFields) + ") VALUES(" + DBUtils.customerToList(customerList, index) + ")";
 
@@ -49,7 +51,7 @@ public class DBMethods {
         db.close();
     }
 
-    public static void insertCustomerAcc(ArrayList<Customer> customerList, int index) throws SQLException {
+    public static void insertCustomerAcc(ArrayList<Customer> customerList, int index) {
         DatabaseConnection db = Database.connection();
         String query = "INSERT INTO Accounts(" + DBUtils.columnsToList(AccountsFields) + ") VALUES(" + DBUtils.accountToList(customerList, index) + ")";
 
@@ -57,7 +59,7 @@ public class DBMethods {
         db.close();
     }
 
-    public static void updateImg(ArrayList<Customer> customerList, int index, String imgDir) throws SQLException {
+    public static void updateImg(ArrayList<Customer> customerList, int index, String imgDir) {
         DatabaseConnection db = Database.connection();
 
         db.executeUpdate(new QueryBuilder().update("Images").set("Img_Path", imgDir).where("Account_ID = \"" + customerList.get(index).getAcc().getId() + "\"").build());
@@ -65,15 +67,20 @@ public class DBMethods {
         db.close();
     }
 
-    public static String getImg(ArrayList<Customer> customerList, int index) throws SQLException {
+    public static String getImg(ArrayList<Customer> customerList, int index) {
         DatabaseConnection db = Database.connection();
-        String dir;
+        String dir = null;
 
         String query = new QueryBuilder().select("Img_Path").from("Images").where("Account_ID = \"" + customerList.get(index).getAcc().getId() + "\"").build();
 
         ResultSet rs = db.executeQuery(query);
 
-        dir = rs.getString(1);
+        try {
+            rs.next();
+            dir = rs.getString(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBMethods.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         db.close();
 
@@ -120,7 +127,7 @@ public class DBMethods {
         return list;
     }
 
-    public static void updateCustomerAcc(ArrayList<Customer> customerList, int j) throws SQLException {
+    public static void updateCustomerAcc(ArrayList<Customer> customerList, int j) {
         DatabaseConnection db = Database.connection();
 
         db.executeUpdate(new QueryBuilder().update("Accounts").set("Username_", customerList.get(j).getAcc().getUsername()).where("Account_ID = \"" + customerList.get(j).getAcc().getId() + "\"").build());
@@ -130,7 +137,7 @@ public class DBMethods {
         db.close();
     }
 
-    public static void insertFont(String os, String font) throws SQLException {
+    public static void insertFont(String os, String font) {
         DatabaseConnection db = Database.connection();
         String[] valuesToInsert = {os, font};
 
@@ -139,7 +146,7 @@ public class DBMethods {
         db.close();
     }
 
-    public static void updateLanguage(String language) throws SQLException {
+    public static void updateLanguage(String language) {
         DatabaseConnection db = Database.connection();
 
         db.executeUpdate(new QueryBuilder().update("Settings").set("Language", language).where("No = \"" + 1 + "\"").build());
@@ -147,7 +154,7 @@ public class DBMethods {
         db.close();
     }
     
-    public static void updateTheme(String themeName) throws SQLException {
+    public static void updateTheme(String themeName) {
         DatabaseConnection db = Database.connection();
 
         db.executeUpdate(new QueryBuilder().update("Settings").set("Theme", themeName).where("No = \"" + 1 + "\"").build());
@@ -155,7 +162,7 @@ public class DBMethods {
         db.close();
     }
 
-    public static void deleteAccount(ArrayList<Customer> customerList, int j) throws SQLException {
+    public static void deleteAccount(ArrayList<Customer> customerList, int j) {
         DatabaseConnection db = Database.connection();
 
         db.executeUpdate(new QueryBuilder().deleteFrom("Accounts").where("Account_ID = \"" + customerList.get(j).getAcc().getId() + "\"").build());
@@ -163,7 +170,7 @@ public class DBMethods {
         db.close();
     }
 
-    public static void deleteCustomer(ArrayList<Customer> customerList, int j) throws SQLException {
+    public static void deleteCustomer(ArrayList<Customer> customerList, int j) {
         DatabaseConnection db = Database.connection();
 
         db.executeUpdate(new QueryBuilder().deleteFrom("Customers").where("Name_ = \"" + customerList.get(j).getName() + "\"").build());

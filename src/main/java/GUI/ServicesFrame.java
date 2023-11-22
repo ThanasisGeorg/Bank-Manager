@@ -101,7 +101,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         db.close();
     }
 
-    public ServicesFrame(MainFrame mf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) throws SQLException {
+    public ServicesFrame(MainFrame mf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
         FlatDarculaLaf.setup();
         DatabaseConnection db = Database.connection();
 
@@ -285,18 +285,21 @@ public class ServicesFrame extends javax.swing.JFrame {
         nameIndicator.setText("<html><p style=\"text-align:center\"><b>Name:</p> </html>");
         nameIndicator.setName("fg_2"); // NOI18N
 
+        name.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         name.setName("fg_2"); // NOI18N
 
         surnameIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         surnameIndicator.setText("<html><p style=\"text-align:center\"><b>Surname:</p> </html>");
         surnameIndicator.setName("fg_2"); // NOI18N
 
+        surname.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         surname.setName("fg_2"); // NOI18N
 
         ageIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         ageIndicator.setText("<html><p style=\"text-align:center\"><b>Age:</p> </html>");
         ageIndicator.setName("fg_2"); // NOI18N
 
+        age.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         age.setName("fg_2"); // NOI18N
 
         accountInfoLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
@@ -308,18 +311,21 @@ public class ServicesFrame extends javax.swing.JFrame {
         usernameIndicator.setText("<html><p style=\"text-align:center\"><b>Username:</p> </html>");
         usernameIndicator.setName("fg_2"); // NOI18N
 
+        username.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         username.setName("fg_2"); // NOI18N
 
         balanceIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         balanceIndicator.setText("<html><p style=\"text-align:center\"><b>Balance:</p> </html>");
         balanceIndicator.setName("fg_2"); // NOI18N
 
+        balance.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         balance.setName("fg_2"); // NOI18N
 
         accIdIndicator.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         accIdIndicator.setText("<html><p style=\"text-align:center\"><b>Account ID:</p> </html>");
         accIdIndicator.setName("fg_2"); // NOI18N
 
+        accountId.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         accountId.setName("fg_2"); // NOI18N
 
         infoSeparator.setBackground(new java.awt.Color(21, 20, 27));
@@ -616,16 +622,12 @@ public class ServicesFrame extends javax.swing.JFrame {
 
                 switch (choice) {
                     case 0: { // confirm
-                        try {
-                            DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
-                            DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
-                            this.dispose();
-                            mf = new MainFrame();
-                            mf.setVisible(true);
-                            JOptionPane.showMessageDialog(mf, "Successfull delete");
-                        } catch (SQLException ex) {
-                            Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                        DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
+                        DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
+                        this.dispose();
+                        mf = new MainFrame();
+                        mf.setVisible(true);
+                        JOptionPane.showMessageDialog(mf, "Successfull delete");
                         break;
                     }
 
@@ -638,16 +640,12 @@ public class ServicesFrame extends javax.swing.JFrame {
 
                 switch (choice) {
                     case 0: { // confirm
-                        try {
-                            DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
-                            DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
-                            this.dispose();
-                            mf = new MainFrame();
-                            mf.setVisible(true);
-                            JOptionPane.showMessageDialog(mf, "Επιτυχής διαγραφή");
-                        } catch (SQLException ex) {
-                            Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                        DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
+                        DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
+                        this.dispose();
+                        mf = new MainFrame();
+                        mf.setVisible(true);
+                        JOptionPane.showMessageDialog(mf, "Επιτυχής διαγραφή");
                         break;
                     }
 
@@ -666,10 +664,17 @@ public class ServicesFrame extends javax.swing.JFrame {
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         DatabaseConnection db = Database.connection();
 
+        String languageName = null;
+
         ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
             rs.next();
-            String languageName = rs.getString(1);
+            languageName = rs.getString(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (languageName != null) {
             this.dispose();
             mf = new MainFrame();
             mf.setVisible(true);
@@ -677,9 +682,7 @@ public class ServicesFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(mf, "Successfull Logout");
             } else if (languageName.equals("Greek")) {
                 JOptionPane.showMessageDialog(mf, "Επιτυχής αποσύνδεση");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }         
         }
 
         db.close();
@@ -697,11 +700,7 @@ public class ServicesFrame extends javax.swing.JFrame {
             File SelectedFile = imgChooser.getSelectedFile();
             dir = SelectedFile.getPath();
             resizeImage(dir);
-            try {
-                DBMethods.updateImg(customerList, indexOfCustomerLoggedIn, dir);
-            } catch (SQLException ex) {
-                Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            DBMethods.updateImg(customerList, indexOfCustomerLoggedIn, dir);
             loadImage(dir);
         }
 
@@ -715,11 +714,7 @@ public class ServicesFrame extends javax.swing.JFrame {
             sf.dispose();
         }
 
-        try {
-            sf = new SettingsFrame(this, customerList, indexOfCustomerLoggedIn);
-        } catch (SQLException ex) {
-            Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        sf = new SettingsFrame(this, customerList, indexOfCustomerLoggedIn);
         sf.setVisible(true);
     }//GEN-LAST:event_settingsBtnActionPerformed
 

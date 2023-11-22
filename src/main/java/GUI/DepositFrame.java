@@ -200,12 +200,8 @@ public class DepositFrame extends javax.swing.JFrame {
         double balance = Double.parseDouble(amountField.getText());
 
         customerList.get(indexOfCustomerLoggedIn).getAcc().setBalance(customerList.get(indexOfCustomerLoggedIn).getAcc().getBalance() + balance);
-        try {
-            DBMethods.updateCustomerAcc(customerList, indexOfCustomerLoggedIn);
-        } catch (SQLException ex) {
-            Logger.getLogger(DepositFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        DBMethods.updateCustomerAcc(customerList, indexOfCustomerLoggedIn);
+
         this.setVisible(false);
 
         DatabaseConnection db = Database.connection();
@@ -222,9 +218,9 @@ public class DepositFrame extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(DepositFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         db.close();
-        
+
         this.dispose();
     }//GEN-LAST:event_applyBtnActionPerformed
 

@@ -46,7 +46,7 @@ public class MainFrame extends javax.swing.JFrame {
     private boolean loginbtnPressed = false;
     private boolean signInbtnPressed = false;
 
-    public MainFrame() throws SQLException {
+    public MainFrame() {
         FlatDarculaLaf.setup();
 
         // Frame setup
@@ -78,17 +78,22 @@ public class MainFrame extends javax.swing.JFrame {
     private void configureFrameProperties() {
         DatabaseConnection db = Database.connection();
 
+        String languageName = "";
+
         ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
             rs.next();
-            String languageName = rs.getString(1);
+            languageName = rs.getString(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (languageName != null) {
             if (languageName.equals("English")) {
                 GUIFunctions.setTexts(this, Locale.US);
             } else if (languageName.equals("Greek")) {
                 GUIFunctions.setTexts(this, Locale.of("el", "GR"));
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         db.close();
@@ -137,6 +142,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -516,12 +522,29 @@ public class MainFrame extends javax.swing.JFrame {
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
+        jPanel12.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jPanel12.setName("extra_0"); // NOI18N
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(loginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
@@ -600,7 +623,10 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -652,11 +678,8 @@ public class MainFrame extends javax.swing.JFrame {
             usernameField2.setText("");
             passwordField2.setText("");
 
-            try {
-                sf = new ServicesFrame(this, customerList, isLoginInfoValid);
-            } catch (SQLException ex) {
-                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            sf = new ServicesFrame(this, customerList, isLoginInfoValid);
+
             sf.setVisible(true);
             this.dispose();
         }
@@ -676,17 +699,22 @@ public class MainFrame extends javax.swing.JFrame {
 
             DatabaseConnection db = Database.connection();
 
+            String languageName = "";
+
             ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             try {
                 rs.next();
-                String languageName = rs.getString(1);
+                languageName = rs.getString(1);
+            } catch (SQLException ex) {
+                Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            if (languageName != null) {
                 if (languageName.equals("English")) {
                     JOptionPane.showMessageDialog(this, "Successfull sign in");
                 } else if (languageName.equals("Greek")) {
                     JOptionPane.showMessageDialog(this, "Επιτυχής εγγραφή");
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             db.close();
@@ -723,11 +751,7 @@ public class MainFrame extends javax.swing.JFrame {
  /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new MainFrame().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new MainFrame().setVisible(true);
             }
         });
     }
@@ -863,6 +887,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

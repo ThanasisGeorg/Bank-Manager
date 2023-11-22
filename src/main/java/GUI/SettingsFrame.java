@@ -68,7 +68,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         db.close();
     }
 
-    public SettingsFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) throws SQLException {
+    public SettingsFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
         DatabaseConnection db = Database.connection();
 
         // Frame setup
@@ -336,13 +336,8 @@ public class SettingsFrame extends javax.swing.JFrame {
         themes.loadThemes(new File(FILEPATH + "/themes/"));
         Theme selectedTheme = themes.matchTheme(themeName);
 
-        try {
-            DBMethods.updateTheme(themeName);
-            System.out.println("updated");
-        } catch (SQLException ex) {
-            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "Something went wrong. Please try again!", "", JOptionPane.ERROR_MESSAGE);
-        }
+        DBMethods.updateTheme(themeName);
+        System.out.println("updated");
 
         sf.setTheme(selectedTheme);
         this.theme = selectedTheme;
@@ -374,45 +369,21 @@ public class SettingsFrame extends javax.swing.JFrame {
         String languageName = languageComboBox.getSelectedItem().toString();
         switch (languageName) {
             case "Ελληνικά":
-                try {
-                    DBMethods.updateLanguage("Greek");
-                    configureFrameProperties();
-                } catch (SQLException ex) {
-                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    System.out.println(ex.getMessage());
-                    JOptionPane.showMessageDialog(this, "Κάτι πήγε στραβά με την βάση δεδομένων μας. Παρακαλώ προσπαθήστε ξανά!", "", JOptionPane.ERROR_MESSAGE);
-                }
-            break;
+                DBMethods.updateLanguage("Greek");
+                configureFrameProperties();
+                break;
             case "Αγγλικά":
-                try {
-                    DBMethods.updateLanguage("English");
-                    configureFrameProperties();
-                } catch (SQLException ex) {
-                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    System.out.println(ex.getMessage());
-                    JOptionPane.showMessageDialog(this, "Something went wrong with the database. Please try again!", "", JOptionPane.ERROR_MESSAGE);
-                }
-            break;
+                DBMethods.updateLanguage("English");
+                configureFrameProperties();
+                break;
             case "English":
-                try {
-                    DBMethods.updateLanguage("English");
-                    configureFrameProperties();
-                } catch (SQLException ex) {
-                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    System.out.println(ex.getMessage());
-                    JOptionPane.showMessageDialog(this, "Something went wrong with the database. Please try again!", "", JOptionPane.ERROR_MESSAGE);
-                }
-            break;
+                DBMethods.updateLanguage("English");
+                configureFrameProperties();
+                break;
             case "Greek":
-                try {
-                    DBMethods.updateLanguage("Greek");
-                    configureFrameProperties();
-                } catch (SQLException ex) {
-                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    System.out.println(ex.getMessage());
-                    JOptionPane.showMessageDialog(this, "Κάτι πήγε στραβά με την βάση δεδομένων μας. Παρακαλώ προσπαθήστε ξανά!", "", JOptionPane.ERROR_MESSAGE);
-                }
-            break;
+                DBMethods.updateLanguage("Greek");
+                configureFrameProperties();
+                break;
             default:
                 break;
         }

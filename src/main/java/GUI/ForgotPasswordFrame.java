@@ -610,11 +610,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
                 if (newPasswordField.getForeground() == green && newPasswordField.getForeground() == green && confirmNewPasswordField.getForeground() == green) {
                     customerList.get(indexOfCustomer).getAcc().setPassword(GUIUtils.charArrayToString(newPasswordField.getPassword()));
 
-                    try {
                         DBMethods.updateCustomerAcc(customerList, indexOfCustomer);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    }
                     this.dispose();
                     JOptionPane.showMessageDialog(mf, "Successfull change of your password");
                 } else {
@@ -624,11 +620,7 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
                 if (newPasswordField.getForeground() == green && newPasswordField.getForeground() == green && confirmNewPasswordField.getForeground() == green) {
                     customerList.get(indexOfCustomer).getAcc().setPassword(GUIUtils.charArrayToString(newPasswordField.getPassword()));
 
-                    try {
                         DBMethods.updateCustomerAcc(customerList, indexOfCustomer);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    }
                     this.dispose();
                     JOptionPane.showMessageDialog(mf, "Επιτυχής αλλαγή κωδικού");
                 } else {
