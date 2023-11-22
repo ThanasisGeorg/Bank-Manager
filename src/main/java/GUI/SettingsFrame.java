@@ -375,43 +375,43 @@ public class SettingsFrame extends javax.swing.JFrame {
         switch (languageName) {
             case "Ελληνικά":
                 try {
-                DBMethods.updateLanguage("Greek");
-                configureFrameProperties();
-            } catch (SQLException ex) {
-                Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println(ex.getMessage());
-                JOptionPane.showMessageDialog(this, "Κάτι πήγε στραβά με την βάση δεδομένων μας. Παρακαλώ προσπαθήστε ξανά!", "", JOptionPane.ERROR_MESSAGE);
-            }
+                    DBMethods.updateLanguage("Greek");
+                    configureFrameProperties();
+                } catch (SQLException ex) {
+                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println(ex.getMessage());
+                    JOptionPane.showMessageDialog(this, "Κάτι πήγε στραβά με την βάση δεδομένων μας. Παρακαλώ προσπαθήστε ξανά!", "", JOptionPane.ERROR_MESSAGE);
+                }
             break;
             case "Αγγλικά":
                 try {
-                DBMethods.updateLanguage("English");
-                configureFrameProperties();
-            } catch (SQLException ex) {
-                Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println(ex.getMessage());
-                JOptionPane.showMessageDialog(this, "Something went wrong with the database. Please try again!", "", JOptionPane.ERROR_MESSAGE);
-            }
+                    DBMethods.updateLanguage("English");
+                    configureFrameProperties();
+                } catch (SQLException ex) {
+                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println(ex.getMessage());
+                    JOptionPane.showMessageDialog(this, "Something went wrong with the database. Please try again!", "", JOptionPane.ERROR_MESSAGE);
+                }
             break;
             case "English":
                 try {
-                DBMethods.updateLanguage("English");
-                configureFrameProperties();
-            } catch (SQLException ex) {
-                Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println(ex.getMessage());
-                JOptionPane.showMessageDialog(this, "Something went wrong with the database. Please try again!", "", JOptionPane.ERROR_MESSAGE);
-            }
+                    DBMethods.updateLanguage("English");
+                    configureFrameProperties();
+                } catch (SQLException ex) {
+                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println(ex.getMessage());
+                    JOptionPane.showMessageDialog(this, "Something went wrong with the database. Please try again!", "", JOptionPane.ERROR_MESSAGE);
+                }
             break;
             case "Greek":
                 try {
-                DBMethods.updateLanguage("Greek");
-                configureFrameProperties();
-            } catch (SQLException ex) {
-                Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println(ex.getMessage());
-                JOptionPane.showMessageDialog(this, "Κάτι πήγε στραβά με την βάση δεδομένων μας. Παρακαλώ προσπαθήστε ξανά!", "", JOptionPane.ERROR_MESSAGE);
-            }
+                    DBMethods.updateLanguage("Greek");
+                    configureFrameProperties();
+                } catch (SQLException ex) {
+                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println(ex.getMessage());
+                    JOptionPane.showMessageDialog(this, "Κάτι πήγε στραβά με την βάση δεδομένων μας. Παρακαλώ προσπαθήστε ξανά!", "", JOptionPane.ERROR_MESSAGE);
+                }
             break;
             default:
                 break;
