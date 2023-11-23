@@ -68,7 +68,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         db.close();
     }
 
-    public SettingsFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) throws SQLException {
+    public SettingsFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
         DatabaseConnection db = Database.connection();
 
         // Frame setup
@@ -128,12 +128,13 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         generalSeparator.setBackground(new java.awt.Color(187, 187, 187));
         generalSeparator.setForeground(new java.awt.Color(187, 187, 187));
-        generalSeparator.setName("fg_2"); // NOI18N
+        generalSeparator.setName("extra_2"); // NOI18N
+        generalSeparator.setOpaque(true);
 
         languageLabel.setText("<html><p style=\"text-align:center\"><b>Language:</p> </html>");
         languageLabel.setName("textbox"); // NOI18N
 
-        languageComboBox.setBackground(java.awt.Color.darkGray);
+        languageComboBox.setBackground(new java.awt.Color(51, 51, 51));
         languageComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 languageComboBoxActionPerformed(evt);
@@ -146,12 +147,13 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         appearanceSeparator.setBackground(new java.awt.Color(187, 187, 187));
         appearanceSeparator.setForeground(new java.awt.Color(187, 187, 187));
-        appearanceSeparator.setName("fg_2"); // NOI18N
+        appearanceSeparator.setName("extra_2"); // NOI18N
+        appearanceSeparator.setOpaque(true);
 
         themesLabel.setText("<html><p style=\"text-align:center\"><b>Theme:</p> </html>");
         themesLabel.setName("textbox"); // NOI18N
 
-        themesComboBox.setBackground(java.awt.Color.darkGray);
+        themesComboBox.setBackground(new java.awt.Color(51, 51, 51));
         themesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Light", "Dark" }));
         themesComboBox.setFocusable(false);
         themesComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +168,8 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         securitySeparator.setBackground(new java.awt.Color(187, 187, 187));
         securitySeparator.setForeground(new java.awt.Color(187, 187, 187));
-        securitySeparator.setName("fg_2"); // NOI18N
+        securitySeparator.setName("extra_2"); // NOI18N
+        securitySeparator.setOpaque(true);
 
         changePwBtn.setBackground(java.awt.Color.darkGray);
         changePwBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
@@ -203,7 +206,6 @@ public class SettingsFrame extends javax.swing.JFrame {
                         .addGap(87, 87, 87))
                     .addGroup(settingsPanelLayout.createSequentialGroup()
                         .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(changePwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(appearanceSeparator, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(appearanceLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
@@ -216,11 +218,12 @@ public class SettingsFrame extends javax.swing.JFrame {
                                 .addComponent(generalLabel, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(securitySeparator, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(securityLabel, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(securityLabel, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(changePwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(247, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, settingsPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         settingsPanelLayout.setVerticalGroup(
@@ -229,24 +232,24 @@ public class SettingsFrame extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(generalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
-                .addComponent(generalSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addComponent(generalSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(languageComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(appearanceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
-                .addComponent(appearanceSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(appearanceSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(themesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(themesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(securityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
-                .addComponent(securitySeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(securitySeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(changePwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                 .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,8 +273,8 @@ public class SettingsFrame extends javax.swing.JFrame {
     private void configureFrameProperties() {
         DatabaseConnection db = Database.connection();
 
+        ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             rs.next();
             String languageName = rs.getString(1);
             if (languageName.equals("English")) {
@@ -306,7 +309,6 @@ public class SettingsFrame extends javax.swing.JFrame {
             themeNames.add(theme.getName());
         }
 
-        // themeNames.add(0, "Default");
         themesComboBox.setModel(new DefaultComboBoxModel(themeNames.toArray()));
     }
 
@@ -334,11 +336,8 @@ public class SettingsFrame extends javax.swing.JFrame {
         themes.loadThemes(new File(FILEPATH + "/themes/"));
         Theme selectedTheme = themes.matchTheme(themeName);
 
-        try {
-            DBMethods.updateTheme(themeName);
-        } catch (SQLException ex) {
-            Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        DBMethods.updateTheme(themeName);
+        System.out.println("updated");
 
         sf.setTheme(selectedTheme);
         this.theme = selectedTheme;
@@ -370,31 +369,22 @@ public class SettingsFrame extends javax.swing.JFrame {
         String languageName = languageComboBox.getSelectedItem().toString();
         switch (languageName) {
             case "Ελληνικά":
-                try {
-                    DBMethods.updateLanguage("Greek");
-                    configureFrameProperties();
-                } catch (SQLException ex) {
-                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(this, "Κάτι πήγε στραβά με την βάση δεδομένων μας. Παρακαλώ προσπαθήστε ξανά!", "", JOptionPane.ERROR_MESSAGE);
-                }
+                DBMethods.updateLanguage("Greek");
+                configureFrameProperties();
                 break;
             case "Αγγλικά":
-                try {
-                    DBMethods.updateLanguage("English");
-                    configureFrameProperties();
-                } catch (SQLException ex) {
-                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(this, "Something went wrong with the database. Please try again!", "", JOptionPane.ERROR_MESSAGE);
-                }
+                DBMethods.updateLanguage("English");
+                configureFrameProperties();
+                break;
+            case "English":
+                DBMethods.updateLanguage("English");
+                configureFrameProperties();
+                break;
+            case "Greek":
+                DBMethods.updateLanguage("Greek");
+                configureFrameProperties();
                 break;
             default:
-                try {
-                    DBMethods.updateLanguage(languageName);
-                    configureFrameProperties();
-                } catch (SQLException ex) {
-                    Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(this, "Something went wrong with the database. Please try again!", "", JOptionPane.ERROR_MESSAGE);
-                }
                 break;
         }
 

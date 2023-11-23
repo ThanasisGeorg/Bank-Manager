@@ -139,7 +139,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -166,7 +167,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -193,7 +195,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -220,7 +223,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -247,7 +251,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -260,12 +265,14 @@
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
             <Property name="orientation" type="int" value="1"/>
-            <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="infoPanel">
           <Properties>
+            <Property name="name" type="java.lang.String" value="extra_0" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[970, 500]"/>
             </Property>
@@ -352,7 +359,7 @@
                           <Component id="avatarSeparator2" max="32767" attributes="0"/>
                           <Component id="infoSeparator" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="accountInfoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="uploadImgBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -372,7 +379,7 @@
                           <Component id="accountId" min="-2" pref="18" max="-2" attributes="0"/>
                           <Component id="accIdIndicator" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="100" max="32767" attributes="0"/>
+                      <EmptySpace pref="103" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -401,7 +408,7 @@
                 <Component class="javax.swing.JLabel" name="avatarLabel">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="0" red="0" type="rgb"/>
+                      <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                   </Properties>
@@ -415,7 +422,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Customer Info&lt;/p&gt; &lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="nameIndicator">
@@ -424,10 +431,16 @@
                   <Font name="Liberation Sans" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Name:&lt;/p&gt; &lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="name">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="16" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="surnameIndicator">
               <Properties>
@@ -435,10 +448,16 @@
                   <Font name="Liberation Sans" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Surname:&lt;/p&gt; &lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="surname">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="16" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="ageIndicator">
               <Properties>
@@ -446,10 +465,16 @@
                   <Font name="Liberation Sans" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Age:&lt;/p&gt; &lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="age">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="16" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="accountInfoLabel">
               <Properties>
@@ -458,7 +483,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Account Info&lt;/p&gt; &lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="usernameIndicator">
@@ -467,10 +492,16 @@
                   <Font name="Liberation Sans" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Username:&lt;/p&gt; &lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="username">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="16" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="balanceIndicator">
               <Properties>
@@ -478,10 +509,16 @@
                   <Font name="Liberation Sans" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Balance:&lt;/p&gt; &lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="balance">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="16" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="accIdIndicator">
               <Properties>
@@ -489,45 +526,54 @@
                   <Font name="Liberation Sans" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;b&gt;Account ID:&lt;/p&gt; &lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="label" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="accountId">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="16" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="fg_2" noResource="true"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="infoSeparator">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="bb" type="rgb"/>
+                  <Color blue="1b" green="14" red="15" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="bb" type="rgb"/>
+                  <Color blue="1b" green="14" red="15" type="rgb"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="extra_1" noResource="true"/>
+                <Property name="opaque" type="boolean" value="true"/>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="avatarSeparator1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="bb" type="rgb"/>
+                  <Color blue="1b" green="14" red="15" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="bb" type="rgb"/>
+                  <Color blue="1b" green="14" red="15" type="rgb"/>
                 </Property>
                 <Property name="orientation" type="int" value="1"/>
-                <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="extra_1" noResource="true"/>
+                <Property name="opaque" type="boolean" value="true"/>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="avatarSeparator2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="bb" type="rgb"/>
+                  <Color blue="1b" green="14" red="15" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="bb" type="rgb"/>
+                  <Color blue="1b" green="14" red="15" type="rgb"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="extra_1" noResource="true"/>
+                <Property name="opaque" type="boolean" value="true"/>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>

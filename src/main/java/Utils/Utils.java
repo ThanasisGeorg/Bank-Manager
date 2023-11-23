@@ -9,19 +9,22 @@ import java.util.concurrent.TimeUnit;
 import main.Customer;
 import java.sql.SQLException;
 import Commands.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author thana
  */
 public class Utils {
+
     public static void openAcc(ArrayList<Customer> customerList, int index) throws SQLException {
         String input;
         boolean flag;
 
         System.out.print("\nName: ");
         input = UserInput.getString();
-        while(input.isEmpty() || input.isBlank()){
+        while (input.isEmpty() || input.isBlank()) {
             System.out.print("Invalid name\n\nName: ");
             input = UserInput.getString();
         }
@@ -29,7 +32,7 @@ public class Utils {
 
         System.out.print("Surname: ");
         input = UserInput.getString();
-        while(input.isEmpty() || input.isBlank()){
+        while (input.isEmpty() || input.isBlank()) {
             System.out.print("Invalid surname\n\nSurname: ");
             input = UserInput.getString();
         }
@@ -37,17 +40,17 @@ public class Utils {
 
         System.out.print("Age: ");
         input = UserInput.getString();
-        if(input.length() == 1){
+        if (input.length() == 1) {
             System.out.println("\n[WARNING]\nYou must be at least 18 years old\nto open a bank account.");
             return;
         }
         customerList.get(index).setAge(input);
-        
+
         System.out.print("Username: ");
         input = UserInput.getString();
-        do{
+        do {
             flag = false;
-            if(input.isEmpty() || input.isBlank()){
+            if (input.isEmpty() || input.isBlank()) {
                 flag = true;
                 System.out.print("Invalid username\n\nUsername: ");
                 input = UserInput.getString();
@@ -64,32 +67,32 @@ public class Utils {
                 }
             }
 
-            if(flag == false){
+            if (flag == false) {
                 customerList.get(index).getAcc().setUsername(input);
                 break;
             }
-            
-        } while(flag);
+
+        } while (flag);
 
         System.out.print("Password: ");
         input = UserInput.getString();
-        while(Pattern.matches("[0-9]+", input)){
+        while (Pattern.matches("[0-9]+", input)) {
             System.out.println("\nYour password must contain at least 1 character");
             System.out.print("Password: ");
             input = UserInput.getString();
         }
 
-        do{
+        do {
             flag = false;
-            if(input.isEmpty() || input.isBlank()){
+            if (input.isEmpty() || input.isBlank()) {
                 flag = true;
                 System.out.print("Invalid password\n\nPassword: ");
                 input = UserInput.getString();
                 continue;
             }
 
-            for(int i = 0; i < index; i++){
-                if(customerList.get(i).getAcc().getPassword().matches(input)){
+            for (int i = 0; i < index; i++) {
+                if (customerList.get(i).getAcc().getPassword().matches(input)) {
                     flag = true;
                     System.out.println("\nThis password already exist\n");
                     System.out.print("Passsword: ");
@@ -98,11 +101,11 @@ public class Utils {
                 }
             }
 
-            if(flag == false){
+            if (flag == false) {
                 customerList.get(index).getAcc().setPassword(input);
                 break;
             }
-        } while(flag);
+        } while (flag);
 
         generateID(customerList, index);
 
@@ -116,7 +119,7 @@ public class Utils {
         boolean flag = true;
         int j = 0;
 
-        if(customerList.isEmpty()){
+        if (customerList.isEmpty()) {
             System.out.println("Empty account list");
             return -1;
         }
@@ -127,10 +130,10 @@ public class Utils {
         System.out.print("Password: ");
         tempPassword = UserInput.getString();
 
-        while(flag){
-            for(int i = 0; i < customerList.size(); i++){
-                if(!tempUsername.matches(customerList.get(i).getAcc().getUsername())
-                   || !tempPassword.matches(customerList.get(i).getAcc().getPassword())){
+        while (flag) {
+            for (int i = 0; i < customerList.size(); i++) {
+                if (!tempUsername.matches(customerList.get(i).getAcc().getUsername())
+                        || !tempPassword.matches(customerList.get(i).getAcc().getPassword())) {
                     continue;
                 }
 
@@ -140,7 +143,7 @@ public class Utils {
                 break;
             }
 
-            if(flag == true){
+            if (flag == true) {
                 System.out.println("\nUsername or password are incorrect. Please try again\n");
                 System.out.print("Username: ");
                 tempUsername = UserInput.getString();
@@ -158,7 +161,7 @@ public class Utils {
         Random rand = new Random();
         String ID = LETTERS;
 
-        for(int i = 0; i < 16; i++){
+        for (int i = 0; i < 16; i++) {
             ID = ID + numbers.charAt(rand.nextInt(numbers.length()));
         }
 
@@ -171,12 +174,12 @@ public class Utils {
         System.out.println("\nEnter the amount of money you want to deposit: ");
         System.out.print("> ");
         amount = UserInput.getInteger();
-        while(amount < 0 || amount > 1000){
-            if(amount < 0){
+        while (amount < 0 || amount > 1000) {
+            if (amount < 0) {
                 System.out.println("Invalid input");
                 System.out.print("\n> ");
                 amount = UserInput.getInteger();
-            } else{
+            } else {
                 System.out.println("You cannot deposit above 1000$");
                 System.out.print("\n> ");
                 amount = UserInput.getInteger();
@@ -195,7 +198,7 @@ public class Utils {
         System.out.print("Account ID: ");
         System.out.println(customerList.get(index).getAcc().getId());
         System.out.print("Account Balance : ");
-        System.out.println(customerList.get(index).getAcc().getBalance() + "$");   
+        System.out.println(customerList.get(index).getAcc().getBalance() + "$");
     }
 
     public static String[] getInfo(ArrayList<Customer> customerList, int index) {
@@ -232,35 +235,46 @@ public class Utils {
             input = UserInput.getChar();
         }
 
-        if(input == 'y'){
+        if (input == 'y') {
             DBMethods.deleteAccount(customerList, j);
             DBMethods.deleteCustomer(customerList, j);
             customerList.remove(j);
             System.out.println("\nDeleting account...");
             TimeUnit.SECONDS.sleep(1);
-        } else System.out.println("\nAbort");
+        } else {
+            System.out.println("\nAbort");
+        }
     }
 
-    public static void load(ArrayList<Customer> customerList) throws SQLException {
+    public static void load(ArrayList<Customer> customerList) {
         customerList.clear();
 
-        ArrayList<String[]> accInfoList = DBMethods.getCustomerAcc();
-        ArrayList<String[]> infoList = DBMethods.getCustomer();
-
-        for(int i = 0; i < infoList.size(); i++){
-            Customer c = new Customer();
-
-            String[] accInfo = accInfoList.get(i);
-            c.getAcc().addAccInfo(accInfo);
-            
-            String[] info = infoList.get(i);
-
-            String[] temp = new String[DBMethods.getCustomersFields().length];
-            System.arraycopy(info, 0, temp, 0, temp.length);
-
-            c.addInfo(temp);
-            customerList.add(c);
+        ArrayList<String[]> accInfoList = null;
+        ArrayList<String[]> infoList = null;
+        try {
+            accInfoList = DBMethods.getCustomerAcc();
+            infoList = DBMethods.getCustomer();
+        } catch (SQLException ex) {
+            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        if (accInfoList != null && infoList != null) {
+            for (int i = 0; i < infoList.size(); i++) {
+                Customer c = new Customer();
+
+                String[] accInfo = accInfoList.get(i);
+                c.getAcc().addAccInfo(accInfo);
+
+                String[] info = infoList.get(i);
+
+                String[] temp = new String[DBMethods.getCustomersFields().length];
+                System.arraycopy(info, 0, temp, 0, temp.length);
+
+                c.addInfo(temp);
+                customerList.add(c);
+            }          
+        }
+
     }
 
     public static void loginPrompt(ArrayList<Customer> customerList, int index) throws SQLException, InterruptedException {
@@ -273,7 +287,7 @@ public class Utils {
         sb.append("\n" + customerList.get(index).getAcc().getUsername() + ":~$ ");
         System.out.print(sb.toString());
         input = UserInput.getString();
-        while(!CMDUtils.checkInput(availableCommands, input)){
+        while (!CMDUtils.checkInput(availableCommands, input)) {
             sb.delete(0, sb.capacity());
             sb.append("Invalid input. Type 'help' for the command list" + "\n\n" + customerList.get(index).getAcc().getUsername() + ":~$ ");
             System.out.print(sb.toString());
@@ -281,36 +295,37 @@ public class Utils {
             input = UserInput.getString();
         }
 
-        while(!input.equals("logout")){
-            switch(input){
-                case "dep" : {
+        while (!input.equals("logout")) {
+            switch (input) {
+                case "dep": {
                     deposit(customerList, index);
                     break;
                 }
 
-                case "info" : {
+                case "info": {
                     showAcc(customerList, index);
                     break;
                 }
 
-                case "del" : {
+                case "del": {
                     deleteAcc(customerList, index);
                     return;
                 }
 
-                case "help" : {
+                case "help": {
                     CMDUtils.printCommands(availableCommands);
                     break;
                 }
 
-                default : {}
+                default: {
+                }
             }
 
             sb.delete(0, sb.capacity());
             sb.append("\n" + customerList.get(index).getAcc().getUsername() + ":~$ ");
             System.out.print(sb.toString());
             input = UserInput.getString();
-            while(!CMDUtils.checkInput(availableCommands, input)){
+            while (!CMDUtils.checkInput(availableCommands, input)) {
                 sb.delete(0, sb.capacity());
                 sb.append("Invalid input. Type 'help' for the command list" + "\n\n" + customerList.get(index).getAcc().getUsername() + ":~$ ");
                 System.out.print(sb.toString());
@@ -318,7 +333,7 @@ public class Utils {
                 input = UserInput.getString();
             }
         }
-        
+
         sb.delete(0, sb.capacity());
         sb.append("\nLogging out...\n");
         System.out.print(sb.toString());
@@ -332,51 +347,56 @@ public class Utils {
         String input;
 
         load(customerList);
-        
+
         sb.append(":-$ ");
         System.out.print(sb.toString());
         input = UserInput.getString();
-        while(!CMDUtils.checkInput(availableCommands, input)){
+        while (!CMDUtils.checkInput(availableCommands, input)) {
             sb.delete(0, sb.capacity());
-            sb.append("Invalid input. Type 'help' for the command list" + "\n\n:-$ "); 
+            sb.append("Invalid input. Type 'help' for the command list" + "\n\n:-$ ");
             System.out.print(sb.toString());
             sb.delete(0, sb.capacity());
             input = UserInput.getString();
         }
-        
-        while(!input.equals("exit")){
-            switch(input){
-                case "opac" : {
+
+        while (!input.equals("exit")) {
+            switch (input) {
+                case "opac": {
                     customerList.add(new Customer());
                     openAcc(customerList, customerList.size() - 1);
-                    if(customerList.isEmpty()) break;
-                    if(customerList.get(customerList.size() - 1).getAge() == null){
+                    if (customerList.isEmpty()) {
+                        break;
+                    }
+                    if (customerList.get(customerList.size() - 1).getAge() == null) {
                         customerList.remove(customerList.size() - 1);
                         break;
                     }
                     break;
                 }
-    
-                case "login" : {
+
+                case "login": {
                     int j = login(customerList);
-                    if(j < 0) break;
+                    if (j < 0) {
+                        break;
+                    }
                     loginPrompt(customerList, j);
                     break;
                 }
 
-                case "help" : {
+                case "help": {
                     CMDUtils.printCommands(availableCommands);
                     break;
                 }
-    
-                default : {}
+
+                default: {
+                }
             }
 
             sb.delete(0, sb.capacity());
             sb.append("\n:-$ ");
             System.out.print(sb.toString());
             input = UserInput.getString();
-            while(!CMDUtils.checkInput(availableCommands, input)){
+            while (!CMDUtils.checkInput(availableCommands, input)) {
                 sb.delete(0, sb.capacity());
                 sb.append("Invalid input. Type 'help' for the command list" + "\n\n:-$ ");
                 System.out.print(sb.toString());

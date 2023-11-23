@@ -6,7 +6,7 @@ bg: "E1E1E1"
 fg: "15141B"
 
 bg_2: "EBEBEB"
-fg_2: "15141B"
+fg_2: "FFFFFF"
 
 btn: "404040"
 btn_fg: "FFFFFF"
@@ -24,9 +24,9 @@ scrollbar: "0B3948"
 progress_bar: "44AF69"
 
 # extra slots for additional colors
-extra_0: "000000"
-extra_1: "000001"
-extra_2: "000002"
+extra_0: "15141B"
+extra_1: "BBBBBB"
+extra_2: "15141B"
 extra_3: "000003"
 extra_4: "000004"
 extra_5: "000005"

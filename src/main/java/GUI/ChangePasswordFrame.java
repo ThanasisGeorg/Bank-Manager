@@ -14,6 +14,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import main.Customer;
 
 import com.formdev.flatlaf.*;
+import java.awt.Font;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
@@ -36,9 +37,10 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
 
     private int indexOfCustomerLoggedIn;
 
+    Font itemFont = new Font("Liberation Sans", 0, 16);
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
-    Color def = new Color(187, 187, 187);
+    Color itemColor = new Color(227, 36, 43);
 
     public ChangePasswordFrame() {
         FlatDarculaLaf.setup();
@@ -239,21 +241,23 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
             if (languageName.equals("English")) {
                 if (!GUIUtils.charArrayToString(oldPasswordField.getPassword()).equals(customerList.get(indexOfCustomerLoggedIn).getAcc().getPassword())) {
                     item = new JMenuItem("This password does not match with the current account");
-                    item.setForeground(red);
+                    item.setForeground(itemColor);
+                    item.setFont(itemFont);
                     errorMessage.add(item);
-                    errorMessage.show(this, 20, 220);
+                    errorMessage.show(this, 40, 220);
                     oldPasswordField.requestFocus();
-                    oldPasswordField.setForeground(red);
+                    oldPasswordField.setForeground(itemColor);
                     return;
                 }
             } else if (languageName.equals("Greek")) {
                 if (!GUIUtils.charArrayToString(oldPasswordField.getPassword()).equals(customerList.get(indexOfCustomerLoggedIn).getAcc().getPassword())) {
                     item = new JMenuItem("Αυτός ο κωδικός δεν ταιριάζει με τον συγκεκριμένο λογαριασμό");
-                    item.setForeground(red);
+                    item.setForeground(itemColor);
+                    item.setFont(itemFont);
                     errorMessage.add(item);
-                    errorMessage.show(this, 20, 220);
+                    errorMessage.show(this, 40, 220);
                     oldPasswordField.requestFocus();
-                    oldPasswordField.setForeground(red);
+                    oldPasswordField.setForeground(itemColor);
                     return;
                 }
             }
@@ -264,7 +268,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         oldPasswordField.setForeground(green);
         newPasswordField.setEnabled(true);
 
-        errorMessage.show(this, 20, 220);
+        errorMessage.show(this, 40, 220);
         errorMessage.setEnabled(false);
         oldPasswordField.requestFocus();
 
@@ -276,8 +280,8 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         JPopupMenu errorMessage = new JPopupMenu();
         errorMessage.setFocusable(false);
 
+        ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             rs.next();
             String languageName = rs.getString(1);
             if (languageName.equals("English")) {
@@ -287,11 +291,16 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                 JMenuItem numPw = new JMenuItem("Your new password must contain at least one number");
                 JMenuItem charPw = new JMenuItem("Your new password must contain at least one character");
 
-                samePw.setForeground(red);
-                emptyBlankPw.setForeground(red);
-                sizePw.setForeground(red);
-                numPw.setForeground(red);
-                charPw.setForeground(red);
+                samePw.setForeground(itemColor);
+                samePw.setFont(itemFont);
+                emptyBlankPw.setForeground(itemColor);
+                emptyBlankPw.setFont(itemFont);
+                sizePw.setForeground(itemColor);
+                sizePw.setFont(itemFont);
+                numPw.setForeground(itemColor);
+                numPw.setFont(itemFont);
+                charPw.setForeground(itemColor);
+                charPw.setFont(itemFont);
 
                 errorMessage.add(samePw);
                 errorMessage.add(emptyBlankPw);
@@ -335,7 +344,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                         errorMessage.remove(samePw);
                         errorMessage.remove(emptyBlankPw);
                         errorMessage.remove(charPw);
-                        errorMessage.show(this, 50, 220);
+                        errorMessage.show(this, 30, 220);
                         newPasswordField.requestFocus();
                         newPasswordField.setForeground(red);
                         return;
@@ -389,11 +398,16 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                 JMenuItem numPw = new JMenuItem("Ο νέος σας κωδικός πρέπει να περιέχει τουλαχιστόν έναν αριθμό");
                 JMenuItem charPw = new JMenuItem("Ο νέος σας κωδικός πρέπει να περιέχει τουλάχιστον έναν χαρακτήρα");
 
-                samePw.setForeground(red);
-                emptyBlankPw.setForeground(red);
-                sizePw.setForeground(red);
-                numPw.setForeground(red);
-                charPw.setForeground(red);
+                samePw.setForeground(itemColor);
+                samePw.setFont(itemFont);
+                emptyBlankPw.setForeground(itemColor);
+                emptyBlankPw.setFont(itemFont);
+                sizePw.setForeground(itemColor);
+                sizePw.setFont(itemFont);
+                numPw.setForeground(itemColor);
+                numPw.setFont(itemFont);
+                charPw.setForeground(itemColor);
+                charPw.setFont(itemFont);
 
                 errorMessage.add(samePw);
                 errorMessage.add(emptyBlankPw);
@@ -406,7 +420,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     errorMessage.remove(sizePw);
                     errorMessage.remove(numPw);
                     errorMessage.remove(charPw);
-                    errorMessage.show(this, 1, 220);
+                    errorMessage.show(this, 20, 220);
                     newPasswordField.requestFocus();
                     newPasswordField.setForeground(red);
                     return;
@@ -417,7 +431,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                         errorMessage.remove(samePw);
                         errorMessage.remove(emptyBlankPw);
                         errorMessage.remove(numPw);
-                        errorMessage.show(this, 1, 220);
+                        errorMessage.show(this, 20, 220);
                         newPasswordField.requestFocus();
                         newPasswordField.setForeground(red);
                         return;
@@ -426,7 +440,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     errorMessage.remove(emptyBlankPw);
                     errorMessage.remove(sizePw);
                     errorMessage.remove(numPw);
-                    errorMessage.show(this, 1, 220);
+                    errorMessage.show(this, 20, 220);
                     newPasswordField.requestFocus();
                     newPasswordField.setForeground(red);
                     return;
@@ -437,7 +451,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                         errorMessage.remove(samePw);
                         errorMessage.remove(emptyBlankPw);
                         errorMessage.remove(charPw);
-                        errorMessage.show(this, 1, 220);
+                        errorMessage.show(this, 20, 220);
                         newPasswordField.requestFocus();
                         newPasswordField.setForeground(red);
                         return;
@@ -446,7 +460,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     errorMessage.remove(emptyBlankPw);
                     errorMessage.remove(sizePw);
                     errorMessage.remove(charPw);
-                    errorMessage.show(this, 1, 220);
+                    errorMessage.show(this, 20, 220);
                     newPasswordField.requestFocus();
                     newPasswordField.setForeground(red);
                     return;
@@ -457,7 +471,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     errorMessage.remove(emptyBlankPw);
                     errorMessage.remove(numPw);
                     errorMessage.remove(charPw);
-                    errorMessage.show(this, 1, 220);
+                    errorMessage.show(this, 20, 220);
                     newPasswordField.requestFocus();
                     newPasswordField.setForeground(red);
                     return;
@@ -468,7 +482,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     errorMessage.remove(sizePw);
                     errorMessage.remove(numPw);
                     errorMessage.remove(charPw);
-                    errorMessage.show(this, 1, 220);
+                    errorMessage.show(this, 20, 220);
                     newPasswordField.requestFocus();
                     newPasswordField.setForeground(red);
                     return;
@@ -482,7 +496,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                 errorMessage.remove(sizePw);
                 errorMessage.remove(numPw);
                 errorMessage.remove(charPw);
-                errorMessage.show(this, 1, 220);
+                errorMessage.show(this, 20, 220);
                 newPasswordField.requestFocus();
             }
         } catch (SQLException ex) {
@@ -496,15 +510,15 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         DatabaseConnection db = Database.connection();
 
         JPopupMenu errorMessage = new JPopupMenu();
+        ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             rs.next();
             String languageName = rs.getString(1);
             if (languageName.equals("English")) {
                 JMenuItem samePw = new JMenuItem("This password does not match with your new one");
-                errorMessage.add(samePw);
-
                 samePw.setForeground(red);
+                samePw.setFont(itemFont);
+                errorMessage.add(samePw);
 
                 if (GUIUtils.charArrayToString(newPasswordField.getPassword()).equals(GUIUtils.charArrayToString(confirmNewPasswordField.getPassword()))) {
                     errorMessage.remove(samePw);
@@ -513,12 +527,12 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     confirmNewPasswordField.setForeground(red);
                 }
 
-                errorMessage.show(this, 50, 220);
+                errorMessage.show(this, 70, 220);
             } else if (languageName.equals("Greek")) {
                 JMenuItem samePw = new JMenuItem("Αυτός ο κωδικός δεν ταιριάζει με τον καινούργιο");
-                errorMessage.add(samePw);
-
                 samePw.setForeground(red);
+                samePw.setFont(itemFont);
+                errorMessage.add(samePw);
 
                 if (GUIUtils.charArrayToString(newPasswordField.getPassword()).equals(GUIUtils.charArrayToString(confirmNewPasswordField.getPassword()))) {
                     errorMessage.remove(samePw);
@@ -527,7 +541,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                     confirmNewPasswordField.setForeground(red);
                 }
 
-                errorMessage.show(this, 50, 220);
+                errorMessage.show(this, 70, 220);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ChangePasswordFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -539,19 +553,15 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
     private void applyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyBtnActionPerformed
         DatabaseConnection db = Database.connection();
 
+        ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             rs.next();
             String languageName = rs.getString(1);
             if (languageName.equals("English")) {
                 if (oldPasswordField.getForeground() == green && newPasswordField.getForeground() == green && confirmNewPasswordField.getForeground() == green) {
                     customerList.get(indexOfCustomerLoggedIn).getAcc().setPassword(GUIUtils.charArrayToString(newPasswordField.getPassword()));
 
-                    try {
-                        DBMethods.updateCustomerAcc(customerList, indexOfCustomerLoggedIn);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    DBMethods.updateCustomerAcc(customerList, indexOfCustomerLoggedIn);
                     this.dispose();
                     JOptionPane.showMessageDialog(sf, "Successfull change of your password");
                 } else {
@@ -561,11 +571,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
                 if (oldPasswordField.getForeground() == green && newPasswordField.getForeground() == green && confirmNewPasswordField.getForeground() == green) {
                     customerList.get(indexOfCustomerLoggedIn).getAcc().setPassword(GUIUtils.charArrayToString(newPasswordField.getPassword()));
 
-                    try {
-                        DBMethods.updateCustomerAcc(customerList, indexOfCustomerLoggedIn);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    DBMethods.updateCustomerAcc(customerList, indexOfCustomerLoggedIn);
                     this.dispose();
                     JOptionPane.showMessageDialog(sf, "Επιτυχής αλλαγή κωδικού");
                 } else {
@@ -575,7 +581,7 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(ChangePasswordFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         db.close();
     }//GEN-LAST:event_applyBtnActionPerformed
 
