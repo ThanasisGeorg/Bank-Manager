@@ -184,6 +184,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         settingsBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 900));
         setResizable(false);
 
         servicesPanel.setName("bg"); // NOI18N
@@ -196,6 +197,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         menuSeparator.setBackground(new java.awt.Color(187, 187, 187));
         menuSeparator.setForeground(new java.awt.Color(187, 187, 187));
         menuSeparator.setName("fg_2"); // NOI18N
+        menuSeparator.setOpaque(true);
 
         accInfoBtn.setBackground(java.awt.Color.darkGray);
         accInfoBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -210,6 +212,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         accInfoSeparator.setBackground(new java.awt.Color(187, 187, 187));
         accInfoSeparator.setForeground(new java.awt.Color(187, 187, 187));
         accInfoSeparator.setName("fg_2"); // NOI18N
+        accInfoSeparator.setOpaque(true);
 
         depBtn.setBackground(java.awt.Color.darkGray);
         depBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -224,6 +227,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         depSeparator.setBackground(new java.awt.Color(187, 187, 187));
         depSeparator.setForeground(new java.awt.Color(187, 187, 187));
         depSeparator.setName("fg_2"); // NOI18N
+        depSeparator.setOpaque(true);
 
         delBtn.setBackground(java.awt.Color.darkGray);
         delBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -238,6 +242,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         delSeparator.setBackground(new java.awt.Color(187, 187, 187));
         delSeparator.setForeground(new java.awt.Color(187, 187, 187));
         delSeparator.setName("fg_2"); // NOI18N
+        delSeparator.setOpaque(true);
 
         logoutBtn.setBackground(java.awt.Color.darkGray);
         logoutBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -252,11 +257,13 @@ public class ServicesFrame extends javax.swing.JFrame {
         logoutSeparator.setBackground(new java.awt.Color(187, 187, 187));
         logoutSeparator.setForeground(new java.awt.Color(187, 187, 187));
         logoutSeparator.setName("fg_2"); // NOI18N
+        logoutSeparator.setOpaque(true);
 
         mainSeparator.setBackground(new java.awt.Color(187, 187, 187));
         mainSeparator.setForeground(new java.awt.Color(187, 187, 187));
         mainSeparator.setOrientation(javax.swing.SwingConstants.VERTICAL);
         mainSeparator.setName("fg_2"); // NOI18N
+        mainSeparator.setOpaque(true);
 
         infoPanel.setPreferredSize(new java.awt.Dimension(970, 500));
 
@@ -313,15 +320,18 @@ public class ServicesFrame extends javax.swing.JFrame {
         infoSeparator.setBackground(new java.awt.Color(187, 187, 187));
         infoSeparator.setForeground(new java.awt.Color(187, 187, 187));
         infoSeparator.setName(""); // NOI18N
+        infoSeparator.setOpaque(true);
 
         avatarSeparator1.setBackground(new java.awt.Color(187, 187, 187));
         avatarSeparator1.setForeground(new java.awt.Color(187, 187, 187));
         avatarSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         avatarSeparator1.setName(""); // NOI18N
+        avatarSeparator1.setOpaque(true);
 
         avatarSeparator2.setBackground(new java.awt.Color(187, 187, 187));
         avatarSeparator2.setForeground(new java.awt.Color(187, 187, 187));
         avatarSeparator2.setName(""); // NOI18N
+        avatarSeparator2.setOpaque(true);
 
         uploadImgBtn.setBackground(java.awt.Color.darkGray);
         uploadImgBtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
@@ -458,7 +468,7 @@ public class ServicesFrame extends javax.swing.JFrame {
                     .addComponent(menuSeparator))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mainSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 366, Short.MAX_VALUE)
                 .addGroup(servicesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(refreshBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(settingsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -474,7 +484,7 @@ public class ServicesFrame extends javax.swing.JFrame {
                         .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(refreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
                         .addComponent(settingsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(servicesPanelLayout.createSequentialGroup()
                         .addGap(14, 14, 14)

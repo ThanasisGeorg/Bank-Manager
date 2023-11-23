@@ -295,12 +295,10 @@ public class GUIFunctions {
             sf.setTitle(title);
         }
 
-        if (!(frame instanceof ServicesFrame sf)) {
+        if (!(frame instanceof ServicesFrame)) {
             frame.pack();
-        } else {
-            sf.setSize(1500, 900);
-        }
-
+        } 
+        
         // Center frame
         frame.setLocationRelativeTo(null);
 
