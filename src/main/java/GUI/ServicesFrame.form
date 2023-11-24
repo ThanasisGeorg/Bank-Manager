@@ -373,7 +373,7 @@
             <Container class="javax.swing.JPanel" name="avatarPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
+                  <Color blue="28" green="28" red="28" type="rgb"/>
                 </Property>
               </Properties>
 
