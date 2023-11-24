@@ -249,7 +249,6 @@ public class ServicesFrame extends javax.swing.JFrame {
         logoutSeparator.setBackground(new java.awt.Color(187, 187, 187));
         logoutSeparator.setForeground(new java.awt.Color(187, 187, 187));
         logoutSeparator.setName("extra_2"); // NOI18N
-        logoutSeparator.setOpaque(true);
 
         mainSeparator.setBackground(new java.awt.Color(187, 187, 187));
         mainSeparator.setForeground(new java.awt.Color(187, 187, 187));
@@ -260,7 +259,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         infoPanel.setName("extra_0"); // NOI18N
         infoPanel.setPreferredSize(new java.awt.Dimension(970, 500));
 
-        avatarPanel.setBackground(new java.awt.Color(0, 0, 0));
+        avatarPanel.setBackground(new java.awt.Color(40, 40, 40));
 
         avatarLabel.setBackground(new java.awt.Color(51, 51, 51));
         avatarLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

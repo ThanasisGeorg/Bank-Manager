@@ -137,6 +137,7 @@
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
             <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="accInfoBtn">
@@ -163,6 +164,7 @@
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
             <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="depBtn">
@@ -189,6 +191,7 @@
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
             <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="delBtn">
@@ -215,6 +218,7 @@
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
             <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="logoutBtn">
@@ -253,6 +257,7 @@
             </Property>
             <Property name="orientation" type="int" value="1"/>
             <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="infoPanel">
@@ -531,6 +536,7 @@
                   <Color blue="1b" green="14" red="15" type="rgb"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="extra_1" noResource="true"/>
+                <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="avatarSeparator1">
@@ -543,6 +549,7 @@
                 </Property>
                 <Property name="orientation" type="int" value="1"/>
                 <Property name="name" type="java.lang.String" value="extra_1" noResource="true"/>
+                <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="avatarSeparator2">
@@ -554,6 +561,7 @@
                   <Color blue="1b" green="14" red="15" type="rgb"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="extra_1" noResource="true"/>
+                <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="uploadImgBtn">
