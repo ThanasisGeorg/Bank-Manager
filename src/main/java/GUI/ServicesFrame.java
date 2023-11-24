@@ -177,7 +177,6 @@ public class ServicesFrame extends javax.swing.JFrame {
         settingsBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 900));
         setResizable(false);
 
         servicesPanel.setName("bg"); // NOI18N
@@ -190,7 +189,6 @@ public class ServicesFrame extends javax.swing.JFrame {
         menuSeparator.setBackground(new java.awt.Color(187, 187, 187));
         menuSeparator.setForeground(new java.awt.Color(187, 187, 187));
         menuSeparator.setName("extra_2"); // NOI18N
-        menuSeparator.setOpaque(true);
         menuSeparator.setOpaque(true);
 
         accInfoBtn.setBackground(java.awt.Color.darkGray);
@@ -207,7 +205,6 @@ public class ServicesFrame extends javax.swing.JFrame {
         accInfoSeparator.setForeground(new java.awt.Color(187, 187, 187));
         accInfoSeparator.setName("extra_2"); // NOI18N
         accInfoSeparator.setOpaque(true);
-        accInfoSeparator.setOpaque(true);
 
         depBtn.setBackground(java.awt.Color.darkGray);
         depBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -222,7 +219,6 @@ public class ServicesFrame extends javax.swing.JFrame {
         depSeparator.setBackground(new java.awt.Color(187, 187, 187));
         depSeparator.setForeground(new java.awt.Color(187, 187, 187));
         depSeparator.setName("extra_2"); // NOI18N
-        depSeparator.setOpaque(true);
         depSeparator.setOpaque(true);
 
         delBtn.setBackground(java.awt.Color.darkGray);
@@ -239,7 +235,6 @@ public class ServicesFrame extends javax.swing.JFrame {
         delSeparator.setForeground(new java.awt.Color(187, 187, 187));
         delSeparator.setName("extra_2"); // NOI18N
         delSeparator.setOpaque(true);
-        delSeparator.setOpaque(true);
 
         logoutBtn.setBackground(java.awt.Color.darkGray);
         logoutBtn.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -255,13 +250,11 @@ public class ServicesFrame extends javax.swing.JFrame {
         logoutSeparator.setForeground(new java.awt.Color(187, 187, 187));
         logoutSeparator.setName("extra_2"); // NOI18N
         logoutSeparator.setOpaque(true);
-        logoutSeparator.setOpaque(true);
 
         mainSeparator.setBackground(new java.awt.Color(187, 187, 187));
         mainSeparator.setForeground(new java.awt.Color(187, 187, 187));
         mainSeparator.setOrientation(javax.swing.SwingConstants.VERTICAL);
         mainSeparator.setName("extra_2"); // NOI18N
-        mainSeparator.setOpaque(true);
         mainSeparator.setOpaque(true);
 
         infoPanel.setName("extra_0"); // NOI18N
@@ -339,19 +332,16 @@ public class ServicesFrame extends javax.swing.JFrame {
         infoSeparator.setForeground(new java.awt.Color(21, 20, 27));
         infoSeparator.setName("extra_1"); // NOI18N
         infoSeparator.setOpaque(true);
-        infoSeparator.setOpaque(true);
 
         avatarSeparator1.setBackground(new java.awt.Color(21, 20, 27));
         avatarSeparator1.setForeground(new java.awt.Color(21, 20, 27));
         avatarSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         avatarSeparator1.setName("extra_1"); // NOI18N
         avatarSeparator1.setOpaque(true);
-        avatarSeparator1.setOpaque(true);
 
         avatarSeparator2.setBackground(new java.awt.Color(21, 20, 27));
         avatarSeparator2.setForeground(new java.awt.Color(21, 20, 27));
         avatarSeparator2.setName("extra_1"); // NOI18N
-        avatarSeparator2.setOpaque(true);
         avatarSeparator2.setOpaque(true);
 
         uploadImgBtn.setBackground(java.awt.Color.darkGray);
