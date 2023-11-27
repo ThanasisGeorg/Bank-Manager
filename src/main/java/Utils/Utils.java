@@ -188,7 +188,9 @@ public class Utils {
 
         customerList.get(j).getAcc().setBalance(customerList.get(j).getAcc().getBalance() + amount);
 
-        DBMethods.updateCustomerAcc(customerList, j);
+        DBMethods.updateUsername(customerList, j);
+        DBMethods.updatePassword(customerList, j);
+        DBMethods.updateBalance(customerList, j);
     }
 
     public static void showAcc(ArrayList<Customer> customerList, int index) {

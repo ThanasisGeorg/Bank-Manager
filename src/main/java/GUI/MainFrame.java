@@ -16,7 +16,6 @@ import Utils.Utils;
 import com.formdev.flatlaf.*;
 import java.sql.ResultSet;
 import java.util.Locale;
-import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -35,13 +34,10 @@ public class MainFrame extends javax.swing.JFrame {
     ServicesFrame sf;
     ForgotPasswordFrame fpf;
     ArrayList<Customer> customerList = new ArrayList<>();
-    ResourceBundle rb;
     Theme theme;
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
-    Color sc = new Color(97, 255, 202);
-    Color def = new Color(78, 80, 82);
 
     private boolean loginbtnPressed = false;
     private boolean signInbtnPressed = false;
@@ -86,6 +82,8 @@ public class MainFrame extends javax.swing.JFrame {
             languageName = rs.getString(1);
         } catch (SQLException ex) {
             Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.close();
         }
 
         if (languageName != null) {
@@ -95,8 +93,6 @@ public class MainFrame extends javax.swing.JFrame {
                 GUIFunctions.setTexts(this, Locale.of("el", "GR"));
             }
         }
-
-        db.close();
     }
 
     /**
@@ -697,13 +693,14 @@ public class MainFrame extends javax.swing.JFrame {
             DatabaseConnection db = Database.connection();
 
             String languageName = "";
-
             ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             try {
                 rs.next();
                 languageName = rs.getString(1);
             } catch (SQLException ex) {
                 Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                db.close();
             }
 
             if (languageName != null) {
@@ -713,8 +710,6 @@ public class MainFrame extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Επιτυχής εγγραφή");
                 }
             }
-
-            db.close();
         }
     }//GEN-LAST:event_okBtn2ActionPerformed
 

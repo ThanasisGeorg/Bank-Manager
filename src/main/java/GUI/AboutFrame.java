@@ -250,20 +250,22 @@ public class AboutFrame extends javax.swing.JFrame {
     private void configureFrameProperties() {
         DatabaseConnection db = Database.connection();
 
+        String languageName = "";
+        ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             rs.next();
-            String languageName = rs.getString(1);
-            if (languageName.equals("English")) {
-                GUIFunctions.setTexts(this, Locale.US);
-            } else if (languageName.equals("Greek")) {
-                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
-            }
+            languageName = rs.getString(1);
         } catch (SQLException ex) {
             Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.close();
         }
 
-        db.close();
+        if (languageName.equals("English")) {
+            GUIFunctions.setTexts(this, Locale.US);
+        } else if (languageName.equals("Greek")) {
+            GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+        }
     }
 
     /**

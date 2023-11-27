@@ -17,7 +17,6 @@ import javax.swing.JFileChooser;
 
 import Database.DBMethods;
 import Database.Database;
-import static GUI.GUIFunctions.getThemes;
 import com.formdev.flatlaf.*;
 import java.awt.Component;
 import java.sql.ResultSet;
@@ -48,20 +47,13 @@ public class ServicesFrame extends javax.swing.JFrame {
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
-    Color sepDark1 = new Color(187, 187, 187);
-    Color sepDark2 = new Color(21, 20, 27);
-    Color sepLight1 = new Color(21, 20, 27);
-    Color sepLight2 = new Color(187, 187, 187);
-    Color sc = new Color(97, 255, 202);
 
     private int indexOfCustomerLoggedIn;
     private boolean accInfoBtnPressed = false;
-    private boolean depBtnPressed = false;
-    private boolean uploadImgBtnPressed = false;
 
     public ServicesFrame() {
         FlatDarculaLaf.setup();
-        DatabaseConnection db = Database.connection();
+//        DatabaseConnection db = Database.connection();
 
         // Frame setup
         initComponents();
@@ -90,20 +82,19 @@ public class ServicesFrame extends javax.swing.JFrame {
         uploadImgBtn.setFocusable(false);
         settingsBtn.setFocusable(false);
 
-        try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Font").from("Settings").build());
-            rs.next();
-            GUIUtils.changeGlobalFont(new Component[]{this}, 4, rs.getString(1));
-        } catch (SQLException ex) {
-            Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        db.close();
+//        ResultSet rs = db.executeQuery(new QueryBuilder().select("Font").from("Settings").build());
+//        try {
+//            rs.next();
+//            GUIUtils.changeGlobalFont(new Component[]{this}, 4, rs.getString(1));
+//        } catch (SQLException ex) {
+//            Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        db.close();
     }
 
     public ServicesFrame(MainFrame mf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
         FlatDarculaLaf.setup();
-        DatabaseConnection db = Database.connection();
 
         // Frame setup
         initComponents();
@@ -126,8 +117,6 @@ public class ServicesFrame extends javax.swing.JFrame {
 
         loadImage(DBMethods.getImg(customerList, indexOfCustomerLoggedIn));
         setInfoPanel();
-
-        db.close();
     }
 
     /**
@@ -540,20 +529,22 @@ public class ServicesFrame extends javax.swing.JFrame {
     private void configureFrameProperties() {
         DatabaseConnection db = Database.connection();
 
+        String languageName = "";
         ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
             rs.next();
-            String languageName = rs.getString(1);
-            if (languageName.equals("English")) {
-                GUIFunctions.setTexts(this, Locale.US);
-            } else if (languageName.equals("Greek")) {
-                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
-            }
+            languageName = rs.getString(1);
         } catch (SQLException ex) {
             Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.close();
         }
 
-        db.close();
+        if (languageName.equals("English")) {
+            GUIFunctions.setTexts(this, Locale.US);
+        } else if (languageName.equals("Greek")) {
+            GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+        }
     }
 
     private void setInfoPanel() {
@@ -612,52 +603,54 @@ public class ServicesFrame extends javax.swing.JFrame {
     private void delBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delBtnActionPerformed
         DatabaseConnection db = Database.connection();
 
+        String languageName = "";
         ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
             rs.next();
-            String languageName = rs.getString(1);
-            if (languageName.equals("English")) {
-                int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this account?", "Delete account", JOptionPane.WARNING_MESSAGE);
-
-                switch (choice) {
-                    case 0: { // confirm
-                        DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
-                        DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
-                        this.dispose();
-                        mf = new MainFrame();
-                        mf.setVisible(true);
-                        JOptionPane.showMessageDialog(mf, "Successfull delete");
-                        break;
-                    }
-
-                    case 2: { // cancel
-                        break;
-                    }
-                }
-            } else if (languageName.equals("Greek")) {
-                int choice = JOptionPane.showConfirmDialog(null, "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το λογαριασμό;", "Διαγραφή λογαριασμού", JOptionPane.WARNING_MESSAGE);
-
-                switch (choice) {
-                    case 0: { // confirm
-                        DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
-                        DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
-                        this.dispose();
-                        mf = new MainFrame();
-                        mf.setVisible(true);
-                        JOptionPane.showMessageDialog(mf, "Επιτυχής διαγραφή");
-                        break;
-                    }
-
-                    case 2: { // cancel
-                        break;
-                    }
-                }
-            }
+            languageName = rs.getString(1);
         } catch (SQLException ex) {
             Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.close();
         }
 
-        db.close();
+        if (languageName.equals("English")) {
+            int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this account?", "Delete account", JOptionPane.WARNING_MESSAGE);
+
+            switch (choice) {
+                case 0: { // confirm
+                    DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
+                    DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
+                    this.dispose();
+                    mf = new MainFrame();
+                    mf.setVisible(true);
+                    JOptionPane.showMessageDialog(mf, "Successfull delete");
+                    break;
+                }
+
+                case 2: { // cancel
+                    break;
+                }
+            }
+        } else if (languageName.equals("Greek")) {
+            int choice = JOptionPane.showConfirmDialog(null, "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το λογαριασμό;", "Διαγραφή λογαριασμού", JOptionPane.WARNING_MESSAGE);
+
+            switch (choice) {
+                case 0: { // confirm
+                    DBMethods.deleteAccount(customerList, indexOfCustomerLoggedIn);
+                    DBMethods.deleteCustomer(customerList, indexOfCustomerLoggedIn);
+                    this.dispose();
+                    mf = new MainFrame();
+                    mf.setVisible(true);
+                    JOptionPane.showMessageDialog(mf, "Επιτυχής διαγραφή");
+                    break;
+                }
+
+                case 2: { // cancel
+                    break;
+                }
+            }
+        }
     }//GEN-LAST:event_delBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
@@ -671,8 +664,10 @@ public class ServicesFrame extends javax.swing.JFrame {
             languageName = rs.getString(1);
         } catch (SQLException ex) {
             Logger.getLogger(ServicesFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.close();
         }
-        
+
         if (languageName != null) {
             this.dispose();
             mf = new MainFrame();
@@ -681,10 +676,8 @@ public class ServicesFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(mf, "Successfull Logout");
             } else if (languageName.equals("Greek")) {
                 JOptionPane.showMessageDialog(mf, "Επιτυχής αποσύνδεση");
-            }         
+            }
         }
-
-        db.close();
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed

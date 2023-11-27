@@ -174,20 +174,22 @@ public class DepositFrame extends javax.swing.JFrame {
     private void configureFrameProperties() {
         DatabaseConnection db = Database.connection();
 
+        String languageName = "";
+        ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             rs.next();
-            String languageName = rs.getString(1);
-            if (languageName.equals("English")) {
-                GUIFunctions.setTexts(this, Locale.US);
-            } else if (languageName.equals("Greek")) {
-                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
-            }
+            languageName = rs.getString(1);
         } catch (SQLException ex) {
             Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.close();
         }
 
-        db.close();
+        if (languageName.equals("English")) {
+            GUIFunctions.setTexts(this, Locale.US);
+        } else if (languageName.equals("Greek")) {
+            GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+        }
     }
 
     private void applyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyBtnActionPerformed
@@ -200,26 +202,28 @@ public class DepositFrame extends javax.swing.JFrame {
         double balance = Double.parseDouble(amountField.getText());
 
         customerList.get(indexOfCustomerLoggedIn).getAcc().setBalance(customerList.get(indexOfCustomerLoggedIn).getAcc().getBalance() + balance);
-        DBMethods.updateCustomerAcc(customerList, indexOfCustomerLoggedIn);
+        DBMethods.updateBalance(customerList, indexOfCustomerLoggedIn);
 
         this.setVisible(false);
 
         DatabaseConnection db = Database.connection();
 
+        String languageName = "";
+        ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
-            ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
             rs.next();
-            String languageName = rs.getString(1);
-            if (languageName.equals("English")) {
-                JOptionPane.showMessageDialog(sf, "Successfull deposit.\nRefresh the information to see the result");
-            } else if (languageName.equals("Greek")) {
-                JOptionPane.showMessageDialog(sf, "Επιτυχής κατάθεση.\nΑνανεώστε τις πληροφορίες για να δείτε το αποτέλεσμα");
-            }
+            languageName = rs.getString(1);
         } catch (SQLException ex) {
             Logger.getLogger(DepositFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.close();
         }
 
-        db.close();
+        if (languageName.equals("English")) {
+            JOptionPane.showMessageDialog(sf, "Successfull deposit.\nRefresh the information to see the result");
+        } else if (languageName.equals("Greek")) {
+            JOptionPane.showMessageDialog(sf, "Επιτυχής κατάθεση.\nΑνανεώστε τις πληροφορίες για να δείτε το αποτέλεσμα");
+        }
 
         this.dispose();
     }//GEN-LAST:event_applyBtnActionPerformed

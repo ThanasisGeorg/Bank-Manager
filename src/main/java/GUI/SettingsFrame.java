@@ -22,7 +22,6 @@ import java.io.File;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
@@ -69,8 +68,6 @@ public class SettingsFrame extends javax.swing.JFrame {
     }
 
     public SettingsFrame(ServicesFrame sf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
-        DatabaseConnection db = Database.connection();
-
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Settings");
@@ -89,9 +86,6 @@ public class SettingsFrame extends javax.swing.JFrame {
         this.sf = sf;
         this.customerList = customerList;
         this.indexOfCustomerLoggedIn = indexOfCustomerLoggedIn;
-
-//        this.setIconImage(new ImageIcon(FILEPATH + "/data/icons/gear-solid.svg").getImage());
-        db.close();
     }
 
     /**
@@ -273,30 +267,32 @@ public class SettingsFrame extends javax.swing.JFrame {
     private void configureFrameProperties() {
         DatabaseConnection db = Database.connection();
 
+        String languageName = "";
         ResultSet rs = db.executeQuery(new QueryBuilder().select("Language").from("Settings").build());
         try {
             rs.next();
-            String languageName = rs.getString(1);
-            if (languageName.equals("English")) {
-                languageComboBox.removeAllItems();
-                languageComboBox.addItem("English");
-                languageComboBox.addItem("Greek");
-                GUIFunctions.setTexts(this, Locale.US);
-                GUIFunctions.setTexts(this.sf, Locale.US);
-                languageComboBox.addItemListener(itemEvent -> GUIFunctions.setTexts(this, Locale.US));
-            } else if (languageName.equals("Greek")) {
-                languageComboBox.removeAllItems();
-                languageComboBox.addItem("Ελληνικά");
-                languageComboBox.addItem("Αγγλικά");
-                GUIFunctions.setTexts(this, Locale.of("el", "GR"));
-                GUIFunctions.setTexts(this.sf, Locale.of("el", "GR"));
-                languageComboBox.addItemListener(itemEvent -> GUIFunctions.setTexts(this, Locale.of("el", "GR")));
-            }
+            languageName = rs.getString(1);
         } catch (SQLException ex) {
             Logger.getLogger(SettingsFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.close();
         }
-
-        db.close();
+        
+        if (languageName.equals("English")) {
+            languageComboBox.removeAllItems();
+            languageComboBox.addItem("English");
+            languageComboBox.addItem("Greek");
+            GUIFunctions.setTexts(this, Locale.US);
+            GUIFunctions.setTexts(this.sf, Locale.US);
+            languageComboBox.addItemListener(itemEvent -> GUIFunctions.setTexts(this, Locale.US));
+        } else if (languageName.equals("Greek")) {
+            languageComboBox.removeAllItems();
+            languageComboBox.addItem("Ελληνικά");
+            languageComboBox.addItem("Αγγλικά");
+            GUIFunctions.setTexts(this, Locale.of("el", "GR"));
+            GUIFunctions.setTexts(this.sf, Locale.of("el", "GR"));
+            languageComboBox.addItemListener(itemEvent -> GUIFunctions.setTexts(this, Locale.of("el", "GR")));
+        }
     }
 
     public void refreshThemeCombo() {
@@ -365,7 +361,6 @@ public class SettingsFrame extends javax.swing.JFrame {
             return;
         }
 
-        DatabaseConnection db = Database.connection();
         String languageName = languageComboBox.getSelectedItem().toString();
         switch (languageName) {
             case "Ελληνικά":
@@ -387,8 +382,6 @@ public class SettingsFrame extends javax.swing.JFrame {
             default:
                 break;
         }
-
-        db.close();
     }//GEN-LAST:event_languageComboBoxActionPerformed
 
     /**

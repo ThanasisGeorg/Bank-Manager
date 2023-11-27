@@ -127,11 +127,25 @@ public class DBMethods {
         return list;
     }
 
-    public static void updateCustomerAcc(ArrayList<Customer> customerList, int j) {
+    public static void updateUsername(ArrayList<Customer> customerList, int j) {
         DatabaseConnection db = Database.connection();
 
         db.executeUpdate(new QueryBuilder().update("Accounts").set("Username_", customerList.get(j).getAcc().getUsername()).where("Account_ID = \"" + customerList.get(j).getAcc().getId() + "\"").build());
+
+        db.close();
+    }
+
+    public static void updatePassword(ArrayList<Customer> customerList, int j) {
+        DatabaseConnection db = Database.connection();
+
         db.executeUpdate(new QueryBuilder().update("Accounts").set("Password_", customerList.get(j).getAcc().getPassword()).where("Account_ID = \"" + customerList.get(j).getAcc().getId() + "\"").build());
+
+        db.close();
+    }
+
+    public static void updateBalance(ArrayList<Customer> customerList, int j) {
+        DatabaseConnection db = Database.connection();
+        
         db.executeUpdate(new QueryBuilder().update("Accounts").set("Balance_", customerList.get(j).getAcc().getBalance()).where("Account_ID = \"" + customerList.get(j).getAcc().getId() + "\"").build());
 
         db.close();
@@ -153,7 +167,7 @@ public class DBMethods {
 
         db.close();
     }
-    
+
     public static void updateTheme(String themeName) {
         DatabaseConnection db = Database.connection();
 
