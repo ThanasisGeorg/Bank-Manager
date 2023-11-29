@@ -151,6 +151,7 @@
                 <Property name="rows" type="int" value="3"/>
                 <Property name="text" type="java.lang.String" value="A program to manage your bank accounts using functionalities sush as &#xa;  -login/sign in&#xa;  -deposit&#xa;  -delete&#xa;There are also functionalities that are gonna be  useful to imporve your experience such as&#xa;  -change language (English/Greek)&#xa;  -change theme (Dark/Light)&#xa;  -change password&#xa;&#xa;It is available in two versions:&#xa;  -GUI version (with Java Swing)&#xa;  -terminal version"/>
                 <Property name="caretPosition" type="int" value="0"/>
+                <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -193,6 +194,7 @@
                 <Property name="rows" type="int" value="5"/>
                 <Property name="text" type="java.lang.String" value="MIT License&#xa;&#xa;Copyright (c) 2023 Athanasios Georgalis&#xa;&#xa;Permission is hereby granted, free of charge, to any person&#xa;obtaining a copy of this software and associated documentation&#xa;files (the &quot;Software&quot;), to deal in the Software without restriction,&#xa;including without limitation the rights to use, copy, modify, merge,&#xa;publish, distribute, sublicense, and/or sell copies of the Software,&#xa;and to permit persons to whom the Software is furnished to do so, &#xa;subject to the following conditions:&#xa;&#xa;The above copyright notice and this permission notice shall be &#xa;included in all copies or substantial portions of the Software.&#xa;&#xa;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY&#xa;OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT&#xa;LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS &#xa;FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT &#xa;SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR&#xa;ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN &#xa;ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,&#xa;OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE &#xa;OR OTHER DEALINGS IN THE SOFTWARE."/>
                 <Property name="caretPosition" type="int" value="0"/>
+                <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>

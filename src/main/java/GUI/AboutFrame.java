@@ -115,6 +115,7 @@ public class AboutFrame extends javax.swing.JFrame {
         synopsisTextArea.setRows(3);
         synopsisTextArea.setText("A program to manage your bank accounts using functionalities sush as \n  -login/sign in\n  -deposit\n  -delete\nThere are also functionalities that are gonna be  useful to imporve your experience such as\n  -change language (English/Greek)\n  -change theme (Dark/Light)\n  -change password\n\nIt is available in two versions:\n  -GUI version (with Java Swing)\n  -terminal version");
         synopsisTextArea.setCaretPosition(0);
+        synopsisTextArea.setFocusable(false);
         synopsisScrollPane.setViewportView(synopsisTextArea);
 
         licenceLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
@@ -132,6 +133,7 @@ public class AboutFrame extends javax.swing.JFrame {
         licenceTextArea.setRows(5);
         licenceTextArea.setText("MIT License\n\nCopyright (c) 2023 Athanasios Georgalis\n\nPermission is hereby granted, free of charge, to any person\nobtaining a copy of this software and associated documentation\nfiles (the \"Software\"), to deal in the Software without restriction,\nincluding without limitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of the Software,\nand to permit persons to whom the Software is furnished to do so, \nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be \nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY\nOF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT\nLIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS \nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT \nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR\nANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN \nACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE \nOR OTHER DEALINGS IN THE SOFTWARE.");
         licenceTextArea.setCaretPosition(0);
+        licenceTextArea.setFocusable(false);
         licenceScrollPane.setViewportView(licenceTextArea);
 
         madeByLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
