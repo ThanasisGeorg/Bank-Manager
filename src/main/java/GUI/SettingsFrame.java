@@ -42,7 +42,6 @@ public class SettingsFrame extends javax.swing.JFrame {
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
-    Color sep = new Color(187, 187, 187);
 
     private static final String FILEPATH = System.getProperty("user.dir").replaceAll(Pattern.quote("\\"), "/");
     private int indexOfCustomerLoggedIn;

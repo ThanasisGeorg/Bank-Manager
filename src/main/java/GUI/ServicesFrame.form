@@ -245,6 +245,7 @@
               <Color blue="bb" green="bb" red="bb" type="rgb"/>
             </Property>
             <Property name="name" type="java.lang.String" value="extra_2" noResource="true"/>
+            <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="mainSeparator">

@@ -30,14 +30,12 @@ public class DepositFrame extends javax.swing.JFrame {
 
     ServicesFrame sf;
     ArrayList<Customer> customerList;
-    ResourceBundle rb;
     Theme theme;
 
     private int indexOfCustomerLoggedIn;
 
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
-    Color sc = new Color(97, 255, 202);
 
     public DepositFrame() {
         FlatDarculaLaf.setup();

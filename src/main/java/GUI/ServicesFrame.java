@@ -42,7 +42,6 @@ public class ServicesFrame extends javax.swing.JFrame {
     DepositFrame df;
     SettingsFrame sf;
     ArrayList<Customer> customerList;
-    ResourceBundle rb;
     Theme theme;
 
     Color pc = new Color(162, 119, 255);
@@ -81,16 +80,6 @@ public class ServicesFrame extends javax.swing.JFrame {
         refreshBtn.setFocusable(false);
         uploadImgBtn.setFocusable(false);
         settingsBtn.setFocusable(false);
-
-//        ResultSet rs = db.executeQuery(new QueryBuilder().select("Font").from("Settings").build());
-//        try {
-//            rs.next();
-//            GUIUtils.changeGlobalFont(new Component[]{this}, 4, rs.getString(1));
-//        } catch (SQLException ex) {
-//            Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        db.close();
     }
 
     public ServicesFrame(MainFrame mf, ArrayList<Customer> customerList, int indexOfCustomerLoggedIn) {
@@ -238,6 +227,7 @@ public class ServicesFrame extends javax.swing.JFrame {
         logoutSeparator.setBackground(new java.awt.Color(187, 187, 187));
         logoutSeparator.setForeground(new java.awt.Color(187, 187, 187));
         logoutSeparator.setName("extra_2"); // NOI18N
+        logoutSeparator.setOpaque(true);
 
         mainSeparator.setBackground(new java.awt.Color(187, 187, 187));
         mainSeparator.setForeground(new java.awt.Color(187, 187, 187));
@@ -424,7 +414,7 @@ public class ServicesFrame extends javax.swing.JFrame {
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(accountId, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(accIdIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         refreshBtn.setBackground(java.awt.Color.darkGray);

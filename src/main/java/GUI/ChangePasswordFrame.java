@@ -16,14 +16,12 @@ import main.Customer;
 import com.formdev.flatlaf.*;
 import java.awt.Font;
 import java.sql.ResultSet;
-import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import kdesp73.databridge.connections.DatabaseConnection;
 import kdesp73.databridge.helpers.QueryBuilder;
 import kdesp73.themeLib.Theme;
 import kdesp73.themeLib.ThemeCollection;
-import org.sqlite.SQLiteException;
 
 /**
  *
@@ -33,7 +31,6 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
 
     SettingsFrame sf;
     ArrayList<Customer> customerList;
-    ResourceBundle rb;
     Theme theme = null;
 
     private int indexOfCustomerLoggedIn;
@@ -42,8 +39,6 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
     Color itemColor = new Color(227, 36, 43);
-
-    private int count1 = 0;
 
     public ChangePasswordFrame() {
         FlatDarculaLaf.setup();

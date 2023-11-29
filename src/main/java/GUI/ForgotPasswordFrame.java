@@ -34,7 +34,6 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
 
     MainFrame mf;
     ArrayList<Customer> customerList;
-    ResourceBundle rb;
     Theme theme = null;
 
     private int indexOfCustomer = 0;
@@ -42,7 +41,6 @@ public class ForgotPasswordFrame extends javax.swing.JFrame {
     Font itemFont = new Font("Liberation Sans", 0, 16);
     Color pc = new Color(162, 119, 255);
     Color bg = new Color(21, 20, 27);
-    Color def = new Color(187, 187, 187);
     Color itemColor = new Color(227, 36, 43);
 
     /**
