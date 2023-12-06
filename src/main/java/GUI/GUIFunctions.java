@@ -105,6 +105,8 @@ public class GUIFunctions {
             languageName = rs.getString(1);
         } catch (SQLException ex) {
             Logger.getLogger(GUIFunctions.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            db.close();
         }
 
         if (languageName.equals("English")) {
