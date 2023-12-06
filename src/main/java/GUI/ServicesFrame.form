@@ -334,11 +334,11 @@
                                   <Component id="nameIndicator" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="surnameIndicator" min="-2" max="-2" attributes="0"/>
-                                  <Component id="surname" alignment="1" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="surname" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="ageIndicator" min="-2" max="-2" attributes="0"/>
                                   <Component id="age" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
@@ -355,12 +355,12 @@
                           <Component id="accountInfoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="uploadImgBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="username" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="usernameIndicator" min="-2" max="-2" attributes="0"/>
+                          <Component id="username" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="balanceIndicator" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="balance" alignment="1" min="-2" pref="18" max="-2" attributes="0"/>
@@ -370,7 +370,7 @@
                           <Component id="accountId" min="-2" pref="18" max="-2" attributes="0"/>
                           <Component id="accIdIndicator" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="111" max="32767" attributes="0"/>
+                      <EmptySpace pref="100" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
