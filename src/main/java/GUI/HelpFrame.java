@@ -31,7 +31,6 @@ public class HelpFrame extends javax.swing.JFrame {
      */
     public HelpFrame() {
         FlatDarculaLaf.setup();
-
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Help");
@@ -41,7 +40,6 @@ public class HelpFrame extends javax.swing.JFrame {
     
     public HelpFrame(MainFrame mf) {
         FlatDarculaLaf.setup();
-
         // Frame setup
         initComponents();
         this.theme = GUIFunctions.setupFrame(this, "Help");
@@ -90,8 +88,10 @@ public class HelpFrame extends javax.swing.JFrame {
 
         loginText.setEditable(false);
         loginText.setColumns(20);
-        loginText.setFont(new java.awt.Font("Manjari", 0, 16)); // NOI18N
+        loginText.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        loginText.setLineWrap(true);
         loginText.setRows(5);
+        loginText.setWrapStyleWord(true);
         jScrollPane1.setViewportView(loginText);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -115,8 +115,10 @@ public class HelpFrame extends javax.swing.JFrame {
 
         signInText.setEditable(false);
         signInText.setColumns(20);
-        signInText.setFont(new java.awt.Font("Manjari", 0, 16)); // NOI18N
+        signInText.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        signInText.setLineWrap(true);
         signInText.setRows(5);
+        signInText.setWrapStyleWord(true);
         jScrollPane2.setViewportView(signInText);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -140,8 +142,10 @@ public class HelpFrame extends javax.swing.JFrame {
 
         logoutText.setEditable(false);
         logoutText.setColumns(20);
-        logoutText.setFont(new java.awt.Font("Manjari", 0, 16)); // NOI18N
+        logoutText.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        logoutText.setLineWrap(true);
         logoutText.setRows(5);
+        logoutText.setWrapStyleWord(true);
         jScrollPane3.setViewportView(logoutText);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -165,8 +169,10 @@ public class HelpFrame extends javax.swing.JFrame {
 
         deleteText.setEditable(false);
         deleteText.setColumns(20);
-        deleteText.setFont(new java.awt.Font("Manjari", 0, 16)); // NOI18N
+        deleteText.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        deleteText.setLineWrap(true);
         deleteText.setRows(5);
+        deleteText.setWrapStyleWord(true);
         jScrollPane4.setViewportView(deleteText);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -190,8 +196,10 @@ public class HelpFrame extends javax.swing.JFrame {
 
         depositText.setEditable(false);
         depositText.setColumns(20);
-        depositText.setFont(new java.awt.Font("Manjari", 0, 16)); // NOI18N
+        depositText.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        depositText.setLineWrap(true);
         depositText.setRows(5);
+        depositText.setWrapStyleWord(true);
         jScrollPane5.setViewportView(depositText);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
