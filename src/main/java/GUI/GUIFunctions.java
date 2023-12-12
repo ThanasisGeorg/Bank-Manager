@@ -341,6 +341,9 @@ public class GUIFunctions {
         if (frame instanceof AboutFrame af) {
             setAboutFrameTexts(af, rb);
         }
+        if (frame instanceof HelpFrame hf) {
+            setHelpFrameTexts(hf, rb);
+        }
     }
 
     public static void setSettingsFrameTexts(SettingsFrame sf, ResourceBundle rb) {
@@ -403,6 +406,7 @@ public class GUIFunctions {
         mf.getUsernameLabel2().setText(rb.getString("username"));
         mf.getPasswordLabel2().setText(rb.getString("password"));
         mf.getOkBtn2().setText(rb.getString("ok"));
+        mf.getHelpBtn().setText(rb.getString("help"));
     }
 
     public static void setForgotPasswordFrameTexts(ForgotPasswordFrame fpf, ResourceBundle rb) {
@@ -422,5 +426,19 @@ public class GUIFunctions {
         af.getLicenceLabel().setText(rb.getString("licence"));
         af.getMadeByLabel().setText(rb.getString("made_by"));
         af.getOwnerLabel().setText(rb.getString("owner"));
+    }
+    
+    public static void setHelpFrameTexts(HelpFrame hf, ResourceBundle rb){
+        hf.getHelpLabel().setText(rb.getString("how_to"));
+        hf.getCategoriesTabbedPane().setTitleAt(0, rb.getString("login"));
+        hf.getLoginText().setText(rb.getString("login_text"));
+        hf.getCategoriesTabbedPane().setTitleAt(1, rb.getString("sign_in"));
+        hf.getSignInText().setText(rb.getString("sign_in_text"));
+        hf.getCategoriesTabbedPane().setTitleAt(2, rb.getString("logout"));
+        hf.getLogoutText().setText(rb.getString("logout_text"));
+        hf.getCategoriesTabbedPane().setTitleAt(3, rb.getString("delete"));
+        hf.getDeleteText().setText(rb.getString("delete_text"));
+        hf.getCategoriesTabbedPane().setTitleAt(4, rb.getString("deposit"));
+        hf.getDepositText().setText(rb.getString("deposit_text"));
     }
 }
