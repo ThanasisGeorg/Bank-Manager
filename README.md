@@ -13,4 +13,4 @@ Credits for the connection to my database goes to <a href="https://github.com/KD
 <a href="https://github.com/ThanasisGeorg">@ThanasisGeorg</a>
 
 # Licence
-<a href="https://choosealicense.com/licenses/mit/">MIT</a>
+<a href="https://choosealicense.com/licenses/mit/](https://github.com/ThanasisGeorg/Bank-Manager/blob/main/LICENSE)https://github.com/ThanasisGeorg/Bank-Manager/blob/main/LICENSE">MIT</a>
